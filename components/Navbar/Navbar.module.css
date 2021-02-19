@@ -1,0 +1,18 @@
+.container {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--first-color);
+    color: white;
+  }
+
+  .navCollapse{
+      display: flex;
+      align-items: center;
+      list-style: none;
+  }
+  
+  .navItem{
+      margin:0 1rem;
+  }
