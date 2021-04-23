@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./Layout.module.css";
-import Navbar from "../Navbar"
-import Footer from "../Footer"
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
 export default function Layout (props) {
     const {children} = props
   return (
