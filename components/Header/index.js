@@ -1,17 +1,17 @@
+
 import React from "react";
-import styles from "./Home.module.css";
+import styles from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Typed from "react-typed";
-export default function Home() {
-  return (
-    <main>
-      <section className={styles.hero} id="home">
+
+export default function Header(){
+    return(
+        <section className={styles.hero} id="home">
         <div className={`${styles.container} ${styles.monster}`}>
           <article className={styles.about}>
             <h1 className={styles.monsterTitle}>
               {"Hi, I'm a "}
               <span>
-                <Typed
+                {/* <Typed
                   strings={[
                     "UI Developer",
                     "Web Designer",
@@ -21,7 +21,7 @@ export default function Home() {
                   typeSpeed={40}
                   backSpeed={50}
                   loop
-                />
+                /> */}
               </span>
             </h1>
 
@@ -95,6 +95,5 @@ export default function Home() {
         </div>
       </section>
       
-    </main>
-  );
+    )
 }
