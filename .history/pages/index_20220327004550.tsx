@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from 'react'
 // Services 
-import { getAllPosts } from '@lib/api'
+import { getAllPosts } from '#lib/api'
 import styles from "styles/Home.module.css";
 import Layout from "pages/Layout"
 import Header from "@components/Header"

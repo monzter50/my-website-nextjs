@@ -17,7 +17,7 @@ export function getPostBySlug(slug, fields = []) {
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
-  // console.log("api",data,content)
+  console.log("api",data,content)
   const items = {
     slug:'',
     content:''
