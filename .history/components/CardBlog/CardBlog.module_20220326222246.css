@@ -5,18 +5,12 @@
 
 .card{
     background: white;
+    margin-top: -20px;
     border-radius: 5px;
     margin-bottom: 1.55rem;
     border: solid 1px #2222;
-    padding: 1rem;
-    cursor: pointer;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.card:hover{
-    background: #2222;
-    
-}
 .title{
     font-weight: 500;
     font-size: 22px;

@@ -5,6 +5,7 @@
 
 .card{
     background: white;
+    margin-top: -20px;
     border-radius: 5px;
     margin-bottom: 1.55rem;
     border: solid 1px #2222;
