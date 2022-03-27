@@ -10,7 +10,6 @@ export default function CardBlog ({title,author,excerpt,slug}) {
       <article className={styles.card}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.preview}>{excerpt}</p>
-        <p>{author}</p>
       </article>
       </a>
       </Link>

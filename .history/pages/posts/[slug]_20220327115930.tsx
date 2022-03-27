@@ -6,7 +6,8 @@ import styles from "styles/Home.module.css";
 import Layout from "pages/Layout"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-export default function Post({ post}) {
+export default function Post({ post,preview}) {
+  console.log("----",post,preview)
   return (
     <div className={styles.container}>
     <Head>
@@ -15,9 +16,7 @@ export default function Post({ post}) {
     </Head>
 
     <Layout>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} >
-        {post.content}
-      </ReactMarkdown>
+      <ReactMarkdown children={post.content} remarkPlugins={[remarkGfm]} />
     </Layout>
   </div>
   );

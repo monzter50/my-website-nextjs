@@ -6,12 +6,11 @@ module.exports = {
   },
   extends: ["plugin:react/recommended", "eslint:recommended", "prettier"],
   parserOptions: {
-    parser:"babel-eslint",
     ecmaFeatures: {
       jsx: true,
       experimentalObjectRestSpread: true
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: "module",
   },
   plugins: ["react"],

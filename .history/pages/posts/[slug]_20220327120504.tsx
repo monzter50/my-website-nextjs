@@ -17,7 +17,7 @@ export default function Post({ post}) {
     <Layout>
       <ReactMarkdown remarkPlugins={[remarkGfm]} >
         {post.content}
-      </ReactMarkdown>
+        </ReactMarkdown>
     </Layout>
   </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./CardBlog.module.css";
 import Link from 'next/link'
-export default function CardBlog ({title,author,excerpt,slug}) {
+export default function CardBlog ({title,excerpt,slug}) {
   return (
 
     <div className={styles.newPost}>
@@ -10,7 +10,6 @@ export default function CardBlog ({title,author,excerpt,slug}) {
       <article className={styles.card}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.preview}>{excerpt}</p>
-        <p>{author}</p>
       </article>
       </a>
       </Link>
