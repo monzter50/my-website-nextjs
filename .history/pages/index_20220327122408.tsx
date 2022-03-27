@@ -11,17 +11,15 @@ import Container from "@components/Container"
 export async function getStaticProps() {
   const posts = getAllPosts([
     'title',
+    'date',
     'slug',
     'author',
+    'coverImage',
     'excerpt',
   ])
   return {
     props: { posts },
   }
-}
-
-HomePage.defaultProps = {
-  posts: [],
 }
 export default function HomePage({posts}) {
   return (

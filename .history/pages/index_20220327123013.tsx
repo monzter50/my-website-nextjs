@@ -11,17 +11,28 @@ import Container from "@components/Container"
 export async function getStaticProps() {
   const posts = getAllPosts([
     'title',
+    'date',
     'slug',
     'author',
+    'coverImage',
     'excerpt',
   ])
   return {
     props: { posts },
   }
 }
+export async function getStaticPaths() {
+  const posts = getAllPosts(['slug'])
 
-HomePage.defaultProps = {
-  posts: [],
+  return {
+    paths: posts.map((post) => {
+      return {
+        params: {
+          slug: post.slug,
+        },
+      }
+    }),
+    fallback: false,
 }
 export default function HomePage({posts}) {
   return (

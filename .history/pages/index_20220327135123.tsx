@@ -11,10 +11,13 @@ import Container from "@components/Container"
 export async function getStaticProps() {
   const posts = getAllPosts([
     'title',
+    'date',
     'slug',
     'author',
+    'coverImage',
     'excerpt',
   ])
+  console.log(posts)
   return {
     props: { posts },
   }

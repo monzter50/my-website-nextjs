@@ -15,6 +15,7 @@ export async function getStaticProps() {
     'author',
     'excerpt',
   ])
+  console.log(posts)
   return {
     props: { posts },
   }

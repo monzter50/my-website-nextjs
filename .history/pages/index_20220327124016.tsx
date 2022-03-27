@@ -8,20 +8,25 @@ import Header from "@components/Header"
 import CardBlog from "@components/CardBlog"
 import Container from "@components/Container"
 
-export async function getStaticProps() {
+export async function getStaticPropsc() {
   const posts = getAllPosts([
     'title',
+    'date',
     'slug',
     'author',
+    'coverImage',
     'excerpt',
   ])
   return {
     props: { posts },
+    fallback: false,
   }
 }
 
 HomePage.defaultProps = {
-  posts: [],
+  content: {
+    post: [],
+  },
 }
 export default function HomePage({posts}) {
   return (
