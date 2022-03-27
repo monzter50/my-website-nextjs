@@ -30,10 +30,14 @@
     align-items: center;
     position: relative;
     padding-top: 120px;
-    padding-bottom:3rem ;
 }
 .monster::after{
-    
+    content: "";
+    position: absolute;
+    width: 100%;
+    right: -26%;
+    z-index: -1;
+    height:70vh;
           
 }
 .container{
@@ -45,7 +49,7 @@
 }
 @media (min-width: 1024px) {
     .about {
-        width: 55%;
+        width: 50%;
     }
     .monsterTitle{
         font-size: var(--font-size-md);
@@ -55,12 +59,7 @@
         height: 100vh;
     }
     .monster::after{
-        content: "";
-        position: absolute;
-        width: 100%;
-        right: -26%;
-        z-index: -1;
-        height:70vh;
+        height: 70%;
         top:10%;
         background: url("https://s3.amazonaws.com/monstercodes.dev/assets/personaje.png") no-repeat 50%/contain;
     }

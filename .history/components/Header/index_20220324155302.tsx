@@ -2,7 +2,6 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Typewriter from 'typewriter-effect';
 
 export default function Header(){
     return(
@@ -11,21 +10,18 @@ export default function Header(){
           <article className={styles.about}>
             <h1 className={styles.monsterTitle}>
               {"Hi, I'm a "}
-              
-              <span className={styles.typedwritter}>
-                <Typewriter
-                options={{
-                  strings:[
-                    "UI Engineer",
+              <span>
+                {/* <Typed
+                  strings={[
+                    "UI Developer",
+                    "Web Designer",
                     "Teacher",
-                    "Software Engineer",
-                  ],
-                  autoStart:true,
-                  delay:'natural',
-                  loop:true
-                }}
-                  
-                />
+                    "Software Developer",
+                  ]}
+                  typeSpeed={40}
+                  backSpeed={50}
+                  loop
+                /> */}
               </span>
             </h1>
 

@@ -11,8 +11,8 @@ export default function Header(){
           <article className={styles.about}>
             <h1 className={styles.monsterTitle}>
               {"Hi, I'm a "}
-              
-              <span className={styles.typedwritter}>
+              {" "}
+              <span>
                 <Typewriter
                 options={{
                   strings:[
