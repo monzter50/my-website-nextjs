@@ -3,6 +3,7 @@ import React from 'react'
 // Services 
 import { getPostBySlug,getAllPosts } from '@lib/api'
 import styles from "styles/Home.module.css";
+import Wrapper from "@components/Wrapper"
 import Layout from "@components/Layout"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -15,9 +16,11 @@ export default function Post({ post}) {
     </Head>
 
     <Layout>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} >
-        {post.content}
-      </ReactMarkdown>
+      <Wrapper>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} >
+          {post.content}
+        </ReactMarkdown>
+      </Wrapper>
     </Layout>
   </div>
   );
