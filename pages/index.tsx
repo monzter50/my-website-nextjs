@@ -33,8 +33,8 @@ export default function HomePage({posts}) {
       </Head>
 
       <Layout>
+        <Header/>
         <Wrapper>
-          <Header/>
           <Container>
             {posts && posts.length !==0 && posts.map(post =><CardBlog key={`card-${post.title}`} title={post.title} author={post.author} excerpt={post.excerpt} slug={post.slug}/>)}
           </Container>

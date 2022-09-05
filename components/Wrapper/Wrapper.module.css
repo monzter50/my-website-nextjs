@@ -4,8 +4,3 @@
     width:85%;
 }
 
-@media (min-width: 1024px) {
-    .Wrapper{
-        width:95%;
-    }
-}

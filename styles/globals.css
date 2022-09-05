@@ -4,6 +4,15 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4{
+  color:var(--black-contrast);
+  font-family: Cousine;
 }
 
 a {
@@ -23,6 +32,12 @@ a {
   --neutral-color: #F7F7F7;
   --first-color: #282D31;
   --second-color: #00cbff;
+  --blue-dark:#2F63A4;
+  --blue:#318AD6;
+  --blue-contrast:#58A7D6;
+  --blue-ligth:#9CD9F0;
+  --black:#111C26;
+  --black-contrast:#1B2C3F;
   --light-grey: ##F2F0F0;
   --grey: #707070;
   /*Text colors*/
@@ -31,8 +46,8 @@ a {
   --link-text-color: var(--five-color);
   --second-text-color: #F9F9F9;
   /*Hovers*/
-  --hover-primary: var(--first-color);
-  --hover-second: var(--second-color);
+  --hover-primary: var(--blue-dark);
+  --hover-second: var(--blue);
   --iconos-register: #808080;
   /*Colors default*/
   --dark: #2e2e2e;

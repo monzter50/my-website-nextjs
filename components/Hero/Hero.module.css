@@ -1,0 +1,43 @@
+.hero{
+  min-height: 25vh;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  height:100%;
+  right:0;
+  left: 0;
+  bottom: 0;
+  top:0;
+  background: url("https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png") no-repeat 100%/cover;
+}
+.breadcrumbs{
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--blue-ligth);
+}
+.breadcrumbs > a{
+  text-decoration: underline;
+  font-weight: bold;
+  
+}
+.icon{
+  height: 1rem;
+  display: block;
+  align-self: end;
+  margin:0 .2rem;
+}
+.container{
+  display: flex;
+  align-items: center;
+  height: 80%;
+}
+.title{
+  color: var(--blue-ligth);
+  font-size: 2rem;
+
+}

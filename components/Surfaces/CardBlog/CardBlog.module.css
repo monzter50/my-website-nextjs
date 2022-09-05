@@ -13,10 +13,6 @@
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.card:hover{
-    background: #2222;
-    
-}
 .title{
     font-weight: 500;
     font-size: 22px;

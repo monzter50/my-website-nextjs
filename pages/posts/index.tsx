@@ -5,7 +5,7 @@ import styles from "styles/Home.module.css";
 import Wrapper from "@components/Wrapper"
 import Layout from "@components/Layout"
 import Header from "@components/Header"
-import Container from "@components/Container"
+import Container from "@components/Surfaces/Container"
 
 export default function PostPage() {
   return (
