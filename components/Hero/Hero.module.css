@@ -2,6 +2,7 @@
   min-height: 25vh;
   position: relative;
   padding-top: 5rem;
+  padding-bottom: 1rem;
 }
 .hero::after {
   content: "";
@@ -29,7 +30,6 @@
 .icon{
   height: 1rem;
   display: block;
-  align-self: end;
   margin:0 .2rem;
 }
 .container{
@@ -40,5 +40,5 @@
 .title{
   color: var(--blue-ligth);
   font-size: 2rem;
-
+  margin: 0;
 }

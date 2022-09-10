@@ -1,18 +1,30 @@
+@font-face {
+  font-family: 'Cousine';
+  src: url('../assets/fonts/Cousine/Cousine-Bold.otf');
+  src:  url('../assets/fonts/Cousine/Cousine-Bold.woff2') format('woff2'),
+  url('../assets/fonts/Cousine/Cousine-Bold.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  line-height: calc(1em + 0.725rem);
+  -webkit-font-smoothing: antialiased;
+}
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
   max-width: 100%;
   overflow-x: hidden;
+ 
 }
 
 h1, h2, h3, h4{
   color:var(--black-contrast);
-  font-family: Cousine;
+  font-family: 'Cousine';
 }
 
 a {
@@ -64,7 +76,7 @@ a {
   --danger: #f0506e;
   --succes: #32d296;
   /*Fonts default*/
-  --font-family: "Rubik", sans-serif;
+  --font-family: "Roboto", sans-serif;
   --line-height: 1.6;
   --font-size: 16px;
   --font-size-xs: 10px;
