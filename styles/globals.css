@@ -38,8 +38,17 @@ a {
   --blue-ligth:#9CD9F0;
   --black:#111C26;
   --black-contrast:#1B2C3F;
-  --light-grey: ##F2F0F0;
+  --light-grey: #F2F0F0;
   --grey: #707070;
+  --color-gray-100: hsl(210deg, 15%, 20%);
+  --color-gray-200: hsl(210deg, 15%, 25%);
+  --color-gray-300: hsl(210deg, 10%, 40%);
+  --color-gray-400: hsl(210deg, 9%, 45%);
+  --color-gray-500: hsl(210deg, 8%, 50%);
+  --color-gray-600: hsl(210deg, 12%, 55%);
+  --color-gray-700: hsl(210deg, 14%, 66%);
+  --color-gray-900: hsl(210deg, 25%, 88%);
+  --color-gray-1000: hsl(210deg, 25%, 96%);
   /*Text colors*/
   --text-color: #7B7B7B;
   --second-text-color: #80868b;

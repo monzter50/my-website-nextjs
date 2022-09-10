@@ -1,3 +1,29 @@
 .footer{
     margin-top: auto;
+    background-color: var(--black);
+}
+.copyright{
+  font-size: 12px;
+  color: var(--color-gray-700);
+}
+.container{
+  text-align: center;
+  padding: .5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.contact{
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+.isotipo{
+  width: 30px;
+  height: 30px;
+  margin-right: .5rem;
+}
+.email{
+  color: var(--blue-ligth);
+  text-decoration: underline;
 }
