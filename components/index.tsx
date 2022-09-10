@@ -1,5 +1,4 @@
-import Wrapper from './Wrapper';
-import CardBlog from './Surfaces/CardBlog';
- export {
-    Wrapper, CardBlog
- }
+import Wrapper from "./Wrapper";
+import CardBlog from "./Surfaces/CardBlog";
+import { Logotipo } from "./Icons";
+export { Wrapper, CardBlog, Logotipo };

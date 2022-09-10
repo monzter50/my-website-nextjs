@@ -1,6 +1,7 @@
 .hero{
   min-height: 25vh;
   position: relative;
+  padding-top: 5rem;
 }
 .hero::after {
   content: "";

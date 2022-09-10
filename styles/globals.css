@@ -112,7 +112,7 @@ a {
   --all-transition: all .5s ease;
   --hover-transition: all 150ms ease;
   --input-transition: .2s ease-in-out;
-  --simple-box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+  --simple-box-shadow: 0 1px 4px rgba(0, 0, 0, .16);
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
