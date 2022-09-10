@@ -29,7 +29,7 @@ export default function HomePage({posts}) {
     <div className={styles.container}>
       <Head>
         <title>Monster Codes</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/isotipo.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
