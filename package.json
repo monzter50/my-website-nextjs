@@ -27,9 +27,8 @@
     "extends": "standard"
   },
   "lint-staged": {
-    "src/**/*.tsx": [
-      "eslint --fix -c .eslintrc.json",
-      "git add"
+    "**/*.tsx": [
+      "eslint --fix -c .eslintrc.json"
     ]
   },
   "husky": {
