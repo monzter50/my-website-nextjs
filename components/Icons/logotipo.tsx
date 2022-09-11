@@ -1,16 +1,16 @@
-import * as React from "react"
+import * as React from 'react'
 interface LogotipoProp {
-  width: number | string;
-  height: number | string;
+  width: number | string
+  height: number | string
 }
-const Logotipo = ({ width = 100, height = 50 }: LogotipoProp) => (
+const Logotipo = ({ width = 100, height = 50 }: LogotipoProp): JSX.Element => (
   <svg
     viewBox="0 250 1080 600"
     width={width}
     height={height}
   >
     <defs>
-      <style>{".cls-1{fill:#9cd9f0}"}</style>
+      <style>{'.cls-1{fill:#9cd9f0}'}</style>
     </defs>
     <path
       className="cls-1"

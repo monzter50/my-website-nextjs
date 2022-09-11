@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from "./Footer.module.css";
+import styles from './Footer.module.css'
 import Image from 'next/image'
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <div className={styles.footer}>
       <div className={styles.container}>

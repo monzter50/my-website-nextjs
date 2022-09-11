@@ -1,4 +1,4 @@
-import Logotipo from "./logotipo";
+import Logotipo from './logotipo'
 
 export {
   Logotipo

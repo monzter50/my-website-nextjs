@@ -19,7 +19,7 @@ module.exports = {
     ignoreBuildErrors: true
   },
   images: {
-    domains: ["s3.amazonaws.com"],
-    formats: ["image/webp"],
-},
+    domains: ['s3.amazonaws.com'],
+    formats: ['image/webp']
+  }
 }

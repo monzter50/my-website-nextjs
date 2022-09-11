@@ -1,11 +1,11 @@
 
-import React from "react";
-import styles from "./Header.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Typewriter from 'typewriter-effect';
-import Wrapper from "../Wrapper";
+import React from 'react'
+import styles from './Header.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Typewriter from 'typewriter-effect'
+import Wrapper from '../Wrapper'
 
-export default function Header() {
+export default function Header(): JSX.Element {
   return (
     <section className={styles.hero} id="home">
       <Wrapper>
@@ -18,9 +18,9 @@ export default function Header() {
                 <Typewriter
                   options={{
                     strings: [
-                      "UI Engineer",
-                      "Teacher",
-                      "Software Engineer",
+                      'UI Engineer',
+                      'Teacher',
+                      'Software Engineer'
                     ],
                     autoStart: true,
                     delay: 'natural',
@@ -48,7 +48,7 @@ export default function Header() {
               >
                 <FontAwesomeIcon
                   className={styles.icon}
-                  icon={["fab", "github"]}
+                  icon={['fab', 'github']}
                   size="xs"
                 />
               </a>
@@ -60,7 +60,7 @@ export default function Header() {
               >
                 <FontAwesomeIcon
                   className={styles.icon}
-                  icon={["fab", "codepen"]}
+                  icon={['fab', 'codepen']}
                 />
               </a>
               <a
@@ -70,7 +70,7 @@ export default function Header() {
                 rel="noreferrer"
               >
                 <FontAwesomeIcon
-                  icon={["fab", "linkedin"]}
+                  icon={['fab', 'linkedin']}
                   className={styles.icon}
                 />
               </a>
@@ -81,7 +81,7 @@ export default function Header() {
                 className={styles.link}
               >
                 <FontAwesomeIcon
-                  icon={["fab", "twitter"]}
+                  icon={['fab', 'twitter']}
                   className={styles.icon}
                 />
               </a>
@@ -92,7 +92,7 @@ export default function Header() {
                 className={styles.link}
               >
                 <FontAwesomeIcon
-                  icon={["fab", "instagram"]}
+                  icon={['fab', 'instagram']}
                   className={styles.icon}
                 />
               </a>

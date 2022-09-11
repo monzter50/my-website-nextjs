@@ -1,7 +1,13 @@
 import React from 'react'
-import styles from "./CardBlog.module.css";
+import styles from './CardBlog.module.css'
 import Link from 'next/link'
-export default function CardBlog({ title, author, excerpt, slug }) {
+interface CardBlogProps {
+  title: string
+  author: any
+  excerpt: any
+  slug: string
+}
+export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps): JSX.Element {
   return (
 
     <div className={styles.newPost}>

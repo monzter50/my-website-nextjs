@@ -1,13 +1,13 @@
-import Head from "next/head";
+import Head from 'next/head'
 import React from 'react'
-// Services 
-import styles from "styles/Home.module.css";
-import Wrapper from "@components/Wrapper"
-import Layout from "@components/Layout"
-import Header from "@components/Header"
-import Container from "@components/Surfaces/Container"
+// Services
+import styles from 'styles/Home.module.css'
+import Wrapper from '@components/Wrapper'
+import Layout from '@components/Layout'
+import Header from '@components/Header'
+import Container from '@components/Surfaces/Container'
 
-export default function PostPage() {
+export default function PostPage(): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,12 +17,12 @@ export default function PostPage() {
 
       <Layout>
         <Wrapper>
-          <Header/>
+          <Header />
           <Container>
-          PostIndex
+            PostIndex
           </Container>
         </Wrapper>
       </Layout>
     </div>
-  );
+  )
 }
