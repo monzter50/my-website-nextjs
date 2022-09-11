@@ -1,22 +1,30 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
-    node: true,
+    es6: true,
+    node: true
   },
-  extends: ["plugin:react/recommended", "eslint:recommended", "prettier"],
+  extends: [
+    'plugin:react/recommended',
+    'eslint:recommended', 
+    'next'
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly'
+  },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser:"babel-eslint",
     ecmaFeatures: {
-      jsx: true,
-      experimentalObjectRestSpread: true
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module'
   },
-  plugins: ["react"],
+  plugins: [
+    'react',
+    '@typescript-eslint'
+  ],
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off"
-  },
-};
+  }
+}

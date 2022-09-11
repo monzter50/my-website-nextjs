@@ -18,12 +18,9 @@
   align-items: center;
   margin-bottom: .5rem;
 }
-.isotipo{
-  width: 30px;
-  height: 30px;
-  margin-right: .5rem;
-}
+
 .email{
   color: var(--blue-ligth);
   text-decoration: underline;
+  margin-left: .5rem;
 }
