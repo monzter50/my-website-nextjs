@@ -1,16 +1,21 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import { getPostBySlug, getAllPosts } from '@lib/api'
 
+import { MDXRemote } from 'next-mdx-remote'
 import styles from 'styles/Post.module.css'
 import Wrapper from '@components/Wrapper'
 import Layout from '@components/Layout'
 import Hero from '@components/Hero'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-export default function Post({ post }: any): JSX.Element {
-  const { content, title, slug } = post
+import { getFileBySlug, getFiles } from '@lib/mdx'
+import { MDXComponents } from '@components/MDXComponents'
+type ParamsType = {
+  slug: string
+}
+type ParamsProps = {
+  params: ParamsType
+}
+export default function Post({ source, title, slug }: any): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
@@ -24,43 +29,39 @@ export default function Post({ post }: any): JSX.Element {
       <Layout>
         <Hero title={title} slug={slug} />
         <Wrapper>
-          <ReactMarkdown className={styles.content} remarkPlugins={[remarkGfm]} >
-            {content}
-          </ReactMarkdown>
+          <MDXRemote {...source} components={MDXComponents} />
+
         </Wrapper>
       </Layout>
     </div>
   )
 }
 
-export async function getStaticProps({ params }: any): Promise<any> {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'slug',
-    'content'
-  ])
-  // const content = await markdownToHtml(post?.content || '')
+export async function getStaticPaths(): Promise<any> {
+  const posts = await getFiles('_posts')
+  const paths = posts.map((post) => ({
+    params: {
+      slug: post.replace(/\.mdx/, '')
+    }
+  }))
 
   return {
-    props: {
-      post: {
-        ...post
-      }
-    }
+    paths,
+    fallback: false
   }
 }
 
-export async function getStaticPaths(): Promise<any> {
-  const posts = getAllPosts(['slug'])
-
+export async function getStaticProps({ params }: ParamsProps): Promise<any> {
+  const { slug } = params
+  const { source, frontmatter } = await getFileBySlug('_posts', slug)
   return {
-    paths: posts.map((post: any) => {
-      return {
-        params: {
-          slug: post.slug
-        }
+    props: {
+      title: frontmatter?.title,
+      slug,
+      source,
+      frontmatter: {
+        ...frontmatter
       }
-    }),
-    fallback: false
+    }
   }
 }

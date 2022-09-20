@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './CardBlog.module.css'
-import Link from 'next/link'
+import NextLink from 'next/link'
 interface CardBlogProps {
   title: string
   author: any
@@ -11,7 +11,7 @@ export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps
   return (
 
     <div className={styles.newPost}>
-      <Link href={`/posts/${slug}`}>
+      <NextLink href={`/posts/${slug}`}>
         <a className="hover:underline">
           <article className={styles.card}>
             <h3 className={styles.title}>{title}</h3>
@@ -19,7 +19,7 @@ export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps
             <p>{author.name}</p>
           </article>
         </a>
-      </Link>
+      </NextLink>
     </div>
 
   )

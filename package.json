@@ -10,17 +10,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "date-fns": "^2.23.0",
+    "date-fns": "^2.29.3",
     "file-system": "^2.2.2",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "^12.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-markdown": "^8.0.1",
-    "remark": "^14.0.2",
-    "remark-gfm": "^3.0.1",
-    "remark-html": "^15.0.1",
     "typescript": "*",
     "typewriter-effect": "^2.18.2"
   },
@@ -55,6 +51,10 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.8",
     "husky": "^8.0.1",
-    "lint-staged": "^10.5.3"
+    "lint-staged": "^10.5.3",
+    "mdx-prism": "^0.3.4",
+    "next-mdx-remote": "^4.1.0",
+    "reading-time": "^1.5.0",
+    "remark-code-titles": "^0.1.2"
   }
 }

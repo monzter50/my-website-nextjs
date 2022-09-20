@@ -1,18 +1,28 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import { getAllPosts } from '@lib/api'
+// import { getAllPosts } from '@lib/api'
 import styles from '@styles/Home.module.css'
 import Wrapper from '@components/Wrapper'
 import Layout from '@components/Layout'
 import Header from '@components/Header'
 import CardBlog from '@components/Surfaces/CardBlog'
 import Container from '@components/Surfaces/Container'
+import { getAllFilesFrontMatter } from '@lib/mdx'
+// import { orderByDate } from '@lib/order-by-date'
 
+// export async function getStaticProps(): Promise<any> {
+//   const posts = getAllPosts(['title', 'slug', 'author', 'excerpt'])
+//   return {
+//     props: { posts }
+//   }
+// }
 export async function getStaticProps(): Promise<any> {
-  const posts = getAllPosts(['title', 'slug', 'author', 'excerpt'])
+  const unorderedPosts = await getAllFilesFrontMatter('_posts')
+  // const posts = unorderedPosts.sort(orderByDate)
+
   return {
-    props: { posts }
+    props: { posts: unorderedPosts }
   }
 }
 
