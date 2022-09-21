@@ -4,32 +4,36 @@ import styles from './Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect'
 import Wrapper from '../Wrapper'
-
+import Heading from '@components/Typhografy/Heading'
+const title: string = "Hi, I'm a"
 export default function Header(): JSX.Element {
   return (
     <section className={styles.hero} id="home">
       <Wrapper>
         <div className={`${styles.monster}`}>
           <article className={styles.about}>
-            <h1 className={styles.monsterTitle}>
-              {"Hi, I'm a "}
+            <Heading className={styles.monsterTitle}>
 
-              <span className={styles.typedwritter}>
-                <Typewriter
-                  options={{
-                    strings: [
-                      'UI Engineer',
-                      'Teacher',
-                      'Software Engineer'
-                    ],
-                    autoStart: true,
-                    delay: 'natural',
-                    loop: true
-                  }}
+              <>
+                {title}
 
-                />
-              </span>
-            </h1>
+                <span className={styles.typedwritter}>
+                  <Typewriter
+                    options={{
+                      strings: [
+                        'Frontend',
+                        'Teacher',
+                        'Web Devs'
+                      ],
+                      autoStart: true,
+                      delay: 'natural',
+                      loop: true
+                    }}
+
+                  />
+                </span>
+              </>
+            </Heading>
 
             <p>
               I am a creative, orderly, analytical, self-taught, passionate

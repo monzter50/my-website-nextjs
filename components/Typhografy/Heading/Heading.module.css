@@ -1,0 +1,21 @@
+.h1{
+  font-size: var(--font-size-lg);
+  margin-top: 0;
+}
+.h2{
+  font-size: var(--font-size-md);;
+  margin-top: 0;
+}
+
+.h3{
+  font-size: var(--font-size-sm);;
+  margin-top: 0;
+}
+.h4{
+  font-size: var(--font-size-m);;
+  margin-top: 0;
+}
+.h5{
+  font-size: var(--font-size-l);;
+  margin-top: 0;
+}

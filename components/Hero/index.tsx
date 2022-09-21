@@ -1,5 +1,6 @@
 import { Wrapper } from '..'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Heading from '@components/Typhografy/Heading'
 import Link from 'next/link'
 import styles from './Hero.module.css'
 interface HeroProps {
@@ -26,7 +27,7 @@ export default function Hero({ title, slug }: HeroProps): JSX.Element {
         </div>
         <div className={styles.container}>
           <div>
-            <h1 className={styles.title}>{title}</h1>
+            <Heading className={styles.title}>{title}</Heading>
           </div>
         </div>
       </Wrapper>
