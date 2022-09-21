@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect'
 import Wrapper from '../Wrapper'
 import Heading from '@components/Typhografy/Heading'
+import Text from '@components/Typhografy/Text'
 const title: string = "Hi, I'm a"
 export default function Header(): JSX.Element {
   return (
@@ -35,72 +36,74 @@ export default function Header(): JSX.Element {
               </>
             </Heading>
 
-            <p>
+            <Text>
               I am a creative, orderly, analytical, self-taught, passionate
               about teaching and learning person. My favorite hobbies is watch
               movies, talk with my wife, run, read articles about new update
               programming language and study new things.
-            </p>
+            </Text>
 
-            <p className={styles.social}>
-              Sigueme en:
-              <a
-                href="https://github.com/monzter50"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.link}
-              >
-                <FontAwesomeIcon
-                  className={styles.icon}
-                  icon={['fab', 'github']}
-                  size="xs"
-                />
-              </a>
-              <a
-                href="https://codepen.io/monstercodes"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.link}
-              >
-                <FontAwesomeIcon
-                  className={styles.icon}
-                  icon={['fab', 'codepen']}
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jose-gonzalez-b32228138/"
-                className={styles.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={['fab', 'linkedin']}
-                  className={styles.icon}
-                />
-              </a>
-              <a
-                href="https://twitter.com/monster_codes"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.link}
-              >
-                <FontAwesomeIcon
-                  icon={['fab', 'twitter']}
-                  className={styles.icon}
-                />
-              </a>
-              <a
-                href="https://www.instagram.com/monstercodes/"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.link}
-              >
-                <FontAwesomeIcon
-                  icon={['fab', 'instagram']}
-                  className={styles.icon}
-                />
-              </a>
-            </p>
+            <Text className={styles.social}>
+              <>
+                Sigueme en:
+                <a
+                  href="https://github.com/monzter50"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.link}
+                >
+                  <FontAwesomeIcon
+                    className={styles.icon}
+                    icon={['fab', 'github']}
+                    size="xs"
+                  />
+                </a>
+                <a
+                  href="https://codepen.io/monstercodes"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.link}
+                >
+                  <FontAwesomeIcon
+                    className={styles.icon}
+                    icon={['fab', 'codepen']}
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/jose-gonzalez-b32228138/"
+                  className={styles.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={['fab', 'linkedin']}
+                    className={styles.icon}
+                  />
+                </a>
+                <a
+                  href="https://twitter.com/monster_codes"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.link}
+                >
+                  <FontAwesomeIcon
+                    icon={['fab', 'twitter']}
+                    className={styles.icon}
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/monstercodes/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.link}
+                >
+                  <FontAwesomeIcon
+                    icon={['fab', 'instagram']}
+                    className={styles.icon}
+                  />
+                </a>
+              </>
+            </Text>
           </article>
         </div>
       </Wrapper>
