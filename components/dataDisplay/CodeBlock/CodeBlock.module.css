@@ -1,0 +1,28 @@
+.pre{
+  background-color: var(--black);
+  padding: 10px;
+  border-radius: .2rem;
+  box-sizing: border-box;
+  -moz-tab-size: 2;
+	tab-size: 2;
+}
+
+.lineNumbers{
+    display: table-cell;
+		text-align: right;
+		padding-right: 1em;
+		user-select: none;
+		opacity: 0.5;
+}
+
+.lineContent{
+  display: table-cell;
+}
+.line{
+  line-height: 1.5;
+  display: table-row;
+}
+.snippet{
+  margin-left: 1rem;
+}
+
