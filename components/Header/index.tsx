@@ -3,15 +3,16 @@ import React from 'react'
 import styles from './Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect'
-import Wrapper from '../Wrapper'
+import Wrapper from '@components/Surfaces/Wrapper'
 import Heading from '@components/Typhografy/Heading'
 import Text from '@components/Typhografy/Text'
+import Tooltip from '@components/dataDisplay/Tooltip'
 const title: string = "Hi, I'm a"
 export default function Header(): JSX.Element {
   return (
     <section className={styles.hero} id="home">
       <Wrapper>
-        <div className={`${styles.monster}`}>
+        <header className={`${styles.monster}`}>
           <article className={styles.about}>
             <Heading className={styles.monsterTitle}>
 
@@ -43,69 +44,74 @@ export default function Header(): JSX.Element {
               programming language and study new things.
             </Text>
 
-            <Text className={styles.social}>
-              <>
-                Sigueme en:
-                <a
-                  href="https://github.com/monzter50"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.link}
-                >
+            <div className={styles.social}>
+
+              <Text>Sigueme en:</Text>
+              <span className={styles.wrapperIcon}>
+                <Tooltip title='Github'>
                   <FontAwesomeIcon
+                    target="_blank"
+                    href="https://github.com/monzter50"
                     className={styles.icon}
                     icon={['fab', 'github']}
                     size="xs"
                   />
-                </a>
-                <a
-                  href="https://codepen.io/monstercodes"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.link}
-                >
+                </Tooltip>
+              </span>
+              <span className={styles.wrapperIcon}>
+                <Tooltip title='CodePen'>
                   <FontAwesomeIcon
+                    href="https://codepen.io/monstercodes"
+                    target="_blank"
                     className={styles.icon}
                     icon={['fab', 'codepen']}
                   />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/jose-gonzalez-b32228138/"
-                  className={styles.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                </Tooltip>
+              </span>
+              <span className={styles.wrapperIcon}>
+                <Tooltip title='Linkedin'>
                   <FontAwesomeIcon
+                    href="https://www.linkedin.com/in/jose-gonzalez-b32228138/"
+                    target="_blank"
                     icon={['fab', 'linkedin']}
                     className={styles.icon}
                   />
-                </a>
-                <a
-                  href="https://twitter.com/monster_codes"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.link}
-                >
+                </Tooltip>
+              </span>
+              <span className={styles.wrapperIcon}>
+                <Tooltip title='Twitter'>
                   <FontAwesomeIcon
+                    href="https://twitter.com/monster_codes"
+                    target="_blank"
                     icon={['fab', 'twitter']}
                     className={styles.icon}
                   />
-                </a>
-                <a
-                  href="https://www.instagram.com/monstercodes/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.link}
-                >
+                </Tooltip>
+              </span>
+              <span className={styles.wrapperIcon}>
+                <Tooltip title='Instagram'>
                   <FontAwesomeIcon
+                    href="https://www.instagram.com/monstercodes/"
+                    target="_blank"
                     icon={['fab', 'instagram']}
                     className={styles.icon}
                   />
-                </a>
-              </>
-            </Text>
+                </Tooltip>
+              </span>
+              <span className={styles.wrapperIcon}>
+                <Tooltip title='My CV'>
+                  <FontAwesomeIcon
+                    href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf"
+                    target={'_blank'}
+                    icon={['fas', 'file']}
+                    className={styles.iconFile}
+                  />
+                </Tooltip>
+              </span>
+            </div>
           </article>
-        </div>
+
+        </header>
       </Wrapper>
     </section>
 

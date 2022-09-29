@@ -8,10 +8,19 @@
 }
 .icon{
     width: 20px;
-    margin-left: var(--space-unit);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
-.link{
-    display: inline-flex;
+.iconFile{
+  width: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.wrapperIcon{
+    margin-left: var(--space-unit);
+    display: flex;
     align-items: center;
 }
 .social{
