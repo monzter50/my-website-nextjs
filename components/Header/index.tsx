@@ -48,65 +48,73 @@ export default function Header(): JSX.Element {
 
               <Text>Sigueme en:</Text>
               <span className={styles.wrapperIcon}>
-                <Tooltip title='Github'>
-                  <FontAwesomeIcon
-                    target="_blank"
-                    href="https://github.com/monzter50"
-                    className={styles.icon}
-                    icon={['fab', 'github']}
-                    size="xs"
-                  />
-                </Tooltip>
+                <a href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
+                  <Tooltip title='Github'>
+                    <FontAwesomeIcon
+                      className={styles.icon}
+                      icon={['fab', 'github']}
+                      size="xs"
+                    />
+                  </Tooltip>
+                </a>
+
               </span>
               <span className={styles.wrapperIcon}>
-                <Tooltip title='CodePen'>
-                  <FontAwesomeIcon
-                    href="https://codepen.io/monstercodes"
-                    target="_blank"
-                    className={styles.icon}
-                    icon={['fab', 'codepen']}
-                  />
-                </Tooltip>
+                <a href="https://codepen.io/monstercodes" target="_blank" rel="noopener noreferrer">
+                  <Tooltip title='CodePen'>
+                    <FontAwesomeIcon
+                      className={styles.icon}
+                      icon={['fab', 'codepen']}
+                      size="xs"
+                    />
+                  </Tooltip>
+                </a>
+
               </span>
               <span className={styles.wrapperIcon}>
-                <Tooltip title='Linkedin'>
-                  <FontAwesomeIcon
-                    href="https://www.linkedin.com/in/jose-gonzalez-b32228138/"
-                    target="_blank"
-                    icon={['fab', 'linkedin']}
-                    className={styles.icon}
-                  />
-                </Tooltip>
+                <a href="https://www.linkedin.com/in/jose-gonzalez-b32228138/" target="_blank" rel="noopener noreferrer">
+                  <Tooltip title='Linkedin'>
+                    <FontAwesomeIcon
+                      size="xs"
+                      icon={['fab', 'linkedin']}
+                      className={styles.icon}
+                    />
+                  </Tooltip>
+                </a>
+
               </span>
               <span className={styles.wrapperIcon}>
-                <Tooltip title='Twitter'>
-                  <FontAwesomeIcon
-                    href="https://twitter.com/monster_codes"
-                    target="_blank"
-                    icon={['fab', 'twitter']}
-                    className={styles.icon}
-                  />
-                </Tooltip>
+                <a href="https://twitter.com/monster_codes" target="_blank" rel="noopener noreferrer">
+                  <Tooltip title='Twitter'>
+                    <FontAwesomeIcon
+                      size="xs"
+                      icon={['fab', 'twitter']}
+                      className={styles.icon}
+                    />
+                  </Tooltip>
+                </a>
               </span>
               <span className={styles.wrapperIcon}>
-                <Tooltip title='Instagram'>
-                  <FontAwesomeIcon
-                    href="https://www.instagram.com/monstercodes/"
-                    target="_blank"
-                    icon={['fab', 'instagram']}
-                    className={styles.icon}
-                  />
-                </Tooltip>
+                <a href="https://www.instagram.com/monstercodes/" target="_blank" rel="noreferrer">
+                  <Tooltip title='Instagram'>
+                    <FontAwesomeIcon
+                      icon={['fab', 'instagram']}
+                      className={styles.icon}
+                      size="xs"
+                    />
+                  </Tooltip>
+                </a>
               </span>
               <span className={styles.wrapperIcon}>
-                <Tooltip title='My CV'>
-                  <FontAwesomeIcon
-                    href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf"
-                    target={'_blank'}
-                    icon={['fas', 'file']}
-                    className={styles.iconFile}
-                  />
-                </Tooltip>
+                <a href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf" target={'_blank'} rel="noreferrer">
+                  <Tooltip title='My CV'>
+                    <FontAwesomeIcon
+                      icon={['fas', 'file']}
+                      className={styles.iconFile}
+                      size="xs"
+                    />
+                  </Tooltip>
+                </a>
               </span>
             </div>
           </article>

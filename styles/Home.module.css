@@ -57,9 +57,17 @@
   height: 1em;
 }
 
+.containerBlog{
+  padding: 2rem 0;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .containerBlog{
+    padding: 0;
+    padding-bottom: 2rem;
   }
 }

@@ -11,9 +11,8 @@ import { getAllFilesFrontMatter } from '@lib/mdx'
 
 export async function getStaticProps(): Promise<any> {
   const unorderedPosts = await getAllFilesFrontMatter('_posts')
-
   return {
-    props: { posts: unorderedPosts }
+    props: { posts: unorderedPosts.filter(post => post.published) }
   }
 }
 
@@ -38,18 +37,21 @@ export default function HomePage({ posts }: any): JSX.Element {
         <Header />
         <Wrapper>
           <Container>
-            {
-              posts?.length !== 0 &&
-              posts.map((post: any) => (
-                <CardBlog
-                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                  key={`card-${post?.title}`}
-                  title={post.title}
-                  author={post.author}
-                  excerpt={post.excerpt}
-                  slug={post.slug}
-                />
-              ))}
+            <div className={styles.containerBlog}>
+              {
+                posts?.length !== 0 &&
+                posts.map((post: any) => (
+                  <CardBlog
+                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                    key={`card-${post?.title}`}
+                    title={post.title}
+                    author={post.author}
+                    excerpt={post.excerpt}
+                    slug={post.slug}
+                  />
+                ))}
+            </div>
+
           </Container>
         </Wrapper>
       </Layout>

@@ -79,7 +79,7 @@
     .monster::after{
         content: "";
         position: absolute;
-        width: 100%;
+        width: 80%;
         right: -26%;
         z-index: 1;
         height:70vh;

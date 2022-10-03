@@ -44,7 +44,7 @@ export const getAllFilesFrontMatter = async (type:string) => {
       "utf8"
     );
     const { data } = matter(mdxSource);
-
+ 
     return [
       {
         ...data,
