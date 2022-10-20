@@ -1,0 +1,210 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  background: url("https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png")
+    no-repeat 100% / cover;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.astronauts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: float 1.5s linear infinite;
+}
+.head {
+  position: relative;
+  z-index: 1;
+}
+.helmet {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.helmet:after {
+  content: "";
+  width: 170px;
+  height: 40px;
+  background: #8b8b8b;
+  border-radius: 3em;
+  position: absolute;
+  bottom: -0.8em;
+  z-index: -1;
+}
+.helmet:before {
+  content: "";
+  height: 50px;
+  width: 240px;
+  background: #464646;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 3em;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.face {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background: black;
+  position: relative;
+}
+.face:after,
+.face:before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  box-shadow: inset -3px -3px 0 #d7d6d6;
+}
+.face:after {
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+.face:before {
+  top: 15%;
+  left: 15%;
+}
+.bodyContainer {
+  width: 165px;
+  height: 200px;
+  transform: translate(0, -20%);
+  position: relative;
+}
+.bodyContainer:before,
+.bodyContainer:after {
+  content: "";
+  height: 100px;
+  width: 55px;
+  border-radius: 3em;
+  position: absolute;
+  z-index: -1;
+}
+.bodyContainer:before {
+  right: 0;
+  top: 50%;
+  transform: translate(50%, 0) rotate(-120deg);
+  transform-origin: top center;
+  animation: greet 2s linear infinite;
+
+  background: #cccaca;
+}
+.bodyContainer:after {
+  left: -20%;
+  top: 50%;
+  transform: translate(-25%, -50%) rotate(20deg);
+  background: #d7d6d6;
+}
+.body {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -5px -5px 0 #d7d6d6;
+}
+.body:after,
+.body:before {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background: #913d6d;
+  position: absolute;
+  left: 50%;
+  border-radius: 100%;
+  z-index: 1;
+  box-shadow: inset -3px -3px 0 #642a4b;
+}
+.body:after {
+  top: 40%;
+  transform: translate(-50%, -40%);
+}
+.body:before {
+  top: 70%;
+  transform: translate(-50%, -70%);
+}
+.shadow {
+  width: 250px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  animation: shadowScale 1.5s linear infinite;
+}
+@keyframes shadowScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes float {
+  0% {
+    bottom: -8px;
+  }
+  50% {
+    bottom: -15px;
+  }
+  100% {
+    bottom: -8px;
+  }
+}
+
+@keyframes greet {
+  0% {
+    transform: translate(25%, -20%) rotate(-120deg);
+  }
+  50% {
+    transform: translate(25%, -20%) rotate(-60deg);
+  }
+  100% {
+    transform: translate(25%, -20%) rotate(-120deg);
+  }
+}
+
+.title{
+    color:var(--blue-ligth);
+}
+
+.link{
+    color:var(--blue-ligth);
+    font-weight: 800;
+}
+.goBack{
+    margin-top: var(--space-unit);
+    text-align: center;
+    font-size: var(--font-size-sm);
+}
