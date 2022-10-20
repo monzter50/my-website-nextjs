@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -18,7 +19,8 @@
         "project": ["tsconfig.json"]
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
     "rules": {
       "space-before-function-paren": "off",

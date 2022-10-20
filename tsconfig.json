@@ -1,7 +1,18 @@
 {
+  "globals": {
+    "ts-jest": {
+      "useBabelrc": true,
+      "tsConfigFile": "tsconfig.jest.json"
+    }
+  },
   "compilerOptions": {
+    "jsx": "react",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -12,7 +23,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
     "paths": {
@@ -28,8 +38,15 @@
       "@styles/*": [
         "styles/*"
       ]
-    },
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "jest.config.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
