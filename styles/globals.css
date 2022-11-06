@@ -140,3 +140,7 @@ a {
 .token.string-property.property{
   margin-left: var(--space-unit);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

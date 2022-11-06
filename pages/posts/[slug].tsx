@@ -29,7 +29,10 @@ export default function Post({ source, title, slug }: any): JSX.Element {
       <Layout>
         <Hero title={title} slug={slug} />
         <Wrapper>
-          <MDXRemote {...source} components={MDXComponents} />
+          <div className='my-4'>
+            <MDXRemote {...source} components={MDXComponents} />
+
+          </div>
 
         </Wrapper>
       </Layout>

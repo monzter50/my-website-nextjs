@@ -9,23 +9,23 @@ interface HeroProps {
 }
 export default function Hero({ title, slug }: HeroProps): JSX.Element {
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} pt-24`}>
 
       <Wrapper>
-        <div className={styles.breadcrumbs}>
+        <div className={`${styles.breadcrumbs} flex items-center mt-4`}>
           <Link href={'/'}>
-            <a className="">
+            <a className="underline underline-offset-4 font-bold">
               home
             </a>
           </Link>
           <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
           <Link href={`/posts/${slug}`}>
-            <a className="">
+            <a className="underline underline-offset-4 font-bold">
               {slug}
             </a>
           </Link>
         </div>
-        <div className={styles.container}>
+        <div className={"flex items-center h-4/5"}>
           <div>
             <Heading className={styles.title}>{title}</Heading>
           </div>

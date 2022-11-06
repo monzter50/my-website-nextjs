@@ -10,7 +10,7 @@ import Tooltip from '@components/dataDisplay/Tooltip'
 const title: string = "Hi, I'm a"
 export default function Header(): JSX.Element {
   return (
-    <section className={styles.hero} id="home">
+    <section className={`${styles.hero} py-6:lg`} id="home">
       <Wrapper>
         <header className={`${styles.monster}`}>
           <article className={styles.about}>
@@ -44,11 +44,11 @@ export default function Header(): JSX.Element {
               programming language and study new things.
             </Text>
 
-            <div className={styles.social}>
+            <div className={`${styles.social} py-3`}>
 
               <Text>Sigueme en:</Text>
               <span className={styles.wrapperIcon}>
-                <a href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
+                <a className='flex' href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Github'>
                     <FontAwesomeIcon
                       className={styles.icon}
@@ -60,7 +60,7 @@ export default function Header(): JSX.Element {
 
               </span>
               <span className={styles.wrapperIcon}>
-                <a href="https://codepen.io/monstercodes" target="_blank" rel="noopener noreferrer">
+                <a className='flex' href="https://codepen.io/monstercodes" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='CodePen'>
                     <FontAwesomeIcon
                       className={styles.icon}
@@ -72,7 +72,7 @@ export default function Header(): JSX.Element {
 
               </span>
               <span className={styles.wrapperIcon}>
-                <a href="https://www.linkedin.com/in/jose-gonzalez-b32228138/" target="_blank" rel="noopener noreferrer">
+                <a className='flex' href="https://www.linkedin.com/in/jose-gonzalez-b32228138/" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Linkedin'>
                     <FontAwesomeIcon
                       size="xs"
@@ -84,7 +84,7 @@ export default function Header(): JSX.Element {
 
               </span>
               <span className={styles.wrapperIcon}>
-                <a href="https://twitter.com/monster_codes" target="_blank" rel="noopener noreferrer">
+                <a className='flex' href="https://twitter.com/monster_codes" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Twitter'>
                     <FontAwesomeIcon
                       size="xs"
@@ -95,7 +95,7 @@ export default function Header(): JSX.Element {
                 </a>
               </span>
               <span className={styles.wrapperIcon}>
-                <a href="https://www.instagram.com/monstercodes/" target="_blank" rel="noreferrer">
+                <a className='flex' href="https://www.instagram.com/monstercodes/" target="_blank" rel="noreferrer">
                   <Tooltip title='Instagram'>
                     <FontAwesomeIcon
                       icon={['fab', 'instagram']}
@@ -106,7 +106,7 @@ export default function Header(): JSX.Element {
                 </a>
               </span>
               <span className={styles.wrapperIcon}>
-                <a href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf" target={'_blank'} rel="noreferrer">
+                <a className='flex' href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf" target={'_blank'} rel="noreferrer">
                   <Tooltip title='My CV'>
                     <FontAwesomeIcon
                       icon={['fas', 'file']}

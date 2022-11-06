@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Logotipo } from '@components/Icons'
 export default function Navbar(): JSX.Element {
   return (
-    <nav className={styles.container}>
+    <nav className={`${styles.container} p-2`}>
       <div className="book-info">
         <Link href={'/'}>
           <a className="hover:underline">

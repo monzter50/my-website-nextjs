@@ -73,7 +73,7 @@
         font-size: var(--font-size-md);
     }
     .hero {
-        padding: 150px 0;
+        /* padding: 150px 0; */
         height: 100vh;
     }
     .monster::after{
@@ -83,12 +83,13 @@
         right: -26%;
         z-index: 1;
         height:70vh;
-        top:10%;
+        top: 50%;
+        transform: translateY(-50%);
         background: url("https://s3.amazonaws.com/monstercodes.dev/assets/personaje.png") no-repeat 50%/contain;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .grid {
       width: 100%;
       flex-direction: column;
