@@ -9,10 +9,11 @@ import CardBlog from '@components/Surfaces/CardBlog'
 import Container from '@components/Surfaces/Container'
 import { getAllFilesFrontMatter } from '@lib/mdx'
 
-export async function getStaticProps(): Promise<any> {
-  const unorderedPosts = await getAllFilesFrontMatter('_posts')
+export async function getStaticProps({ locale }: any): Promise<any> {
+
+  const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`)
   return {
-    props: { posts: unorderedPosts.filter(post => post.published) }
+    props: { posts: unorderedPosts.filter(post => post.published && post.locale === locale) }
   }
 }
 

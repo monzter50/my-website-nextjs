@@ -8,12 +8,14 @@ import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Hero from '@components/Hero'
 import { getFileBySlug, getFiles } from '@lib/mdx'
+import { merge } from '@lib/utils'
 import { MDXComponents } from '@components/MDXComponents'
 type ParamsType = {
   slug: string
 }
 type ParamsProps = {
   params: ParamsType
+  locale: string
 }
 export default function Post({ source, title, slug }: any): JSX.Element {
   return (
@@ -40,23 +42,34 @@ export default function Post({ source, title, slug }: any): JSX.Element {
   )
 }
 
-export async function getStaticPaths(): Promise<any> {
-  const posts = await getFiles('_posts')
-  const paths = posts.map((post) => ({
-    params: {
-      slug: post.replace(/\.mdx/, '')
-    }
-  }))
+export async function getStaticPaths({ locales }: any): Promise<any> {
+  const allPosts = await Promise.all(
+    locales.map(async (locale: any) => await getFiles(`_posts/${locale}`, locale))
+  )
+  const allPaths = allPosts.map((posts) =>
+    posts.files.map((post: any) => ({
+      params: {
+        slug: post.replace(/\.mdx/, ''),
+      },
+      locale: posts.locale
+    }))
+  )
 
+  const paths = merge(allPaths[0], allPaths[1])
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 
-export async function getStaticProps({ params }: ParamsProps): Promise<any> {
+export async function getStaticProps({ params, locale }: ParamsProps): Promise<any> {
   const { slug } = params
-  const { source, frontmatter } = await getFileBySlug('_posts', slug)
+  const { notFound, source, frontmatter } = await getFileBySlug(`_posts/${locale}`, slug)
+  if (notFound) {
+    return {
+      notFound: true,
+    }
+  }
   return {
     props: {
       title: frontmatter?.title,

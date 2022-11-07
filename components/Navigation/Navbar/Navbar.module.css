@@ -26,3 +26,8 @@
     height: 120px;
     object-fit: contain;
   }
+  .icon{
+    height: 1rem;
+    display: block;
+    margin:0 .2rem;
+  }

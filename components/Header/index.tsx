@@ -7,8 +7,9 @@ import Wrapper from '@components/Surfaces/Wrapper'
 import Heading from '@components/Typhografy/Heading'
 import Text from '@components/Typhografy/Text'
 import Tooltip from '@components/dataDisplay/Tooltip'
-const title: string = "Hi, I'm a"
+import useTranslation from "next-translate/useTranslation"
 export default function Header(): JSX.Element {
+  const {t} = useTranslation()
   return (
     <section className={`${styles.hero} py-6:lg`} id="home">
       <Wrapper>
@@ -17,7 +18,7 @@ export default function Header(): JSX.Element {
             <Heading className={styles.monsterTitle}>
 
               <>
-                {title}
+              {t("common:introduction.title")}
 
                 <span className={styles.typedwritter}>
                   <Typewriter
@@ -38,15 +39,12 @@ export default function Header(): JSX.Element {
             </Heading>
 
             <Text>
-              I am a creative, orderly, analytical, self-taught, passionate
-              about teaching and learning person. My favorite hobbies is watch
-              movies, talk with my wife, run, read articles about new update
-              programming language and study new things.
+              {t("common:introduction.description")}
             </Text>
 
             <div className={`${styles.social} py-3`}>
 
-              <Text>Sigueme en:</Text>
+              <Text><>{t("common:introduction.followme")}:</></Text>
               <span className={styles.wrapperIcon}>
                 <a className='flex' href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Github'>

@@ -3,6 +3,8 @@ import styles from './CardBlog.module.css'
 import NextLink from 'next/link'
 import Heading from '@components/Typhografy/Heading'
 import Text from '@components/Typhografy/Text'
+import { useRouter } from 'next/router';
+
 interface CardBlogProps {
   title: string
   author: any
@@ -10,10 +12,12 @@ interface CardBlogProps {
   slug: string
 }
 export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps): JSX.Element {
+  const router = useRouter();
+  const { locale } = router;
   return (
 
     <div className={styles.newPost}>
-      <NextLink href={`/posts/${slug}`}>
+      <NextLink href={`/${locale}/posts/${slug}`} locale={locale}>
         <a className="hover:underline">
           <article className={styles.card}>
             <Heading as='h3' className={styles.title}>{title}</Heading>

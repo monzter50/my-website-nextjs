@@ -71,6 +71,7 @@
     "lint-staged": "^10.5.3",
     "mdx-prism": "^0.3.4",
     "next-mdx-remote": "^4.1.0",
+    "next-translate": "^1.6.0",
     "postcss": "^8.4.18",
     "prism-react-renderer": "^1.3.5",
     "reading-time": "^1.5.0",

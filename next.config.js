@@ -1,4 +1,6 @@
 
+const nextTranslate = require('next-translate')
+
 /** @type {import('next').NextConfig} */
 // const nextConfig = {
 //   reactStrictMode: true,
@@ -21,5 +23,8 @@ module.exports = {
   images: {
     domains: ['s3.amazonaws.com'],
     formats: ['image/webp']
-  }
+  },
+ ...nextTranslate(),
+ reactStrictMode: false,
+
 }
