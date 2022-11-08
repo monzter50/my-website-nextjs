@@ -58,7 +58,7 @@ export async function getStaticPaths({ locales }: any): Promise<any> {
   const paths = merge(allPaths[0], allPaths[1])
   return {
     paths,
-    fallback: true
+    fallback: false
   }
 }
 
