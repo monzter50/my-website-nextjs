@@ -4,23 +4,55 @@ import React from 'react'
 import styles from 'styles/Home.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
-import Header from '@components/Header'
-import Container from '@components/Surfaces/Container'
+import Hero from '@components/Hero'
+import { getAllFilesFrontMatter } from '@lib/mdx'
+import { CardBlog } from '@components/index'
+import Heading from '@components/Typhografy/Heading'
+import useTranslation from 'next-translate/useTranslation'
 
-export default function PostPage(): JSX.Element {
+
+export async function getStaticProps({ locale }: any): Promise<any> {
+
+  const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`)
+  return {
+    props: { posts: unorderedPosts.filter(post => post.published && post.locale === locale) }
+  }
+}
+
+PostPage.defaultProps = {
+  posts: []
+}
+
+export default function PostPage({ posts }: any): JSX.Element {
+  const { t } = useTranslation()
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Monster Codes - All Article</title>
+        <link rel="icon" href="/isotipo.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
       </Head>
 
       <Layout>
+        <Hero title={"All Article"} href={`/posts`} slug={"posts"} />
         <Wrapper>
-          <Header />
-          <Container>
-            PostIndex
-          </Container>
+          <div className='mt-4'>
+            <Heading as="h3" className={'mb-2'}>{t("common:posts.title")}</Heading>
+            {
+              posts?.length !== 0 &&
+              posts.map((post: any) => (
+                <CardBlog
+                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                  key={`card-${post?.title}`}
+                  title={post.title}
+                  author={post.author}
+                  excerpt={post.excerpt}
+                  slug={post.slug}
+                />
+              ))}
+          </div>
         </Wrapper>
       </Layout>
     </div>

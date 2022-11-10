@@ -5,9 +5,10 @@ import Link from 'next/link'
 import styles from './Hero.module.css'
 interface HeroProps {
   title: string
+  href: string
   slug: string
 }
-export default function Hero({ title, slug }: HeroProps): JSX.Element {
+export default function Hero({ title, href,slug }: HeroProps): JSX.Element {
   return (
     <section className={`${styles.hero} pt-24`}>
 
@@ -19,14 +20,14 @@ export default function Hero({ title, slug }: HeroProps): JSX.Element {
             </a>
           </Link>
           <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
-          <Link href={`/posts/${slug}`}>
+          <Link href={href}>
             <a className="underline underline-offset-4 font-bold">
               {slug}
             </a>
           </Link>
         </div>
         <div className={"flex items-center h-4/5"}>
-          <div>
+          <div className='mt-3 pb-3'>
             <Heading className={styles.title}>{title}</Heading>
           </div>
         </div>

@@ -58,7 +58,13 @@
 }
 
 .containerBlog{
-  padding: 2rem 0;
+  padding: 0;
+  padding-bottom: 1rem;
+}
+.icon{
+  height: 1rem;
+  display: block;
+  margin:0 .2rem;
 }
 
 @media (max-width: 640px) {
@@ -66,8 +72,5 @@
     width: 100%;
     flex-direction: column;
   }
-  .containerBlog{
-    padding: 0;
-    padding-bottom: 2rem;
-  }
+ 
 }

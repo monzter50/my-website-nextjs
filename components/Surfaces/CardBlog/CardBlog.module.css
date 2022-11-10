@@ -1,7 +1,5 @@
 
-.newPost:not(:first-child){
-    margin-top:48px;
-}
+
 
 .card{
     background: white;

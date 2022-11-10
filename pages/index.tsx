@@ -6,9 +6,12 @@ import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Header from '@components/Header'
 import CardBlog from '@components/Surfaces/CardBlog'
-import Container from '@components/Surfaces/Container'
 import { getAllFilesFrontMatter } from '@lib/mdx'
-
+import Heading from '@components/Typhografy/Heading'
+import useTranslation from "next-translate/useTranslation"
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export async function getStaticProps({ locale }: any): Promise<any> {
 
   const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`)
@@ -21,6 +24,9 @@ HomePage.defaultProps = {
   posts: []
 }
 export default function HomePage({ posts }: any): JSX.Element {
+  const router = useRouter();
+  const { locale } = router;
+  const { t } = useTranslation()
   return (
     <div className={styles.container}>
       <Head>
@@ -37,7 +43,8 @@ export default function HomePage({ posts }: any): JSX.Element {
       <Layout>
         <Header />
         <Wrapper>
-          <Container>
+          <section>
+            <Heading as="h3" className={'mb-2 mt-5'}>{t("common:posts.title")}</Heading>
             <div className={styles.containerBlog}>
               {
                 posts?.length !== 0 &&
@@ -51,9 +58,24 @@ export default function HomePage({ posts }: any): JSX.Element {
                     slug={post.slug}
                   />
                 ))}
-            </div>
+              <div className='flex items-center'>
+                <Link href={`${locale}/posts`} locale={locale}>
+                  <a className="underline underline-offset-4 font-bold">
+                    {t("common:posts.more")}
+                  </a>
+                </Link>
+                <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
 
-          </Container>
+              </div>
+
+            </div>
+            <hr className='divide-y divide-gray-200' />
+          </section>
+
+          {/* <section>
+            <Heading as="h3" className={'mb-2 mt-5'}>{t("common:projects.title")}</Heading>
+
+          </section> */}
         </Wrapper>
       </Layout>
     </div>
