@@ -1,0 +1,14 @@
+.badges{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin-right: .5rem;
+}
+.online{
+    background-color: var(--succes);
+}
+
+.offline{
+    background-color: var(--danger);
+}

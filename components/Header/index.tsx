@@ -3,39 +3,28 @@ import React from 'react'
 import styles from './Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect'
-import Wrapper from '@components/Surfaces/Wrapper'
-import Heading from '@components/Typhografy/Heading'
-import Text from '@components/Typhografy/Text'
-import Tooltip from '@components/dataDisplay/Tooltip'
+import Wrapper from '../Surfaces/Wrapper'
+import Heading from '../Typhografy/Heading'
+import Text from '../Typhografy/Text'
+import Tooltip from '../dataDisplay/Tooltip'
 import useTranslation from "next-translate/useTranslation"
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
+let faInstagram: IconProp = ['fab', 'instagram'];
+let faGithub: IconProp = ['fab', 'github'];
+let faCodepen: IconProp = ['fab', 'codepen'];
+let faLinkedin: IconProp = ['fab', 'linkedin'];
+let faTwitter: IconProp = ['fab', 'twitter'];
+let faFile: IconProp = ['fas', 'file'];
 export default function Header(): JSX.Element {
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   return (
-    <section className={`${styles.hero} py-6:lg`} id="home">
+    <section data-testid="HeaderTest" className={`${styles.hero} py-6:lg`} id="home">
       <Wrapper>
         <header className={`${styles.monster}`}>
           <article className={styles.about}>
             <Heading className={styles.monsterTitle}>
-
-              <>
-              {t("common:introduction.title")}
-
-                <span className={styles.typedwritter}>
-                  <Typewriter
-                    options={{
-                      strings: [
-                        'Frontend',
-                        'Teacher',
-                        'Web Devs'
-                      ],
-                      autoStart: true,
-                      delay: 'natural',
-                      loop: true
-                    }}
-
-                  />
-                </span>
-              </>
+                {t("common:introduction.title")}
             </Heading>
 
             <Text>
@@ -50,7 +39,7 @@ export default function Header(): JSX.Element {
                   <Tooltip title='Github'>
                     <FontAwesomeIcon
                       className={styles.icon}
-                      icon={['fab', 'github']}
+                      icon={faGithub}
                       size="xs"
                     />
                   </Tooltip>
@@ -62,7 +51,7 @@ export default function Header(): JSX.Element {
                   <Tooltip title='CodePen'>
                     <FontAwesomeIcon
                       className={styles.icon}
-                      icon={['fab', 'codepen']}
+                      icon={faCodepen}
                       size="xs"
                     />
                   </Tooltip>
@@ -74,7 +63,7 @@ export default function Header(): JSX.Element {
                   <Tooltip title='Linkedin'>
                     <FontAwesomeIcon
                       size="xs"
-                      icon={['fab', 'linkedin']}
+                      icon={faLinkedin}
                       className={styles.icon}
                     />
                   </Tooltip>
@@ -86,7 +75,7 @@ export default function Header(): JSX.Element {
                   <Tooltip title='Twitter'>
                     <FontAwesomeIcon
                       size="xs"
-                      icon={['fab', 'twitter']}
+                      icon={faTwitter}
                       className={styles.icon}
                     />
                   </Tooltip>
@@ -96,7 +85,7 @@ export default function Header(): JSX.Element {
                 <a className='flex' href="https://www.instagram.com/monstercodes/" target="_blank" rel="noreferrer">
                   <Tooltip title='Instagram'>
                     <FontAwesomeIcon
-                      icon={['fab', 'instagram']}
+                      icon={faInstagram}
                       className={styles.icon}
                       size="xs"
                     />
@@ -107,7 +96,7 @@ export default function Header(): JSX.Element {
                 <a className='flex' href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf" target={'_blank'} rel="noreferrer">
                   <Tooltip title='My CV'>
                     <FontAwesomeIcon
-                      icon={['fas', 'file']}
+                      icon={faFile}
                       className={styles.iconFile}
                       size="xs"
                     />

@@ -5,7 +5,8 @@ import styles from '@styles/Home.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Header from '@components/Header'
-import CardBlog from '@components/Surfaces/CardBlog'
+import CardBlog from '@components/Surfaces/Cards/CardBlog'
+import { CardProject } from '@components/index'
 import { getAllFilesFrontMatter } from '@lib/mdx'
 import Heading from '@components/Typhografy/Heading'
 import useTranslation from "next-translate/useTranslation"
@@ -23,7 +24,8 @@ export async function getStaticProps({ locale }: any): Promise<any> {
 HomePage.defaultProps = {
   posts: []
 }
-export default function HomePage({ posts }: any): JSX.Element {
+export default function HomePage({ posts, instagram }: any): JSX.Element {
+  console.log("pago", instagram)
   const router = useRouter();
   const { locale } = router;
   const { t } = useTranslation()
@@ -44,7 +46,7 @@ export default function HomePage({ posts }: any): JSX.Element {
         <Header />
         <Wrapper>
           <section>
-            <Heading as="h3" className={'mb-2 mt-5'}>{t("common:posts.title")}</Heading>
+            <Heading as="h3" className={'mb-3 mt-7'}>{t("common:posts.title")}</Heading>
             <div className={styles.containerBlog}>
               {
                 posts?.length !== 0 &&
@@ -58,7 +60,7 @@ export default function HomePage({ posts }: any): JSX.Element {
                     slug={post.slug}
                   />
                 ))}
-              <div className='flex items-center'>
+              <p className='flex items-center'>
                 <Link href={`${locale}/posts`} locale={locale}>
                   <a className="underline underline-offset-4 font-bold">
                     {t("common:posts.more")}
@@ -66,16 +68,36 @@ export default function HomePage({ posts }: any): JSX.Element {
                 </Link>
                 <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
 
-              </div>
+              </p>
 
             </div>
             <hr className='divide-y divide-gray-200' />
           </section>
 
-          {/* <section>
-            <Heading as="h3" className={'mb-2 mt-5'}>{t("common:projects.title")}</Heading>
+          <section className='mb-3'>
+            <Heading as="h3" className={'mb-3 mt-7'}>{t("common:projects.title")}</Heading>
+            <div className='flex flex-col'>
+              <div className={styles.containerBlog}>
+                <CardProject
+                  title='LearnAla'
+                  src='/img/projects/learnala.png'
+                  href='https://www.learnala.com/'
+                  description='LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.' />
+                <p className='flex items-center'>
+                  <Link href={`${locale}/projects`} locale={locale}>
+                    <a className="underline underline-offset-4 font-bold">
+                      {t("common:projects.more")}
+                    </a>
+                  </Link>
+                  <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
+                </p>
+              </div>
 
-          </section> */}
+
+
+            </div>
+            <hr className='divide-y divide-gray-200' />
+          </section>
         </Wrapper>
       </Layout>
     </div>

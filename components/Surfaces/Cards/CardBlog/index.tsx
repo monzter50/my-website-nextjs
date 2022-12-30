@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './CardBlog.module.css'
 import NextLink from 'next/link'
-import Heading from '@components/Typhografy/Heading'
-import Text from '@components/Typhografy/Text'
+import Heading from '../../../Typhografy/Heading'
+import Text from '../../../Typhografy/Text'
 import { useRouter } from 'next/router';
 
 interface CardBlogProps {
@@ -13,7 +13,7 @@ interface CardBlogProps {
 }
 export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps): JSX.Element {
   const router = useRouter();
-  const { locale } = router;
+  const locale = router?.locale ?? "es-MXN"
   return (
 
     <div className={styles.newPost}>

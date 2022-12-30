@@ -1,0 +1,29 @@
+.image{
+    border-radius: .5rem;
+    border:1px solid var(--dark) !important;
+    margin-bottom: 1rem;
+    
+}
+
+.container{
+    margin-bottom: 1.55rem;
+    /* margin-top: 1.55rem; */
+    border-left:none;
+    padding: 1rem;
+    cursor: pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@media (min-width: 768px) {
+    .image{
+        margin-bottom: 0;
+        margin-right: 1rem;
+        width: 30%;
+        height: auto;
+    }
+    
+    .container{
+        border-left:4px solid var(--blue);
+    }
+
+}

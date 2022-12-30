@@ -1,6 +1,6 @@
 import { Wrapper } from '..'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Heading from '@components/Typhografy/Heading'
+import Heading from '../Typhografy/Heading'
 import Link from 'next/link'
 import styles from './Hero.module.css'
 interface HeroProps {

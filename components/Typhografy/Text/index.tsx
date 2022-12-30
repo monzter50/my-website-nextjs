@@ -6,7 +6,7 @@ interface TextProps {
   className?: string
 }
 
-export default function Heading({ children, className }: TextProps): JSX.Element {
+export default function Text({ children, className }: TextProps): JSX.Element {
   const classes = classNames(className, styles.p)
   return <p className={classes}>{children}</p>
 }
