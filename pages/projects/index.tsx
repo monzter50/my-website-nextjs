@@ -48,8 +48,8 @@ export default function ProjectPage({ projects }: any): JSX.Element {
                             y enseñar lo aprendido.`} />
                             <CardProject 
                             title='UI Accebility'
-                            src='/img/projects/github.png'
-                            href='https://www.learnala.com/'
+                            src='/img/projects/ui.png'
+                            href='https://github.com/monzter50/UI-lib/'
                             description={`Este proyecto es una libreria opensources donde trabajo en diseñar y crear componentes que 
                             cumpla con los estandares a11y .`} />
     
