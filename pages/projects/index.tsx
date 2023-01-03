@@ -1,25 +1,13 @@
 
-// import styles from 'styles/Home.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Hero from '@components/Hero'
 import { CardProject } from '@components/index'
-import Heading from '@components/Typhografy/Heading'
 import useTranslation from 'next-translate/useTranslation'
 import Head from "next/head";
-import { sr } from 'date-fns/locale';
 
-export async function getStaticProps({ locale }: any): Promise<any> {
 
-    return {
-      props: { projects:[] }
-    }
-}
-  
-  ProjectPage.defaultProps = {
-    projects: []
-  }
-export default function ProjectPage({ projects }: any): JSX.Element {
+export default function ProjectPage(): JSX.Element {
     const { t } = useTranslation()
     return (
         <div >

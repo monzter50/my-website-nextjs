@@ -26,7 +26,9 @@ export default function Tooltip({ title = '', children, delay, direction = 'top'
     <div
       className={styles.tooltip}
       onMouseEnter={showTip}
-      onMouseLeave={hideTip}>
+      onMouseLeave={hideTip}
+      role="alert"
+      >
       {active && (
         <span className={`${styles.tooltipText} ${styles[direction]}`}>
           {title}

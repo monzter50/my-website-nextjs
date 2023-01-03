@@ -1,5 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import "@testing-library/jest-dom";
+
+import { render, screen } from '@testing-library/react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInstagram, faLinkedin, faGithub, faCodepen, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight, faFile,faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -15,4 +17,4 @@ const customRender = (ui:any, options = {}) =>
   });
 
 export * from '@testing-library/react';
-export { customRender as render };
+export { customRender as render, screen };
