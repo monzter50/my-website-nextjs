@@ -10,25 +10,25 @@ interface CardProjectProps {
     title: string
     src: string
     description?: string
-    href:string
+    href: string
 }
 export default function CardProject({ title, src, description, href }: CardProjectProps) {
     return (
         <a className="hover:underline" href={href} target={'_blank'}>
-        <article className={`${styles.container} flex items-center md:flex-row flex-col `}>
-            <img src={src} alt="" className={styles.image} />
-            <div>
+            <article className={`${styles.container} flex items-center md:flex-row flex-col `}>
+                <img src={src} alt="" className={styles.image} />
                 <div>
-                    <Heading className='mt-1' as='h3'>
-                        {title}
-                    </Heading>
-                    <Badges active />
+                    <div>
+                        <Heading className='mt-1' as='h3'>
+                            {title}
+                        </Heading>
+                        <Badges active />
+                    </div>
+                    <Text>
+                        <>{description}</>
+                    </Text>
                 </div>
-                <Text>
-                    <>{description}</>
-                </Text>
-            </div>
-        </article>
+            </article>
         </a>
     )
 }

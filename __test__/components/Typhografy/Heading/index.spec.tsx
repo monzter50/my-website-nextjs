@@ -1,4 +1,4 @@
-import { render } from '../../../testUtils';
+import { render, screen } from '../../../testUtils';
 import React from "react";
 import Heading from '../../../../components/Typhografy/Heading';
 
@@ -10,5 +10,14 @@ describe("Heading", () => {
                 Send
             </Heading>);
     });
+    it("should render correct props", async () => {
+        render(
+          <Heading>
+            Send
+          </Heading>
+        );
+        expect(await screen.findByText(/Send/i)).toBeInTheDocument();
+    
+      });
 })
 

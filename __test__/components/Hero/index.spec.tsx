@@ -19,6 +19,6 @@ describe("Hero", () => {
             slug="algo" />
         );
         expect(await screen.findByText(/algo/i)).toBeInTheDocument();
-
+        expect(screen.getByRole('link', { name: /algo/i })).toHaveAttribute('href','https://www.amazon.com.mx/');
     });
 })
