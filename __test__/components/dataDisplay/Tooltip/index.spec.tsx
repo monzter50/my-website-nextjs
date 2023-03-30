@@ -9,7 +9,7 @@ describe("Badges",  () => {
   it("should render the Badges", async () => {
     render(
     <Tooltip title="Github">
-        <p>Tooltip</p>
+        <p>Tooltip :)</p>
     </Tooltip>);
       const iconTooltop = screen.findByRole('alert')
 
