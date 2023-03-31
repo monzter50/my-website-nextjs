@@ -2,20 +2,19 @@
 import React from 'react'
 import styles from './Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Typewriter from 'typewriter-effect'
 import Wrapper from '../Surfaces/Wrapper'
 import Heading from '../Typhografy/Heading'
 import Text from '../Typhografy/Text'
 import Tooltip from '../dataDisplay/Tooltip'
-import useTranslation from "next-translate/useTranslation"
+import useTranslation from 'next-translate/useTranslation'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-let faInstagram: IconProp = ['fab', 'instagram'];
-let faGithub: IconProp = ['fab', 'github'];
-let faCodepen: IconProp = ['fab', 'codepen'];
-let faLinkedin: IconProp = ['fab', 'linkedin'];
-let faTwitter: IconProp = ['fab', 'twitter'];
-let faFile: IconProp = ['fas', 'file'];
+const faInstagram: IconProp = ['fab', 'instagram']
+const faGithub: IconProp = ['fab', 'github']
+const faCodepen: IconProp = ['fab', 'codepen']
+const faLinkedin: IconProp = ['fab', 'linkedin']
+const faTwitter: IconProp = ['fab', 'twitter']
+const faFile: IconProp = ['fas', 'file']
 export default function Header(): JSX.Element {
   const { t } = useTranslation()
   return (
@@ -24,16 +23,16 @@ export default function Header(): JSX.Element {
         <header className={`${styles.monster}`}>
           <article className={styles.about}>
             <Heading className={styles.monsterTitle}>
-                {t("common:introduction.title")}
+                {t('common:introduction.title')}
             </Heading>
 
             <Text>
-              {t("common:introduction.description")}
+              {t('common:introduction.description')}
             </Text>
 
             <div className={`${styles.social} py-3`}>
 
-              <Text><>{t("common:introduction.followme")}:</></Text>
+              <Text><>{t('common:introduction.followme')}:</></Text>
               <span className={styles.wrapperIcon}>
                 <a className='flex' href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Github'>

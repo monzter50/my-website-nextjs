@@ -1,8 +1,8 @@
-import { render, screen } from '../../../testUtils';
+import { render, screen } from '@test/testUtils';
 import userEvent from "@testing-library/user-event";
 
 import React from "react";
-import Tooltip from '../../../../components/dataDisplay/Tooltip';
+import Tooltip from '@components/dataDisplay/Tooltip';
 
 describe("Badges",  () => {
 

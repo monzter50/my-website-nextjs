@@ -1,6 +1,6 @@
-import { render, screen } from '../../../testUtils';
+import { render, screen } from '@test/testUtils';
 import React from "react";
-import Text from '../../../../components/Typhografy/Text';
+import Text from '@components/Typhografy/Text';
 
 describe("Text", () => {
 

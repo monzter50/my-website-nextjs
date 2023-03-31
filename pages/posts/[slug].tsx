@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 // Services
 
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import styles from 'styles/Post.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
@@ -17,19 +17,25 @@ type ParamsProps = {
   params: ParamsType
   locale: string
 }
-export default function Post({ source, title, slug }: any): JSX.Element {
+interface IPostProps {
+  title: string
+  author?: string
+  slug: string
+  source: MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
+}
+export default function Post({ source, title, slug }: IPostProps): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
         <title>Monster Codes - Blog</title>
-        <link rel="icon" href="/isotipo.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+        <link rel='icon' href='/isotipo.ico' />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' />
+        <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' />
       </Head>
 
       <Layout>
-        <Hero title={title} href={`/posts/${slug}`} slug={slug}/>
+        <Hero title={title} href={`/posts/${slug}`} slug={slug ?? ''} />
         <Wrapper>
           <div className='my-4'>
             <MDXRemote {...source} components={MDXComponents} />
@@ -43,12 +49,12 @@ export default function Post({ source, title, slug }: any): JSX.Element {
 
 export async function getStaticPaths({ locales }: any): Promise<any> {
   const allPosts = await Promise.all(
-    locales.map(async (locale: any) => await getFiles(`_posts/${locale}`, locale))
+    locales.map(async (locale: string) => await getFiles(`_posts/${locale}`, locale))
   )
   const allPaths = allPosts.map((posts) =>
-    posts.files.map((post: any) => ({
+    posts.files.map((post: string) => ({
       params: {
-        slug: post.replace(/\.mdx/, ''),
+        slug: post.replace(/\.mdx/, '')
       },
       locale: posts.locale
     }))
@@ -66,7 +72,7 @@ export async function getStaticProps({ params, locale }: ParamsProps): Promise<a
   const { notFound, source, frontmatter } = await getFileBySlug(`_posts/${locale}`, slug)
   if (notFound) {
     return {
-      notFound: true,
+      notFound: true
     }
   }
   return {

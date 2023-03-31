@@ -1,6 +1,6 @@
-import { render } from '../../testUtils';
+import { render } from '@test/testUtils';
 import React from "react";
-import Header from '../../../components/Header';
+import Header from '@components/Header';
 
 describe("Header", () => {
 

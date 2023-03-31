@@ -9,25 +9,36 @@ import CardBlog from '@components/Surfaces/Cards/CardBlog'
 import { CardProject } from '@components/index'
 import { getAllFilesFrontMatter } from '@lib/mdx'
 import Heading from '@components/Typhografy/Heading'
-import useTranslation from "next-translate/useTranslation"
+import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-export async function getStaticProps({ locale }: any): Promise<any> {
-
+interface IStaticProps {
+  locale: 'en-US' | 'es-MX'
+}
+interface IPostProps{
+  title?: string
+  author?: string
+  excerpt?: string
+  slug: string
+}
+interface IPostsProps {
+  posts: IPostProps[]
+}
+export async function getStaticProps({ locale }: IStaticProps): Promise<any> {
   const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`)
   return {
-    props: { posts: unorderedPosts.filter(post => post.published && post.locale === locale) }
+    props: { posts: unorderedPosts.filter(post => (post.published && post.locale) === locale) }
   }
 }
 
 HomePage.defaultProps = {
   posts: []
 }
-export default function HomePage({ posts, instagram }: any): JSX.Element {
-  console.log("pago", instagram)
-  const router = useRouter();
-  const { locale } = router;
+export default function HomePage({ posts }: IPostsProps): JSX.Element {
+  const router = useRouter()
+  const locale = router?.locale ?? 'es-MX'
+
   const { t } = useTranslation()
   return (
     <div className={styles.container}>
@@ -46,11 +57,11 @@ export default function HomePage({ posts, instagram }: any): JSX.Element {
         <Header />
         <Wrapper>
           <section>
-            <Heading as="h3" className={'mb-3 mt-7'}>{t("common:posts.title")}</Heading>
+            <Heading as="h3" className={'mb-3 mt-7'}>{t('common:posts.title')}</Heading>
             <div className={styles.containerBlog}>
               {
                 posts?.length !== 0 &&
-                posts.map((post: any) => (
+                posts.map((post: IPostProps) => (
                   <CardBlog
                     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                     key={`card-${post?.title}`}
@@ -63,7 +74,7 @@ export default function HomePage({ posts, instagram }: any): JSX.Element {
               <p className='flex items-center'>
                 <Link href={`${locale}/posts`} locale={locale}>
                   <a className="underline underline-offset-4 font-bold">
-                    {t("common:posts.more")}
+                    {t('common:posts.more')}
                   </a>
                 </Link>
                 <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
@@ -75,7 +86,7 @@ export default function HomePage({ posts, instagram }: any): JSX.Element {
           </section>
 
           <section className='mb-3'>
-            <Heading as="h3" className={'mb-3 mt-7'}>{t("common:projects.title")}</Heading>
+            <Heading as="h3" className={'mb-3 mt-7'}>{t('common:projects.title')}</Heading>
             <div className='flex flex-col'>
               <div className={styles.containerBlog}>
                 <CardProject
@@ -86,14 +97,12 @@ export default function HomePage({ posts, instagram }: any): JSX.Element {
                 <p className='flex items-center'>
                   <Link href={`${locale}/projects`} locale={locale}>
                     <a className="underline underline-offset-4 font-bold">
-                      {t("common:projects.more")}
+                      {t('common:projects.more')}
                     </a>
                   </Link>
                   <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
                 </p>
               </div>
-
-
 
             </div>
             <hr className='divide-y divide-gray-200' />

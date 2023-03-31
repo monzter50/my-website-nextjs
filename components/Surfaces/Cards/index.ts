@@ -1,4 +1,4 @@
-import CardBlog from "./CardBlog";
-import CardProject from "./CardProject";
+import CardBlog from './CardBlog'
+import CardProject from './CardProject'
 
-export {CardBlog, CardProject}
+export { CardBlog, CardProject }

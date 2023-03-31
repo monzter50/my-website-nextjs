@@ -1,6 +1,6 @@
-import { render, screen } from '../../../../testUtils';
+import { render, screen } from '@test/testUtils';
 import React from "react";
-import CardProject from '../../../../../components/Surfaces/Cards/CardProject';
+import CardProject from '@components/Surfaces/Cards/CardProject';
 
 
 describe("CardProject", () => {

@@ -8,9 +8,9 @@ interface CustomImageProps {
   height: string | number
   className?: string | string[]
   layout?: 'fill' | 'fixed' | 'intrinsic' | 'responsive'
-  objectFit?: 'contain' | 'cover' | 'unset' 
+  objectFit?: 'contain' | 'cover' | 'unset'
 }
-export default function CustomImage({ src, alt, width = 800, height = 600, className = '', layout = 'responsive', objectFit="contain" }: CustomImageProps): JSX.Element {
+export default function CustomImage({ src, alt, width = 800, height = 600, className = '', layout = 'responsive', objectFit = 'contain' }: CustomImageProps): JSX.Element {
   const classes = classNames(className, styles.image)
   return <Image className={classes} src={src} alt={alt} width={width} height={height} layout={layout} objectFit="contain"/>
 }
