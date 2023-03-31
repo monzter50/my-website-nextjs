@@ -1,6 +1,6 @@
-import { render, screen } from '../../../testUtils';
+import { render, screen } from '@test/testUtils';
 import React from "react";
-import Heading from '../../../../components/Typhografy/Heading';
+import Heading from '@components/Typhografy/Heading';
 
 describe("Heading", () => {
 

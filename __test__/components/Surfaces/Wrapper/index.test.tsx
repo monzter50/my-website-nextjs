@@ -1,6 +1,6 @@
-import { render } from '../../../testUtils';
+import { render } from '@test/testUtils';
 import React from "react";
-import Wrapper from '../../../../components/Surfaces/Wrapper';
+import Wrapper from '@components/Surfaces/Wrapper';
 
 describe("Wrapper", () => {
 

@@ -1,6 +1,6 @@
-import { render, screen } from '../../../testUtils';
+import { render, screen } from '@test/testUtils';
 import React from "react";
-import Badges from '../../../../components/dataDisplay/Badges';
+import Badges from '@components/dataDisplay/Badges';
 
 describe("Badges", () => {
 

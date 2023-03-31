@@ -1,6 +1,6 @@
-import { render } from '../../../testUtils';
+import { render } from '@test/testUtils';
 import React from "react";
-import Layout from '../../../../components/Surfaces/Layout';
+import Layout from '@components/Surfaces/Layout';
 
 describe("Layout", () => {
 

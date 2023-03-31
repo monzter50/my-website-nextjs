@@ -1,6 +1,6 @@
-import { render } from '../../../testUtils';
+import { render } from '@test/testUtils';
 import React from "react";
-import Container from '../../../../components/Surfaces/Container';
+import Container from '@components/Surfaces/Container';
 
 describe("Container", () => {
 

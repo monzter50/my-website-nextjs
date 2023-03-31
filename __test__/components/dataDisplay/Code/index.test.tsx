@@ -1,6 +1,6 @@
-import { render } from '../../../testUtils';
+import { render } from '@test/testUtils';
 import React from "react";
-import Code from '../../../../components/dataDisplay/Code';
+import Code from '@components/dataDisplay/Code';
 
 describe("Code", () => {
 

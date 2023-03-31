@@ -1,6 +1,6 @@
-import { render, screen } from '../../../../testUtils';
+import { render, screen } from '@test/testUtils';
 import React from "react";
-import CardBlog from '../../../../../components/Surfaces/Cards/CardBlog';
+import CardBlog from '@components/Surfaces/Cards/CardBlog';
 
 const cardObj = {
     title: "Nuevo Post",

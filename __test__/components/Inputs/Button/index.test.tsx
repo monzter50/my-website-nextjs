@@ -1,6 +1,6 @@
-import { render } from '../../../testUtils';
+import { render } from '@test/testUtils';
 import React from "react";
-import Button from '../../../../components/inputs/Button';
+import Button from '@components/inputs/Button';
 
 describe("Button", () => {
 

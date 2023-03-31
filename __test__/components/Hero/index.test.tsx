@@ -1,6 +1,6 @@
-import { render, screen } from '../../testUtils';
+import { render, screen } from '@test/testUtils';
 import React from "react";
-import Hero from '../../../components/Hero';
+import Hero from '@components/Hero';
 
 describe("Hero", () => {
 
