@@ -3,7 +3,7 @@ import React from 'react'
 import styles from '@styles/404.module.css'
 import Heading from '@components/Typhografy/Heading'
 export default function NotFound(): JSX.Element {
-    return (
+  return (
         <section className={styles.container}>
             <div>
                 <Heading className={styles.title}>404 - Page Not Found</Heading>
@@ -22,17 +22,16 @@ export default function NotFound(): JSX.Element {
                     <div className={styles.shadow}></div>
                 </div>
 
-
                 <div className={styles.goBack}>
-                <Link  href="/">
+                <Link href="/">
                     <a className={styles.link}>
                         Go back home
                     </a>
                 </Link>
                 </div>
-                
+
             </div>
 
         </section>
-    )
+  )
 }

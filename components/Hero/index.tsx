@@ -8,7 +8,7 @@ interface HeroProps {
   href: string
   slug: string
 }
-export default function Hero({ title, href,slug }: HeroProps): JSX.Element {
+export default function Hero({ title, href, slug }: HeroProps): JSX.Element {
   return (
     <section className={`${styles.hero} pt-24`}>
 
@@ -26,7 +26,7 @@ export default function Hero({ title, href,slug }: HeroProps): JSX.Element {
             </a>
           </Link>
         </div>
-        <div className={"flex items-center h-4/5"}>
+        <div className={'flex items-center h-4/5'}>
           <div className='mt-3 pb-3'>
             <Heading className={styles.title}>{title}</Heading>
           </div>

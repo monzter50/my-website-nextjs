@@ -2,19 +2,17 @@ import React from 'react'
 import styles from './CardProject.module.css'
 import Heading from '../../../Typhografy/Heading'
 import Text from '../../../Typhografy/Text'
-import Badges from '../../../dataDisplay/Badges';
-
-
+import Badges from '../../../dataDisplay/Badges'
 
 interface CardProjectProps {
-    title: string
-    src: string
-    description?: string
-    href: string
+  title: string
+  src: string
+  description?: string
+  href: string
 }
-export default function CardProject({ title, src, description, href }: CardProjectProps) {
-    return (
-        <a className="hover:underline" href={href} target={'_blank'}>
+export default function CardProject({ title, src, description, href }: CardProjectProps): JSX.Element {
+  return (
+        <a className="hover:underline" href={href} target={'_blank'} rel="noreferrer">
             <article className={`${styles.container} flex items-center md:flex-row flex-col `}>
                 <img src={src} alt="" className={styles.image} />
                 <div>
@@ -30,5 +28,5 @@ export default function CardProject({ title, src, description, href }: CardProje
                 </div>
             </article>
         </a>
-    )
+  )
 }
