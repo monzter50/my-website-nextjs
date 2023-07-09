@@ -10,36 +10,12 @@ interface ComponentDynamicProps {
 
 function ComponentDynamic({ as = 'h1', children, className, ...props }: ComponentDynamicProps): JSX.Element {
   const classes = classNames(className, styles[as])
-  switch (as) {
-    case 'h1':
-      return (
-        <h1 className={classes} {...props}>{children}</h1>
-      )
-    case 'h2':
-      return (
-        <h2 className={classes} {...props}>{children}</h2>
-      )
-    case 'h3':
-      return (
-        <h3 className={classes} {...props}>{children}</h3>
-      )
-    case 'h4':
-      return (
-        <h4 className={classes} {...props}>{children}</h4>
-      )
-    case 'h5':
-      return (
-        <h5 className={classes} {...props}>{children}</h5>
-      )
-    case 'h6':
-      return (
-        <h6 className={classes} {...props}>{children}</h6>
-      )
-    default:
-      return (
-        <h1 className={classes} {...props}>{children}</h1>
-      )
-  }
+
+  // Create a new component based on the 'as' prop
+  const Component = as
+
+  // Render the component
+  return <Component className={classes} {...props}>{children}</Component>
 }
 
 export default function Heading({ as, children, className, ...props }: ComponentDynamicProps): JSX.Element {

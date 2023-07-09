@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import styles from './CardProject.module.css'
 import Heading from '../../../Typhografy/Heading'
@@ -12,7 +13,7 @@ interface CardProjectProps {
 }
 export default function CardProject({ title, src, description, href }: CardProjectProps): JSX.Element {
   return (
-        <a className="hover:underline" href={href} target={'_blank'} rel="noreferrer">
+        <a className="hover:underline" href={href} target={'_blank'} rel="noreferrer" role='link'>
             <article className={`${styles.container} flex items-center md:flex-row flex-col `}>
                 <img src={src} alt="" className={styles.image} />
                 <div>
