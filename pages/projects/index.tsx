@@ -37,7 +37,11 @@ export default function ProjectPage(): JSX.Element {
                             href='https://github.com/monzter50/UI-lib/'
                             description={`Este proyecto es una libreria opensources donde trabajo en diseñar y crear componentes que 
                             cumpla con los estandares a11y .`} />
-
+                            <CardProject
+                            title='Yecorabeauty'
+                            src='/img/projects/yecorabeauty.png'
+                            href='https://www.yecorabeauty.com/'
+                            description={'Es te proyecto es un CMS desarrollado con Gatsby y Contenfull.Este sitio web nos ayuda a informar y agendar citas para los clientes de esta empresa.'} />
                     </div>
                 </Wrapper>
             </Layout>
