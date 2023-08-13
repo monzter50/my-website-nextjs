@@ -5,3 +5,4 @@ next.config.js
 babel.config.js
 jest.config.ts
 jest.setup.ts
+tailwind.config.js
