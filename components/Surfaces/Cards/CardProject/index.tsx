@@ -11,10 +11,10 @@ interface CardProjectProps {
   description?: string
   href: string
 }
-export default function CardProject({ title, src, description, href }: CardProjectProps): JSX.Element {
+export default function CardProject({ title, src, description, href, ...props }: CardProjectProps): JSX.Element {
   return (
-        <a className="hover:underline" href={href} target={'_blank'} rel="noreferrer" role='link'>
-            <article className={`${styles.container} flex items-center md:flex-row flex-col `}>
+        <a className="hover:underline" href={href} target={'_blank'} rel="noreferrer" role='button' {...props}>
+            <article className={`${styles.container} flex items-center md:flex-row flex-col `} role='card'>
                 <img src={src} alt="" className={styles.image} />
                 <div>
                     <div>

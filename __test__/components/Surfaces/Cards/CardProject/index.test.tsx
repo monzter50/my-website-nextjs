@@ -14,7 +14,7 @@ describe('CardProject', () => {
             <CardProject title='LearnAla' src='/img/projects/learnala.png' href='https://www.learnala.com/'/>
     )
     expect(await screen.findByText(/LearnAla/i)).toBeInTheDocument()
-    expect(await screen.getByRole('link')).toHaveAttribute('href', 'https://www.learnala.com/')
+    expect(await screen.getByRole('button')).toHaveAttribute('href', 'https://www.learnala.com/')
     expect(await screen.getByRole('img')).toHaveAttribute('src', '/img/projects/learnala.png')
   })
 })

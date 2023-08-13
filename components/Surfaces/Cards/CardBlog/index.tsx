@@ -16,7 +16,7 @@ export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps
   const locale = router?.locale ?? 'es-MXN'
   return (
 
-    <div className={styles.newPost}>
+    <div className={styles.newPost} role='card'>
       <NextLink href={`/${locale}/posts/${slug}`} locale={locale}>
         <a className="hover:underline">
           <article className={styles.card}>

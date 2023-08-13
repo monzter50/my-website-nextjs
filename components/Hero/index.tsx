@@ -21,7 +21,7 @@ export default function Hero({ title, href, slug }: HeroProps): JSX.Element {
           </Link>
           <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
           <Link href={href}>
-            <a className="underline underline-offset-4 font-bold">
+            <a className="underline underline-offset-4 font-bold" role='link'>
               {slug}
             </a>
           </Link>

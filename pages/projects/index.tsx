@@ -24,24 +24,32 @@ export default function ProjectPage(): JSX.Element {
                             src='/img/projects/learnala.png'
                             href='https://www.learnala.com/'
                             description={`LearnAla es tu plataforma personalizada que facilita la gestión de 
-                            contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.`} />
+                            contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.`}
+                            aria-level="1"
+                             />
                             <CardProject
                             title='Monster Codes'
                             src='/img/projects/monstercodes.png'
                             href='https://www.monstercodes.dev/en-US/'
                             description={`MonsterCodes es un portafolio personalizada para recrear lo que se ha aprendido
-                            y enseñar lo aprendido.`} />
+                            y enseñar lo aprendido.`}
+                            aria-level="2"
+                             />
                             <CardProject
                             title='UI Accebility'
                             src='/img/projects/ui.png'
                             href='https://github.com/monzter50/UI-lib/'
                             description={`Este proyecto es una libreria opensources donde trabajo en diseñar y crear componentes que 
-                            cumpla con los estandares a11y .`} />
+                            cumpla con los estandares a11y .`}
+                            aria-level="3"
+                            />
                             <CardProject
                             title='Yecorabeauty'
                             src='/img/projects/yecorabeauty.png'
                             href='https://www.yecorabeauty.com/'
-                            description={'Es te proyecto es un CMS desarrollado con Gatsby y Contenfull.Este sitio web nos ayuda a informar y agendar citas para los clientes de esta empresa.'} />
+                            description={'Es te proyecto es un CMS desarrollado con Gatsby y Contenfull.Este sitio web nos ayuda a informar y agendar citas para los clientes de esta empresa.'}
+                            aria-level="4"
+                             />
                     </div>
                 </Wrapper>
             </Layout>

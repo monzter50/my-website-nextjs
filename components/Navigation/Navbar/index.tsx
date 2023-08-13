@@ -31,7 +31,7 @@ export default function Navbar(): JSX.Element {
           </Link>
         </div>
 
-        <button onClick={handleLanguageChange} className="flex items-center">
+        <button onClick={handleLanguageChange} className="flex items-center" role='switch'>
           {locale === 'en-US' ? 'EN' : 'ES'}
           <FontAwesomeIcon
             className={styles.icon}

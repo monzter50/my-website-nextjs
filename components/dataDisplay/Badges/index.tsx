@@ -9,7 +9,7 @@ export default function Badges({ className, active = true }: BadgesProps): JSX.E
   const stylesArr = [styles.badges, active ? styles.online : styles.offline]
   const classes = classNames(className, stylesArr)
   return (
-        <div className='flex items-center'>
+        <div className='flex items-center' role='status'>
             <span className={classes}/>
             {active ? 'online' : 'offline'}
         </div>
