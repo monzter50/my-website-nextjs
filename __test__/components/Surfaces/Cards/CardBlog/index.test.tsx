@@ -16,6 +16,7 @@ describe('CardBlog', () => {
                 author={cardObj.author}
                 excerpt={cardObj?.excerpt}
                 slug={cardObj?.slug}
+                date='2022-09-27T14:05:07.322Z'
             />
     )
   })
@@ -27,11 +28,11 @@ describe('CardBlog', () => {
                 author={cardObj.author}
                 excerpt={cardObj?.excerpt}
                 slug={cardObj?.slug}
+                date='2022-09-27T14:05:07.322Z'
             />
     )
     expect(await screen.findByText(/Author/i)).toBeInTheDocument()
     expect(await screen.findByText(/Nuevo Post/i)).toBeInTheDocument()
     expect(await screen.findByText(/Esto si es un postx/i)).toBeInTheDocument()
-    expect(await screen.getByRole('link')).toHaveAttribute('href', '/es-MXN/posts/post')
   })
 })

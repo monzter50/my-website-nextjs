@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Text.module.css'
 import classNames from 'classnames'
 interface TextProps {
   children: JSX.Element | JSX.Element[] | string | string[]
@@ -7,6 +6,6 @@ interface TextProps {
 }
 
 export default function Text({ children, className }: TextProps): JSX.Element {
-  const classes = classNames(className, styles.p)
+  const classes = classNames(className, 'text-base font-normal')
   return <p className={classes}>{children}</p>
 }
