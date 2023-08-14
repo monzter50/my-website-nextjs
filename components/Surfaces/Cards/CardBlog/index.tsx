@@ -20,8 +20,8 @@ export default function CardBlog({ title, author, excerpt, slug, date }: CardBlo
   return (
 
     <div className='mb-4 cursor-pointer relative p-4 sm:p-8 rounded grid content-start  border-2 border-blue-ligth sm:border-transparent hover:border-blue-ligth duration-300 h-full  focus:ring-2 focus:ring-blue-ligth focus:border-transparent' role='card'>
-      <NextLink href={`/${locale}/posts/${slug}`} locale={locale}>
-          <article className=''>
+      <NextLink href={`/${locale}/posts/${slug}`} locale={locale} role='link'>
+          <article>
             <Heading as='h4' className='font-semibold'>{title ?? ''}</Heading>
             <Text className='text-base'>{excerpt}</Text>
             <Text className='text-sm opacity-80'>{author.name}</Text>

@@ -26,12 +26,12 @@ describe("Header", () => {
               class="about"
             >
               <h1
-                class="monsterTitle h1"
+                class="monsterTitle text-5xl"
               >
                 common:introduction.title
               </h1>
               <p
-                class="p"
+                class="text-base font-normal"
               >
                 common:introduction.description
               </p>
@@ -39,7 +39,7 @@ describe("Header", () => {
                 class="social py-3"
               >
                 <p
-                  class="p"
+                  class="text-base font-normal"
                 >
                   common:introduction.followme
                   :
@@ -253,12 +253,12 @@ describe("Header", () => {
             class="about"
           >
             <h1
-              class="monsterTitle h1"
+              class="monsterTitle text-5xl"
             >
               common:introduction.title
             </h1>
             <p
-              class="p"
+              class="text-base font-normal"
             >
               common:introduction.description
             </p>
@@ -266,7 +266,7 @@ describe("Header", () => {
               class="social py-3"
             >
               <p
-                class="p"
+                class="text-base font-normal"
               >
                 common:introduction.followme
                 :
