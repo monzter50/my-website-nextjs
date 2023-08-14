@@ -9,15 +9,11 @@ import { getAllFilesFrontMatter } from '@lib/mdx'
 import { CardBlog } from '@components/index'
 import Heading from '@components/Typhografy/Heading'
 import useTranslation from 'next-translate/useTranslation'
+import { IPostProps } from './posts.types'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
-interface IPostProps {
-  title?: string
-  author?: string
-  excerpt?: string
-  slug: string
-}
+
 interface IPostsProps {
   posts: IPostProps[]
 }
@@ -59,6 +55,7 @@ export default function PostPage({ posts }: IPostsProps): JSX.Element {
                     author={post.author}
                     excerpt={post.excerpt}
                     slug={post?.slug}
+                    date={post.date}
                   />
                 ))
                 : <div>No tenemos post</div>

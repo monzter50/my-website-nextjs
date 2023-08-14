@@ -1,30 +1,32 @@
 import React from 'react'
-import styles from './CardBlog.module.css'
 import NextLink from 'next/link'
-import Heading from '../../../Typhografy/Heading'
-import Text from '../../../Typhografy/Text'
+import Heading from '@components/Typhografy/Heading'
+import Text from '@components/Typhografy/Text'
 import { useRouter } from 'next/router'
+import { formatDate } from '@lib/utils'
 
 interface CardBlogProps {
   title?: string
   author?: any
   excerpt?: any
   slug: string
+  date: string
 }
-export default function CardBlog({ title, author, excerpt, slug }: CardBlogProps): JSX.Element {
+export default function CardBlog({ title, author, excerpt, slug, date }: CardBlogProps): JSX.Element {
   const router = useRouter()
   const locale = router?.locale ?? 'es-MXN'
+  const formatedDate = formatDate(date)
+
   return (
 
-    <div className={styles.newPost} role='card'>
+    <div className='mb-4 cursor-pointer relative p-4 sm:p-8 rounded grid content-start  border-2 border-blue-ligth sm:border-transparent hover:border-blue-ligth duration-300 h-full  focus:ring-2 focus:ring-blue-ligth focus:border-transparent' role='card'>
       <NextLink href={`/${locale}/posts/${slug}`} locale={locale}>
-        <a className="hover:underline">
-          <article className={styles.card}>
-            <Heading as='h3' className={styles.title}>{title ?? ''}</Heading>
-            <Text className={styles.preview}>{excerpt}</Text>
-            <Text>{author.name}</Text>
+          <article className=''>
+            <Heading as='h4' className='font-semibold'>{title ?? ''}</Heading>
+            <Text className='text-base'>{excerpt}</Text>
+            <Text className='text-sm opacity-80'>{author.name}</Text>
+            <Text className='text-right font-semibold'>{formatedDate}</Text>
           </article>
-        </a>
       </NextLink>
     </div>
 

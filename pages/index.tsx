@@ -13,15 +13,11 @@ import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IPostProps } from './posts/posts.types'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
-interface IPostProps{
-  title?: string
-  author?: string
-  excerpt?: string
-  slug: string
-}
+
 interface IPostsProps {
   posts: IPostProps[]
 }
@@ -57,7 +53,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
         <Header />
         <Wrapper>
           <section>
-            <Heading as="h3" className={'mb-3 mt-7'}>{t('common:posts.title')}</Heading>
+            <Heading as="h2" className={'my-7'}>{t('common:posts.title')}</Heading>
             <div className={styles.containerBlog}>
               {
                 posts?.length !== 0 &&
@@ -69,11 +65,12 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                     author={post.author}
                     excerpt={post.excerpt}
                     slug={post.slug}
+                    date={post.date}
                   />
                 ))}
               <p className='flex items-center'>
                 <Link href={`${locale}/posts`} locale={locale}>
-                  <a className="underline underline-offset-4 font-bold">
+                  <a className="pl-4 sm:pl-8 underline underline-offset-4 font-bold">
                     {t('common:posts.more')}
                   </a>
                 </Link>
@@ -85,9 +82,9 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
             <hr className='divide-y divide-gray-200' />
           </section>
 
-          <section className='mb-3'>
-            <Heading as="h3" className={'mb-3 mt-7'}>{t('common:projects.title')}</Heading>
-            <div className='flex flex-col'>
+          <section>
+            <Heading as="h2" className={'my-7'}>{t('common:projects.title')}</Heading>
+            <div className='px-4 sm:px-8 flex flex-col'>
               <div className={styles.containerBlog}>
                 <CardProject
                   title='LearnAla'
