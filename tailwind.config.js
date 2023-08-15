@@ -17,7 +17,7 @@ module.exports = {
         "blue-dark":"var(--blue-dark)",
         blue:"var(--blue)",
         "blue-contrast":"var(--blue-contrast)",
-        "blue-ligth":"var(--black-contrast)",
+        "blue-ligth":"var(--blue-ligth)",
         "light-grey":"var(--light-grey)",
         grey:"var(--grey)"
       },
@@ -34,6 +34,18 @@ module.exports = {
         '3xl': '1.953rem',
         '4xl': '2.441rem',
         '5xl': '3.052rem',
+        '6xl': '4.441rem',
+        '7xl': '5.052rem',
+      },
+      padding: {
+        '1rem': '1rem',
+        '2rem': '2rem',
+        '3rem': '3rem',
+        '4rem': '4rem',
+        '5rem': '5rem',
+        '6rem': '6rem',
+        '7rem': '7rem',
+        '8rem': '8rem',
       }
     },
   },

@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 interface TextProps {
-  children: JSX.Element | JSX.Element[] | string | string[]
+  children: React.ReactNode | JSX.Element | JSX.Element[] | string | string[]
   className?: string
 }
 
