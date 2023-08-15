@@ -12,31 +12,35 @@ describe("Header", () => {
   "baseElement": <body>
     <div>
       <section
-        class="hero py-6:lg"
+        class="relative pt-[8rem] pb-[3rem]"
         data-testid="HeaderTest"
         id="home"
       >
+        <div
+          class="absolute inset-0 z-[-1] bg-cover bg-center"
+          style="background-image: url(https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png);"
+        />
         <section
           class="Wrapper"
         >
           <header
-            class="monster"
+            class="flex justify-between"
           >
             <article
-              class="about"
+              class="relative flex flex-col justify-center leading-3 text-blue-ligth"
             >
               <h1
-                class="monsterTitle text-5xl"
+                class="text-7xl text-blue-ligth text-5xl"
               >
                 common:introduction.title
               </h1>
-              <p
-                class="text-base font-normal"
+              <h2
+                class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-4xl"
               >
-                common:introduction.description
-              </p>
+                common:introduction.subtitle
+              </h2>
               <div
-                class="social py-3"
+                class="flex items-center py-3"
               >
                 <p
                   class="text-base font-normal"
@@ -45,7 +49,7 @@ describe("Header", () => {
                   :
                 </p>
                 <span
-                  class="wrapperIcon"
+                  class="flex items-center ml-5"
                 >
                   <a
                     class="flex"
@@ -76,7 +80,7 @@ describe("Header", () => {
                   </a>
                 </span>
                 <span
-                  class="wrapperIcon"
+                  class="flex items-center ml-5"
                 >
                   <a
                     class="flex"
@@ -107,7 +111,7 @@ describe("Header", () => {
                   </a>
                 </span>
                 <span
-                  class="wrapperIcon"
+                  class="flex items-center ml-5"
                 >
                   <a
                     class="flex"
@@ -138,7 +142,7 @@ describe("Header", () => {
                   </a>
                 </span>
                 <span
-                  class="wrapperIcon"
+                  class="flex items-center ml-5"
                 >
                   <a
                     class="flex"
@@ -169,7 +173,7 @@ describe("Header", () => {
                   </a>
                 </span>
                 <span
-                  class="wrapperIcon"
+                  class="flex items-center ml-5"
                 >
                   <a
                     class="flex"
@@ -200,7 +204,7 @@ describe("Header", () => {
                   </a>
                 </span>
                 <span
-                  class="wrapperIcon"
+                  class="flex items-center ml-5"
                 >
                   <a
                     class="flex"
@@ -232,6 +236,31 @@ describe("Header", () => {
                 </span>
               </div>
             </article>
+            <div
+              class="hidden lg:block"
+            >
+              <span
+                style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27300%27%20height=%27500%27/%3e"
+                    style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                  />
+                </span>
+                <img
+                  data-nimg="intrinsic"
+                  decoding="async"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+                <noscript />
+              </span>
+            </div>
           </header>
         </section>
       </section>
@@ -239,31 +268,35 @@ describe("Header", () => {
   </body>,
   "container": <div>
     <section
-      class="hero py-6:lg"
+      class="relative pt-[8rem] pb-[3rem]"
       data-testid="HeaderTest"
       id="home"
     >
+      <div
+        class="absolute inset-0 z-[-1] bg-cover bg-center"
+        style="background-image: url(https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png);"
+      />
       <section
         class="Wrapper"
       >
         <header
-          class="monster"
+          class="flex justify-between"
         >
           <article
-            class="about"
+            class="relative flex flex-col justify-center leading-3 text-blue-ligth"
           >
             <h1
-              class="monsterTitle text-5xl"
+              class="text-7xl text-blue-ligth text-5xl"
             >
               common:introduction.title
             </h1>
-            <p
-              class="text-base font-normal"
+            <h2
+              class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-4xl"
             >
-              common:introduction.description
-            </p>
+              common:introduction.subtitle
+            </h2>
             <div
-              class="social py-3"
+              class="flex items-center py-3"
             >
               <p
                 class="text-base font-normal"
@@ -272,7 +305,7 @@ describe("Header", () => {
                 :
               </p>
               <span
-                class="wrapperIcon"
+                class="flex items-center ml-5"
               >
                 <a
                   class="flex"
@@ -303,7 +336,7 @@ describe("Header", () => {
                 </a>
               </span>
               <span
-                class="wrapperIcon"
+                class="flex items-center ml-5"
               >
                 <a
                   class="flex"
@@ -334,7 +367,7 @@ describe("Header", () => {
                 </a>
               </span>
               <span
-                class="wrapperIcon"
+                class="flex items-center ml-5"
               >
                 <a
                   class="flex"
@@ -365,7 +398,7 @@ describe("Header", () => {
                 </a>
               </span>
               <span
-                class="wrapperIcon"
+                class="flex items-center ml-5"
               >
                 <a
                   class="flex"
@@ -396,7 +429,7 @@ describe("Header", () => {
                 </a>
               </span>
               <span
-                class="wrapperIcon"
+                class="flex items-center ml-5"
               >
                 <a
                   class="flex"
@@ -427,7 +460,7 @@ describe("Header", () => {
                 </a>
               </span>
               <span
-                class="wrapperIcon"
+                class="flex items-center ml-5"
               >
                 <a
                   class="flex"
@@ -459,6 +492,31 @@ describe("Header", () => {
               </span>
             </div>
           </article>
+          <div
+            class="hidden lg:block"
+          >
+            <span
+              style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+            >
+              <span
+                style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27300%27%20height=%27500%27/%3e"
+                  style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                />
+              </span>
+              <img
+                data-nimg="intrinsic"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+              <noscript />
+            </span>
+          </div>
         </header>
       </section>
     </section>
