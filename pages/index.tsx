@@ -13,7 +13,7 @@ import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IPostProps } from './posts/posts.types'
+import { IPostProps } from '@lib/types/posts.types'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }

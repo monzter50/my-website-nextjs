@@ -9,7 +9,7 @@ import { getAllFilesFrontMatter } from '@lib/mdx'
 import { CardBlog } from '@components/index'
 import Heading from '@components/Typhografy/Heading'
 import useTranslation from 'next-translate/useTranslation'
-import { IPostProps } from './posts.types'
+import { IPostProps } from '@lib/types/posts.types'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
