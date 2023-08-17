@@ -1,9 +1,60 @@
+
+
 @font-face {
   font-family: 'Cousine';
-  src: url('../assets/fonts/Cousine/Cousine-Bold.otf');
-  src:  url('../assets/fonts/Cousine/Cousine-Bold.woff2') format('woff2'),
-  url('../assets/fonts/Cousine/Cousine-Bold.woff') format('woff');
+  src: url('../assets/fonts/Cousine/Cousine-Regular.ttf');
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cousine';
+  src: url('../assets/fonts/Cousine/Cousine-Bold.ttf');
+  font-weight: 800;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'Cousine';
+  src: url('../assets/fonts/Cousine/Cousine-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto/Roboto-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto/Roboto-Bold.ttf');
+  font-weight: 800;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Regular.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Medium.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Bold.ttf');
+  font-weight: 800;
   font-style: normal;
 }
 * {
@@ -25,10 +76,17 @@ body {
 h1, h2, h3, h4, h5{
   color:var(--black-contrast);
   font-family: 'Cousine';
+  font-weight: 800;
   margin-top: var(--space-sm);
   margin-bottom: var(--space-sm);
 }
-
+p{
+  font-family: 'Roboto';
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -79,6 +137,8 @@ a {
   --succes: #32d296;
   /*Fonts default*/
   --font-family: "Roboto", sans-serif;
+  --font-cousine: "Cousine", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
   --line-height: 1.6;
   --font-size: 16px;
   --font-size-xs: 10px;
