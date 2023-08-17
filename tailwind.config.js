@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        roboto:['var(--font-family)']
+        roboto:['var(--font-family)'],
+        cousine:['var(--font-cousine)'],
+        poppins:['var(--font-poppins)'],
       },
       colors: {
         primary:"var(--first-color)",
