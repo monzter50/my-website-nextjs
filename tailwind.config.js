@@ -48,7 +48,10 @@ module.exports = {
         '6rem': '6rem',
         '7rem': '7rem',
         '8rem': '8rem',
-      }
+      },
+      screens: {
+        'scroll-smooth': {'raw': 'scroll-behavior: smooth'},
+      },
     },
   },
   plugins: [],

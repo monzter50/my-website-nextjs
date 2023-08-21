@@ -2,7 +2,6 @@
     "introduction":{
         "title":"Yo soy Jose Gonzalez Castro",
         "subtitle":"Ingeniero en Software",
-        "description":"Soy una persona creativa, ordenada, analítica, autodidacta, apasionada por la enseñanza y el aprendizaje. Mis pasatiempos favoritos son ver películas, hablar con mi esposa, correr, leer artículos sobre nuevas actualizaciones del lenguaje de programación y estudiar cosas nuevas.",
         "followme":"Sigueme en"
     },
     "posts":{
@@ -12,5 +11,19 @@
     "projects":{
         "title":"Ultimos proyectos",
         "more":"Ver todos los proyectos"
+    },
+    "skills":{
+        "title":"Habilidades"
+    },
+    "aboutme":{
+        "title":"Sobre Mi",
+        "description":"Soy una persona creativa y analítica con una inclinación por la organización. Mi viaje autodidacta ha alimentado mi pasión por la enseñanza y el aprendizaje. Fuera de mis intereses profesionales, disfruto ver películas, entablar conversaciones profundas con mi esposa, correr y estar al tanto de las últimas actualizaciones en lenguajes de programación. Siempre estoy ansioso por sumergirme en nuevos temas y ampliar mis conocimientos."
+    },
+    "nav":{
+        "home":"Inicio",
+        "aboutme":"Sobre Mi",
+        "skills":"Habilidades",
+        "blog":"Blog",
+        "project":"Proyectos"
     }
 }

@@ -9,11 +9,14 @@ import CardBlog from '@components/Surfaces/Cards/CardBlog'
 import { CardProject } from '@components/index'
 import { getAllFilesFrontMatter } from '@lib/mdx'
 import Heading from '@components/Typhografy/Heading'
+import Text from '@components/Typhografy/Text'
+
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IPostProps } from '@lib/types/posts.types'
+import SkillsIcon from '@components/dataDisplay/SkillsIcon'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
@@ -47,7 +50,30 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
       <Layout>
         <Header />
         <Wrapper>
-          <section>
+          <section id='aboutme' className='py-10'>
+            <Heading as="h2" className={'my-7'}>{t('common:aboutme.title')}</Heading>
+            <Text>{t('common:aboutme.description')}</Text>
+          </section>
+          <section id='skills' className='py-10'>
+            <Heading as="h2" className={'my-7'}>{t('common:skills.title')}</Heading>
+            <div className='mb-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 items-center justify-center gap-2'>
+              <SkillsIcon icon="Git" direction='vertical' />
+              <SkillsIcon icon="Python" direction='vertical' />
+              <SkillsIcon icon="Django" direction='vertical' />
+              <SkillsIcon icon="React" direction='vertical' />
+              <SkillsIcon icon="NodeJs" direction='vertical' />
+              <SkillsIcon icon="Javascript" direction='vertical' />
+              <SkillsIcon icon="Jest" direction='vertical' />
+              <SkillsIcon icon="TestingLibrary" direction='vertical' />
+              <SkillsIcon icon="NextJs" direction='vertical' />
+              <SkillsIcon icon="TailwindCss" direction='vertical' />
+              <SkillsIcon icon="CSS" direction='vertical' />
+              <SkillsIcon icon="HTML" direction='vertical' />
+              <SkillsIcon icon="Typescript" direction='vertical' />
+            </div>
+          </section>
+
+          <section id='blog' className='py-10'>
             <Heading as="h2" className={'my-7'}>{t('common:posts.title')}</Heading>
             <div className={styles.containerBlog}>
               {
@@ -74,10 +100,9 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
               </p>
 
             </div>
-            <hr className='divide-y divide-gray-200' />
           </section>
 
-          <section>
+          <section id='project' className='py-10'>
             <Heading as="h2" className={'my-7'}>{t('common:projects.title')}</Heading>
             <div className='px-4 sm:px-8 flex flex-col'>
               <div className={styles.containerBlog}>
@@ -97,7 +122,6 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
               </div>
 
             </div>
-            <hr className='divide-y divide-gray-200' />
           </section>
         </Wrapper>
       </Layout>
