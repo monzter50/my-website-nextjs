@@ -8,12 +8,17 @@ import Header from '@components/Header'
 import CardBlog from '@components/Surfaces/Cards/CardBlog'
 import { CardProject } from '@components/index'
 import { getAllFilesFrontMatter } from '@lib/mdx'
+import { experiences } from '@lib/data'
 import Heading from '@components/Typhografy/Heading'
+import Text from '@components/Typhografy/Text'
+
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IPostProps } from '@lib/types/posts.types'
+import SkillsIcon from '@components/dataDisplay/SkillsIcon'
+import Timeline from '@components/dataDisplay/Timeline'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
@@ -21,6 +26,7 @@ interface IStaticProps {
 interface IPostsProps {
   posts: IPostProps[]
 }
+
 export async function getStaticProps({ locale }: IStaticProps): Promise<any> {
   const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`)
   return {
@@ -44,10 +50,37 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
 
       </Head>
 
-      <Layout>
+      <Layout isHome>
         <Header />
         <Wrapper>
-          <section>
+          <section id='aboutme' className='py-10'>
+            <Heading as="h2" className={'my-7'}>{t('common:aboutme.title')}</Heading>
+            <Text>{t('common:aboutme.description')}</Text>
+          </section>
+          <section id='skills' className='py-10'>
+            <Heading as="h2" className={'my-7'}>{t('common:skills.title')}</Heading>
+            <div className='mb-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 items-center justify-center gap-2'>
+              <SkillsIcon icon="Git" direction='vertical' />
+              <SkillsIcon icon="Python" direction='vertical' />
+              <SkillsIcon icon="Django" direction='vertical' />
+              <SkillsIcon icon="React" direction='vertical' />
+              <SkillsIcon icon="NodeJs" direction='vertical' />
+              <SkillsIcon icon="Javascript" direction='vertical' />
+              <SkillsIcon icon="Jest" direction='vertical' />
+              <SkillsIcon icon="TestingLibrary" direction='vertical' />
+              <SkillsIcon icon="NextJs" direction='vertical' />
+              <SkillsIcon icon="TailwindCss" direction='vertical' />
+              <SkillsIcon icon="CSS" direction='vertical' />
+              <SkillsIcon icon="HTML" direction='vertical' />
+              <SkillsIcon icon="Typescript" direction='vertical' />
+            </div>
+          </section>
+          <section id='experiences' className='py-10'>
+          <Heading as="h2" className={'my-7'}>{t('common:experiences.title')}</Heading>
+
+            <Timeline experiences={experiences}/>
+          </section>
+          <section id='blog' className='py-10'>
             <Heading as="h2" className={'my-7'}>{t('common:posts.title')}</Heading>
             <div className={styles.containerBlog}>
               {
@@ -63,7 +96,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                     date={post.date}
                   />
                 ))}
-              <p className='flex items-center'>
+              <p className='flex items-center text-black dark:text-white'>
                 <Link href={`${locale}/posts`} locale={locale}>
                   <a className="pl-4 sm:pl-8 underline underline-offset-4 font-bold">
                     {t('common:posts.more')}
@@ -74,10 +107,9 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
               </p>
 
             </div>
-            <hr className='divide-y divide-gray-200' />
           </section>
 
-          <section>
+          <section id='project' className='py-10'>
             <Heading as="h2" className={'my-7'}>{t('common:projects.title')}</Heading>
             <div className='px-4 sm:px-8 flex flex-col'>
               <div className={styles.containerBlog}>
@@ -86,7 +118,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   src='/img/projects/learnala.png'
                   href='https://www.learnala.com/'
                   description='LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.' />
-                <p className='flex items-center'>
+                <p className='flex items-center text-black dark:text-white'>
                   <Link href={`${locale}/projects`} locale={locale}>
                     <a className="underline underline-offset-4 font-bold">
                       {t('common:projects.more')}
@@ -97,7 +129,6 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
               </div>
 
             </div>
-            <hr className='divide-y divide-gray-200' />
           </section>
         </Wrapper>
       </Layout>

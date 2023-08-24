@@ -6,6 +6,6 @@ interface TextProps {
 }
 
 export default function Text({ children, className }: TextProps): JSX.Element {
-  const classes = classNames(className, 'text-base font-normal')
+  const classes = classNames(className, 'text-base font-normal text-black dark:text-white my-5')
   return <p className={classes}>{children}</p>
 }

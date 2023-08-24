@@ -2,7 +2,6 @@
     "introduction":{
         "title":"I'm Jose Gonzalez Castro",
         "subtitle":"Software Engineer ",
-        "description":"I am a creative, orderly, analytical, self-taught, passionate about teaching and learning person. My favorite hobbies is watch movies, talk with my wife, run, read articles about new update programming language and study new things.",
         "followme":"Follow me in"
     },
     "posts":{
@@ -12,5 +11,23 @@
     "projects":{
         "title":"Last projects",
         "more":"See all projects"
+    },
+    "skills":{
+        "title":"Skills"
+    },
+    "aboutme":{
+        "title":"About Me",
+        "description":"I am a creative and analytical individual with a penchant for organization. My self-taught journey has fueled my passion for both teaching and learning. Outside of my professional interests, I enjoy watching movies, engaging in deep conversations with my wife, running, and keeping abreast of the latest updates in programming languages. I'm always eager to dive into new subjects and expand my knowledge."
+    },
+    "experiences":{
+        "title":"Experiences"
+    },
+    "nav":{
+        "home":"Home",
+        "aboutme":"About me",
+        "skills":"Skills",
+        "experiences":"Experiences",
+        "blog":"Blog",
+        "project":"Projects"
     }
 }

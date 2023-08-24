@@ -1,9 +1,8 @@
 import React from 'react'
-import styles from './Wrapper.module.css'
 
 export default function Wrapper({ children }: any): JSX.Element {
   return (
-    <section className={styles.Wrapper}>
+    <section className={'mx-auto max-w-[1200px] w-11/12'}>
       {children}
     </section>
   )

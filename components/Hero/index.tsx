@@ -10,7 +10,7 @@ interface HeroProps {
 }
 export default function Hero({ title, href, slug }: HeroProps): JSX.Element {
   return (
-    <section className={`${styles.hero} pt-24`}>
+    <section className={`${styles.hero} pt-[7rem]`}>
 
       <Wrapper>
         <div className={`${styles.breadcrumbs} flex items-center mt-4`}>
