@@ -8,6 +8,7 @@ import Header from '@components/Header'
 import CardBlog from '@components/Surfaces/Cards/CardBlog'
 import { CardProject } from '@components/index'
 import { getAllFilesFrontMatter } from '@lib/mdx'
+import { experiences } from '@lib/data'
 import Heading from '@components/Typhografy/Heading'
 import Text from '@components/Typhografy/Text'
 
@@ -17,6 +18,7 @@ import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IPostProps } from '@lib/types/posts.types'
 import SkillsIcon from '@components/dataDisplay/SkillsIcon'
+import Timeline from '@components/dataDisplay/Timeline'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
@@ -24,6 +26,7 @@ interface IStaticProps {
 interface IPostsProps {
   posts: IPostProps[]
 }
+
 export async function getStaticProps({ locale }: IStaticProps): Promise<any> {
   const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`)
   return {
@@ -47,7 +50,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
 
       </Head>
 
-      <Layout>
+      <Layout isHome>
         <Header />
         <Wrapper>
           <section id='aboutme' className='py-10'>
@@ -72,7 +75,11 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
               <SkillsIcon icon="Typescript" direction='vertical' />
             </div>
           </section>
+          <section id='experiences' className='py-10'>
+          <Heading as="h2" className={'my-7'}>{t('common:experiences.title')}</Heading>
 
+            <Timeline experiences={experiences}/>
+          </section>
           <section id='blog' className='py-10'>
             <Heading as="h2" className={'my-7'}>{t('common:posts.title')}</Heading>
             <div className={styles.containerBlog}>
@@ -89,7 +96,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                     date={post.date}
                   />
                 ))}
-              <p className='flex items-center'>
+              <p className='flex items-center text-black dark:text-white'>
                 <Link href={`${locale}/posts`} locale={locale}>
                   <a className="pl-4 sm:pl-8 underline underline-offset-4 font-bold">
                     {t('common:posts.more')}
@@ -111,7 +118,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   src='/img/projects/learnala.png'
                   href='https://www.learnala.com/'
                   description='LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.' />
-                <p className='flex items-center'>
+                <p className='flex items-center text-black dark:text-white'>
                   <Link href={`${locale}/projects`} locale={locale}>
                     <a className="underline underline-offset-4 font-bold">
                       {t('common:projects.more')}

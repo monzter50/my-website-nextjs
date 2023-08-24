@@ -3,10 +3,10 @@ import styles from './Layout.module.css'
 import Navbar from '../../Navigation/Navbar'
 import Footer from '../../Navigation/Footer'
 export default function Layout(props: any): JSX.Element {
-  const { children } = props
+  const { children, isHome = false } = props
   return (
     <main className={styles.main}>
-      <Navbar />
+      <Navbar isHome={isHome} />
       {children}
       <Footer />
     </main>

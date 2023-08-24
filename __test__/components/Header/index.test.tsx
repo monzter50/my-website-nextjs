@@ -21,7 +21,7 @@ describe("Header", () => {
           style="background-image: url(https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png);"
         />
         <section
-          class="Wrapper"
+          class="mx-auto max-w-[1200px] w-11/12"
         >
           <header
             class="flex justify-between"
@@ -30,12 +30,12 @@ describe("Header", () => {
               class="relative flex flex-col justify-center leading-3 text-blue-ligth"
             >
               <h1
-                class="text-7xl text-blue-ligth text-5xl"
+                class="text-7xl text-blue-ligth text-black dark:text-blue my-2 text-5xl font-bold"
               >
                 common:introduction.title
               </h1>
               <h2
-                class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-4xl"
+                class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-black dark:text-blue my-2 text-4xl font-bold"
               >
                 common:introduction.subtitle
               </h2>
@@ -43,7 +43,7 @@ describe("Header", () => {
                 class="flex items-center py-3"
               >
                 <p
-                  class="text-base font-normal"
+                  class="text-base font-normal text-black dark:text-white my-5"
                 >
                   common:introduction.followme
                   :
@@ -277,7 +277,7 @@ describe("Header", () => {
         style="background-image: url(https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png);"
       />
       <section
-        class="Wrapper"
+        class="mx-auto max-w-[1200px] w-11/12"
       >
         <header
           class="flex justify-between"
@@ -286,12 +286,12 @@ describe("Header", () => {
             class="relative flex flex-col justify-center leading-3 text-blue-ligth"
           >
             <h1
-              class="text-7xl text-blue-ligth text-5xl"
+              class="text-7xl text-blue-ligth text-black dark:text-blue my-2 text-5xl font-bold"
             >
               common:introduction.title
             </h1>
             <h2
-              class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-4xl"
+              class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-black dark:text-blue my-2 text-4xl font-bold"
             >
               common:introduction.subtitle
             </h2>
@@ -299,7 +299,7 @@ describe("Header", () => {
               class="flex items-center py-3"
             >
               <p
-                class="text-base font-normal"
+                class="text-base font-normal text-black dark:text-white my-5"
               >
                 common:introduction.followme
                 :

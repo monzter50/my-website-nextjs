@@ -21,7 +21,9 @@ module.exports = {
         "blue-contrast":"var(--blue-contrast)",
         "blue-ligth":"var(--blue-ligth)",
         "light-grey":"var(--light-grey)",
-        grey:"var(--grey)"
+        grey:"var(--grey)",
+        black:"var(--black)",
+        "black-contrast":"var(--black-contrast)"
       },
       fontWeight: {
         normal: '400',

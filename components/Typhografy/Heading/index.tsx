@@ -16,7 +16,7 @@ function ComponentDynamic({ as = 'h1', children, className, ...props }: Componen
     h5: 'text-xl font-bold',
     h6: 'text-lg font-bold'
   }
-  const classes = classNames(className, textSize[as])
+  const classes = classNames(className, 'text-black dark:text-blue my-2', textSize[as])
 
   // Create a new component based on the 'as' prop
   const Component = as

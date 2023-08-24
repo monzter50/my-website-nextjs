@@ -19,10 +19,14 @@
         "title":"Sobre Mi",
         "description":"Soy una persona creativa y analítica con una inclinación por la organización. Mi viaje autodidacta ha alimentado mi pasión por la enseñanza y el aprendizaje. Fuera de mis intereses profesionales, disfruto ver películas, entablar conversaciones profundas con mi esposa, correr y estar al tanto de las últimas actualizaciones en lenguajes de programación. Siempre estoy ansioso por sumergirme en nuevos temas y ampliar mis conocimientos."
     },
+    "experiences":{
+        "title":"Experiencias"
+    },
     "nav":{
         "home":"Inicio",
         "aboutme":"Sobre Mi",
         "skills":"Habilidades",
+        "experiences":"Experiencia",
         "blog":"Blog",
         "project":"Proyectos"
     }

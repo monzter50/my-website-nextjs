@@ -19,10 +19,14 @@
         "title":"About Me",
         "description":"I am a creative and analytical individual with a penchant for organization. My self-taught journey has fueled my passion for both teaching and learning. Outside of my professional interests, I enjoy watching movies, engaging in deep conversations with my wife, running, and keeping abreast of the latest updates in programming languages. I'm always eager to dive into new subjects and expand my knowledge."
     },
+    "experiences":{
+        "title":"Experiences"
+    },
     "nav":{
         "home":"Home",
         "aboutme":"About me",
         "skills":"Skills",
+        "experiences":"Experiences",
         "blog":"Blog",
         "project":"Projects"
     }
