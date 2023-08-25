@@ -21,13 +21,13 @@ export default function Header(): JSX.Element {
             <Heading as="h1" className='text-7xl text-blue-ligth'>
               {t('common:introduction.title')}
             </Heading>
-            <Heading as="h2" className='bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent'>
+            <Heading as="h2" className='bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text dark:text-transparent text-transparent'>
               {t('common:introduction.subtitle')}
             </Heading>
 
             <div className={'flex items-center py-3'}>
 
-              <Text>{t('common:introduction.followme')}:</Text>
+              <Text className='text-white'>{t('common:introduction.followme')}:</Text>
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Github'>
