@@ -1,4 +1,3 @@
-import Code from '@components/dataDisplay/Code'
 import CodeBlock from '@components/dataDisplay/CodeBlock'
 import Heading from '@components/Typhografy/Heading'
 import Text from '@components/Typhografy/Text'
