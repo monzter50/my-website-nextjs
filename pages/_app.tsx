@@ -1,4 +1,5 @@
 import '@styles/globals.css'
+import '@styles/prism-night-theme.css'
 import type { AppProps } from 'next/app'
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import { faInstagram, faLinkedin, faGithub, faCodepen, faTwitter } from '@fortawesome/free-brands-svg-icons'
