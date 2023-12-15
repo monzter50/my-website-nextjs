@@ -47,7 +47,6 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
       <Head>
         <title>Monster Codes</title>
         <link rel="icon" href="/isotipo.ico" />
-
       </Head>
 
       <Layout isHome>
@@ -103,9 +102,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   </a>
                 </Link>
                 <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
-
               </p>
-
             </div>
           </section>
 

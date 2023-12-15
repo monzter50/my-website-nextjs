@@ -35,7 +35,7 @@ describe("Header", () => {
                 common:introduction.title
               </h1>
               <h2
-                class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-black dark:text-blue my-2 text-4xl font-bold"
+                class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text dark:text-transparent text-transparent text-black dark:text-blue my-2 text-4xl font-bold"
               >
                 common:introduction.subtitle
               </h2>
@@ -43,7 +43,7 @@ describe("Header", () => {
                 class="flex items-center py-3"
               >
                 <p
-                  class="text-base font-normal text-black dark:text-white my-5"
+                  class="text-white text-base font-normal text-black dark:text-white my-5"
                 >
                   common:introduction.followme
                   :
@@ -291,7 +291,7 @@ describe("Header", () => {
               common:introduction.title
             </h1>
             <h2
-              class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-transparent text-black dark:text-blue my-2 text-4xl font-bold"
+              class="bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text dark:text-transparent text-transparent text-black dark:text-blue my-2 text-4xl font-bold"
             >
               common:introduction.subtitle
             </h2>
@@ -299,7 +299,7 @@ describe("Header", () => {
               class="flex items-center py-3"
             >
               <p
-                class="text-base font-normal text-black dark:text-white my-5"
+                class="text-white text-base font-normal text-black dark:text-white my-5"
               >
                 common:introduction.followme
                 :

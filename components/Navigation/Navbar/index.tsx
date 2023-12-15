@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import Wrapper from '../../Surfaces/Wrapper/index'
 import useTranslation from 'next-translate/useTranslation'
 import Hamburger from '@components/Icons/Hamburger'
-export default function Navbar({ isHome }: any): JSX.Element {
+export default function Navbar({ isHome }: {isHome: boolean}): JSX.Element {
   const router = useRouter()
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
@@ -24,14 +24,13 @@ export default function Navbar({ isHome }: any): JSX.Element {
     }
   }
   return (
-    <nav className=' bg-black text-white fixed top-0 w-full z-50 shadow-md p-4'>
+    <nav className='fixed top-0 w-full z-40 p-2 text-white flex items-center bg-blur'>
       <Wrapper>
-        <div className='flex justify-between items-center w-full flex-wrap md:flex-nowrap'>
+        <div className='flex items-center w-full justify-between flex-wrap md:flex-nowrap'>
 
-          <Link href='/' className=''>
-            <a >
-              <Logotipo height={100} width={150} />
-
+          <Link href='/' >
+            <a>
+              <Logotipo height={100} width={200} />
             </a>
 
           </Link>
