@@ -5,7 +5,7 @@ interface LogotipoProp {
 }
 const Logotipo = ({ width = 100, height = 50 }: LogotipoProp): JSX.Element => (
   <svg
-    viewBox="0 250 1080 600"
+    viewBox="100 250 1080 600"
     width={width}
     height={height}
   >
