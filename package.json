@@ -1,6 +1,6 @@
 {
   "name": "my-website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -13,6 +13,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.1",
     "date-fns": "^2.29.3",
     "file-system": "^2.2.2",
     "fs": "^0.0.1-security",
