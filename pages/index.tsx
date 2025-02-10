@@ -96,7 +96,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   />
                 ))}
               <p className='flex items-center text-black dark:text-white'>
-                <Link href={`${locale}/posts`} locale={locale}>
+                <Link legacyBehavior href={`${locale}/posts`} locale={locale}>
                   <a className="pl-4 sm:pl-8 underline underline-offset-4 font-bold">
                     {t('common:posts.more')}
                   </a>
@@ -116,7 +116,7 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   href='https://www.learnala.com/'
                   description='LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.' />
                 <p className='flex items-center text-black dark:text-white'>
-                  <Link href={`${locale}/projects`} locale={locale}>
+                  <Link legacyBehavior href={`${locale}/projects`} locale={locale}>
                     <a className="underline underline-offset-4 font-bold">
                       {t('common:projects.more')}
                     </a>

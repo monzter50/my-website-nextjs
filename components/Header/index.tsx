@@ -101,6 +101,7 @@ export default function Header(): JSX.Element {
           </article>
           <div className='hidden lg:block'>
             <Image
+                alt={'Code Monster'}
               src={'https://s3.amazonaws.com/monstercodes.dev/assets/personaje.png'}
               width={300}
               height={500}

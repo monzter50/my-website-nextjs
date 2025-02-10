@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -28,7 +29,7 @@ export default function Navbar({ isHome }: {isHome: boolean}): JSX.Element {
       <Wrapper>
         <div className='flex items-center w-full justify-between flex-wrap md:flex-nowrap'>
 
-          <Link href='/' >
+          <Link legacyBehavior href='/' >
             <a>
               <Logotipo height={100} width={200} />
             </a>

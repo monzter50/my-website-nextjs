@@ -3,7 +3,7 @@ import React from 'react'
 // Services
 
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import styles from 'styles/Post.module.css'
+import styles from '@styles/Post.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Hero from '@components/Hero'
