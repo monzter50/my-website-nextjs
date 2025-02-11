@@ -1,8 +1,8 @@
 import { Wrapper } from '..'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Heading from '../Typhografy/Heading'
 import Link from 'next/link'
 import styles from './Hero.module.css'
+import { ChevronRight } from 'lucide-react'
 interface HeroProps {
   title: string
   href: string
@@ -19,7 +19,7 @@ export default function Hero({ title, href, slug }: HeroProps): JSX.Element {
               home
             </a>
           </Link>
-          <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
+          <ChevronRight className={styles.icon} size="xs" />
           <Link legacyBehavior href={href}>
             <a className="underline underline-offset-4 font-bold" role='link'>
               {slug}

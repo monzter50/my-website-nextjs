@@ -15,10 +15,10 @@ import Text from '@components/Typhografy/Text'
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IPostProps } from '@lib/types/posts.types'
 import SkillsIcon from '@components/dataDisplay/SkillsIcon'
 import Timeline from '@components/dataDisplay/Timeline'
+import { ChevronRight } from 'lucide-react'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
 }
@@ -34,10 +34,7 @@ export async function getStaticProps({ locale }: IStaticProps): Promise<any> {
   }
 }
 
-HomePage.defaultProps = {
-  posts: []
-}
-export default function HomePage({ posts }: IPostsProps): JSX.Element {
+export default function HomePage({ posts = [] }: IPostsProps): JSX.Element {
   const router = useRouter()
   const locale = router?.locale ?? 'es-MX'
 
@@ -96,12 +93,10 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   />
                 ))}
               <p className='flex items-center text-black dark:text-white'>
-                <Link legacyBehavior href={`${locale}/posts`} locale={locale}>
-                  <a className="pl-4 sm:pl-8 underline underline-offset-4 font-bold">
+                <Link className="pl-4 sm:pl-8 underline underline-offset-4 font-bold" href={`${locale}/posts`} locale={locale}>
                     {t('common:posts.more')}
-                  </a>
                 </Link>
-                <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
+                <ChevronRight className={styles.icon} size="xs" />
               </p>
             </div>
           </section>
@@ -116,12 +111,10 @@ export default function HomePage({ posts }: IPostsProps): JSX.Element {
                   href='https://www.learnala.com/'
                   description='LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.' />
                 <p className='flex items-center text-black dark:text-white'>
-                  <Link legacyBehavior href={`${locale}/projects`} locale={locale}>
-                    <a className="underline underline-offset-4 font-bold">
+                  <Link className={'underline underline-offset-4 font-bold'} href={`${locale}/projects`} locale={locale}>
                       {t('common:projects.more')}
-                    </a>
                   </Link>
-                  <FontAwesomeIcon icon={['fas', 'chevron-right']} className={styles.icon} size="xs" />
+                  <ChevronRight className={styles.icon} size="xs" />
                 </p>
               </div>
 
