@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   line-height: calc(1em + 0.725rem);
   -webkit-font-smoothing: antialiased;
@@ -18,13 +22,13 @@ body {
 
 h1, h2, h3, h4, h5{
   color:var(--black-contrast);
-  font-family: 'Cousine';
+  font-family:var(--font-cousine);
   font-weight: 800;
   margin-top: var(--space-sm);
   margin-bottom: var(--space-sm);
 }
 p{
-  font-family: 'Roboto';
+  font-family: var(--font-cousine);
   font-weight: 400;
   line-height: 1.5;
   margin-top: var(--space-sm);
@@ -67,8 +71,7 @@ a {
   /*Text colors*/
   --text-color: #7B7B7B;
   --second-text-color: #80868b;
-  --link-text-color: var(--five-color);
-  --second-text-color: #F9F9F9;
+
   /*Hovers*/
   --hover-primary: var(--blue-dark);
   --hover-second: var(--blue);
@@ -164,6 +167,3 @@ a {
   }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
