@@ -1,4 +1,2 @@
-import CardBlog from './CardBlog'
-import CardProject from './CardProject'
-
-export { CardBlog, CardProject }
+export { default as CardBlog } from './CardBlog'
+export { default as CardProject } from './CardProject'

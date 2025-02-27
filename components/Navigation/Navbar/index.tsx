@@ -1,11 +1,12 @@
+'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Logotipo } from '../../Icons'
 import { useRouter } from 'next/router'
 import Wrapper from '../../Surfaces/Wrapper/index'
 import useTranslation from 'next-translate/useTranslation'
 import Hamburger from '@components/Icons/Hamburger'
+import { ChevronDown } from 'lucide-react'
 export default function Navbar({ isHome }: {isHome: boolean}): JSX.Element {
   const router = useRouter()
   const { t } = useTranslation()
@@ -28,7 +29,7 @@ export default function Navbar({ isHome }: {isHome: boolean}): JSX.Element {
       <Wrapper>
         <div className='flex items-center w-full justify-between flex-wrap md:flex-nowrap'>
 
-          <Link href='/' >
+          <Link legacyBehavior href='/' >
             <a>
               <Logotipo height={100} width={200} />
             </a>
@@ -64,9 +65,8 @@ export default function Navbar({ isHome }: {isHome: boolean}): JSX.Element {
 
                     <button onClick={handleLanguageChange} className="flex items-center px-4 py-2 my-2 sm:my-0  rounded transition duration-300 ease-in-out" role='list-item'>
                       {locale === 'en-US' ? 'EN' : 'ES'}
-                      <FontAwesomeIcon
+                      <ChevronDown
                         className='block mx-1 h-4'
-                        icon={['fas', 'chevron-down']}
                         size="xs"
                       />
                     </button>

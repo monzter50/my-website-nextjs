@@ -2,14 +2,13 @@
 
 import React from 'react'
 import styles from './Header.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Wrapper from '../Surfaces/Wrapper'
 import Heading from '../Typhografy/Heading'
 import Text from '../Typhografy/Text'
 import Tooltip from '../dataDisplay/Tooltip'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
-import { faCodepen, faFile, faGithub, faInstagram, faLinkedin, faTwitter } from './Header.types'
+import { Codepen, File, Github, Linkedin, XSquare } from 'lucide-react'
 export default function Header(): JSX.Element {
   const { t } = useTranslation()
   return (
@@ -31,9 +30,8 @@ export default function Header(): JSX.Element {
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Github'>
-                    <FontAwesomeIcon
+                    <Github
                       className={styles.icon}
-                      icon={faGithub}
                       size="xs"
                     />
                   </Tooltip>
@@ -43,9 +41,8 @@ export default function Header(): JSX.Element {
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://codepen.io/monstercodes" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='CodePen'>
-                    <FontAwesomeIcon
+                    <Codepen
                       className={styles.icon}
-                      icon={faCodepen}
                       size="xs"
                     />
                   </Tooltip>
@@ -55,9 +52,8 @@ export default function Header(): JSX.Element {
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://www.linkedin.com/in/jose-gonzalez-b32228138/" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Linkedin'>
-                    <FontAwesomeIcon
+                    <Linkedin
                       size="xs"
-                      icon={faLinkedin}
                       className={styles.icon}
                     />
                   </Tooltip>
@@ -65,32 +61,20 @@ export default function Header(): JSX.Element {
 
               </span>
               <span className={'flex items-center ml-5'}>
-                <a className='flex' href="https://twitter.com/monster_codes" target="_blank" rel="noopener noreferrer">
-                  <Tooltip title='Twitter'>
-                    <FontAwesomeIcon
+                <a className='flex' href="https://x.com/monster_codes" target="_blank" rel="noopener noreferrer">
+                  <Tooltip title='X'>
+                    <XSquare
                       size="xs"
-                      icon={faTwitter}
                       className={styles.icon}
                     />
                   </Tooltip>
                 </a>
               </span>
-              <span className={'flex items-center ml-5'}>
-                <a className='flex' href="https://www.instagram.com/monstercodes/" target="_blank" rel="noreferrer">
-                  <Tooltip title='Instagram'>
-                    <FontAwesomeIcon
-                      icon={faInstagram}
-                      className={styles.icon}
-                      size="xs"
-                    />
-                  </Tooltip>
-                </a>
-              </span>
+
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf" target={'_blank'} rel="noreferrer">
                   <Tooltip title='My CV'>
-                    <FontAwesomeIcon
-                      icon={faFile}
+                    <File
                       className={styles.iconFile}
                       size="xs"
                     />
@@ -101,6 +85,7 @@ export default function Header(): JSX.Element {
           </article>
           <div className='hidden lg:block'>
             <Image
+                alt={'Code Monster'}
               src={'https://s3.amazonaws.com/monstercodes.dev/assets/personaje.png'}
               width={300}
               height={500}

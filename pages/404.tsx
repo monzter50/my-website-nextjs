@@ -23,7 +23,7 @@ export default function NotFound(): JSX.Element {
                 </div>
 
                 <div className={styles.goBack}>
-                <Link href="/">
+                <Link legacyBehavior href="/">
                     <a className={styles.link}>
                         Go back home
                     </a>
