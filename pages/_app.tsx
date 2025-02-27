@@ -1,14 +1,39 @@
 import '@styles/globals.css'
 import '@styles/prism-night-theme.css'
 import type { AppProps } from 'next/app'
-import { icon, library } from '@fortawesome/fontawesome-svg-core'
-import { faInstagram, faLinkedin, faGithub, faCodepen, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faChevronRight, faFile, faChevronDown, faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
-library.add(faInstagram, faLinkedin, faGithub, faCodepen, faTwitter, faChevronRight, faFile, faChevronDown, faTimes, faBars)
-const camera = icon({ prefix: 'fas', iconName: 'instagram' })
-const icons = { camera }
+import { Roboto, Poppins, Cousine } from 'next/font/google'
+
+const roboto = Roboto({
+  weight: ['400', '500', '700'],
+  style: 'normal',
+  subsets: ['latin']
+})
+
+const poppins = Poppins({
+  weight: ['400', '500', '700'],
+  style: 'normal',
+  subsets: ['latin']
+})
+
+const cousine = Cousine({
+  weight: ['400', '700'],
+  style: 'normal',
+  subsets: ['latin']
+})
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} {...icons} />
+  return (
+      <>
+        <Component {...pageProps} />
+
+        <style jsx global>{`
+        :root {
+          --font-cousine: ${cousine.style.fontFamily};
+          --font-family: ${roboto.style.fontFamily};
+          --font-poppins: ${poppins.style.fontFamily};
+        }
+      `}</style>
+      </>
+  )
 }
 
 export default MyApp

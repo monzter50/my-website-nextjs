@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import styles from 'styles/Home.module.css'
+import styles from '@styles/Home.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Hero from '@components/Hero'

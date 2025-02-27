@@ -22,9 +22,18 @@ module.exports = {
   },
   images: {
     domains: ['s3.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "**",
+      },
+    ],
     formats: ['image/webp']
   },
  ...nextTranslate(),
  reactStrictMode: false,
-
+  experimental: {
+    forceSwcTransforms: true,
+  },
 }
