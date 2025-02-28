@@ -3,7 +3,6 @@ import React from 'react'
 // Services
 
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import styles from '@styles/Post.module.css'
 import Wrapper from '@components/Surfaces/Wrapper'
 import Layout from '@components/Surfaces/Layout'
 import Hero from '@components/Hero'
@@ -25,13 +24,10 @@ interface IPostProps {
 }
 export default function Post({ source, title, slug }: IPostProps): JSX.Element {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Monster Codes - Blog</title>
         <link rel='icon' href='/isotipo.ico' />
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' />
-        <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' />
       </Head>
 
       <Layout>

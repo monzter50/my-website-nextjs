@@ -60,16 +60,6 @@ export default function Header(): JSX.Element {
                 </a>
 
               </span>
-              <span className={'flex items-center ml-5'}>
-                <a className='flex' href="https://x.com/monster_codes" target="_blank" rel="noopener noreferrer">
-                  <Tooltip title='X'>
-                    <XSquare
-                      size="xs"
-                      className={styles.icon}
-                    />
-                  </Tooltip>
-                </a>
-              </span>
 
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://s3.amazonaws.com/monstercodes.dev/assets/CV+Jose+Antonio.pdf" target={'_blank'} rel="noreferrer">

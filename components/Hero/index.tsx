@@ -1,8 +1,9 @@
-import { Wrapper } from '..'
+import { Wrapper } from '@components/Surfaces'
 import Heading from '../Typhografy/Heading'
 import Link from 'next/link'
 import styles from './Hero.module.css'
 import { ChevronRight } from 'lucide-react'
+
 interface HeroProps {
   title: string
   href: string

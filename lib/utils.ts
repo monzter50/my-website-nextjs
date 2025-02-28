@@ -1,3 +1,11 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs))
+}
+
+
 export const merge = (first:any[], second:any[]) => {
     for (let i = 0; i < second.length; i++) {
         first.push(second[i]);

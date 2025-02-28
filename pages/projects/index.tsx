@@ -1,8 +1,6 @@
 
-import Wrapper from '@components/Surfaces/Wrapper'
-import Layout from '@components/Surfaces/Layout'
+import { Wrapper, Layout, CardProject } from '@components/Surfaces'
 import Hero from '@components/Hero'
-import { CardProject } from '@components/index'
 import Head from 'next/head'
 
 export default function ProjectPage(): JSX.Element {
@@ -19,7 +17,7 @@ export default function ProjectPage(): JSX.Element {
                     <div className='mt-4'>
                         <CardProject
                             title='LearnAla'
-                            src='/img/projects/learnala.png'
+                            imageSrc='/img/projects/learnala.png'
                             href='https://www.learnala.com/'
                             description={`LearnAla es tu plataforma personalizada que facilita la gestión de 
                             contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.`}
@@ -27,7 +25,7 @@ export default function ProjectPage(): JSX.Element {
                              />
                             <CardProject
                             title='Monster Codes'
-                            src='/img/projects/monstercodes.png'
+                            imageSrc='/img/projects/monstercodes.png'
                             href='https://www.monstercodes.dev/en-US/'
                             description={`MonsterCodes es un portafolio personalizada para recrear lo que se ha aprendido
                             y enseñar lo aprendido.`}
@@ -35,7 +33,7 @@ export default function ProjectPage(): JSX.Element {
                              />
                             <CardProject
                             title='UI Accebility'
-                            src='/img/projects/ui.png'
+                            imageSrc='/img/projects/ui.png'
                             href='https://github.com/monzter50/UI-lib/'
                             description={`Este proyecto es una libreria opensources donde trabajo en diseñar y crear componentes que 
                             cumpla con los estandares a11y .`}
@@ -43,7 +41,7 @@ export default function ProjectPage(): JSX.Element {
                             />
                             <CardProject
                             title='Yecorabeauty'
-                            src='/img/projects/yecorabeauty.png'
+                            imageSrc='/img/projects/yecorabeauty.png'
                             href='https://www.yecorabeauty.com/'
                             description={'Es te proyecto es un CMS desarrollado con Gatsby y Contenfull.Este sitio web nos ayuda a informar y agendar citas para los clientes de esta empresa.'}
                             aria-level="4"
