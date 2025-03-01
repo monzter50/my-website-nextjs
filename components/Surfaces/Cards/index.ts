@@ -1,2 +1,2 @@
-export { default as CardBlog } from './CardBlog'
-export { default as CardProject } from './CardProject'
+export { default as CardBlog } from './card-blog'
+export { default as CardProject } from './card-project'

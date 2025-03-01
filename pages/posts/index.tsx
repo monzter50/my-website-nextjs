@@ -1,12 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import styles from '@styles/Home.module.css'
-import Wrapper from '@components/Surfaces/Wrapper'
-import Layout from '@components/Surfaces/Layout'
+import { Wrapper, Layout, CardBlog } from '@components/Surfaces'
 import Hero from '@components/Hero'
 import { getAllFilesFrontMatter } from '@lib/mdx'
-import { CardBlog } from '@components/index'
 import Heading from '@components/Typhografy/Heading'
 import useTranslation from 'next-translate/useTranslation'
 import { IPostProps } from '@lib/types/posts.types'
@@ -31,7 +28,7 @@ PostPage.defaultProps = {
 export default function PostPage({ posts }: IPostsProps): JSX.Element {
   const { t } = useTranslation()
   return (
-    <div className={styles.container}>
+    <div className={'flex flex-col min-h-screen'}>
       <Head>
         <title>Monster Codes - All Article</title>
         <link rel='icon' href='/isotipo.ico' />
@@ -47,7 +44,6 @@ export default function PostPage({ posts }: IPostsProps): JSX.Element {
               posts?.length !== 0
                 ? posts.map((post: IPostProps, index) => (
                   <CardBlog
-                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                     key={`card-${index}`}
                     title={post?.title}
                     author={post.author}

@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import styles from '@styles/Home.module.css'
 import { Wrapper, Layout, CardBlog, CardProject } from '@components/Surfaces'
 import Header from '@components/Header'
 import { getAllFilesFrontMatter } from '@lib/mdx'
@@ -13,7 +12,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { IPostProps } from '@lib/types/posts.types'
 import { SkillsIcon, Timeline } from '@components/dataDisplay'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRightIcon } from 'lucide-react'
 import { Icon } from '@components/dataDisplay/SkillsIcon/SkillsIcon.type'
 interface IStaticProps {
   locale: 'en-US' | 'es-MX'
@@ -50,7 +49,7 @@ export default function HomePage({ posts = [] }: IPostsProps): JSX.Element {
   ]
   const { t } = useTranslation()
   return (
-    <div className={styles.container}>
+    <div className={'flex flex-col min-h-screen'}>
       <Head>
         <title>Monster Codes</title>
         <link rel="icon" href="/isotipo.ico" />
@@ -77,14 +76,18 @@ export default function HomePage({ posts = [] }: IPostsProps): JSX.Element {
             <Timeline experiences={experiences}/>
           </section>
           <section id='blog' className='py-10'>
-            <Heading as="h2" className={'my-7'}>{t('common:posts.title')}</Heading>
-            <div className={styles.containerBlog}>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-bold tracking-tight">{t('common:posts.title')}</h2>
+              <Link href={`${locale}/posts`} locale={locale} className="group flex items-center gap-1 text-sm font-medium hover:text-primary">
+                {t('common:posts.more')}
+                <ChevronRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+            <div className={'p-0 pb-1'}>
               {
-                posts?.length !== 0 &&
-                posts.map((post: IPostProps) => (
+                posts?.map((post: IPostProps, index) => (
                   <CardBlog
-                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                    key={`card-${post?.title}`}
+                    key={`card-${index}`}
                     title={post.title}
                     author={post.author}
                     excerpt={post.excerpt}
@@ -92,32 +95,26 @@ export default function HomePage({ posts = [] }: IPostsProps): JSX.Element {
                     date={post.date}
                   />
                 ))}
-              <p className='flex items-center text-black dark:text-white'>
-                <Link className="pl-4 sm:pl-8 underline underline-offset-4 font-bold" href={`${locale}/posts`} locale={locale}>
-                    {t('common:posts.more')}
-                </Link>
-                <ChevronRight className={styles.icon} size="xs" />
-              </p>
+
             </div>
           </section>
 
           <section id='project' className='py-10'>
-            <Heading as="h2" className={'my-7'}>{t('common:projects.title')}</Heading>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-bold tracking-tight">{t('common:projects.title')}</h2>
+              <Link href={`${locale}/projects`} locale={locale} className="group flex items-center gap-1 text-sm font-medium hover:text-primary">
+                {t('common:projects.more')}
+                <ChevronRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
             <div className='px-4 sm:px-8 flex flex-col'>
               <div className={'p-0 pb-1'}>
                 <CardProject
                   title='LearnAla'
-                  src='/img/projects/learnala.png'
+                  imageSrc='/img/projects/learnala.png?height=40&width=40'
                   href='https://www.learnala.com/'
                   description='LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.' />
-                <p className='flex items-center text-black dark:text-white'>
-                  <Link className={'underline underline-offset-4 font-bold'} href={`${locale}/projects`} locale={locale}>
-                      {t('common:projects.more')}
-                  </Link>
-                  <ChevronRight className={styles.icon} size="xs" />
-                </p>
               </div>
-
             </div>
           </section>
         </Wrapper>
