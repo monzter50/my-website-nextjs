@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import styles from '@styles/Home.module.css'
 import { Wrapper, Layout, CardBlog } from '@components/Surfaces'
 import Hero from '@components/Hero'
 import { getAllFilesFrontMatter } from '@lib/mdx'
@@ -29,7 +28,7 @@ PostPage.defaultProps = {
 export default function PostPage({ posts }: IPostsProps): JSX.Element {
   const { t } = useTranslation()
   return (
-    <div className={styles.container}>
+    <div className={'flex flex-col min-h-screen'}>
       <Head>
         <title>Monster Codes - All Article</title>
         <link rel='icon' href='/isotipo.ico' />
@@ -45,7 +44,6 @@ export default function PostPage({ posts }: IPostsProps): JSX.Element {
               posts?.length !== 0
                 ? posts.map((post: IPostProps, index) => (
                   <CardBlog
-                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                     key={`card-${index}`}
                     title={post?.title}
                     author={post.author}

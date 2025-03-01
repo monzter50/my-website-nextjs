@@ -8,7 +8,7 @@ import Text from '../Typhografy/Text'
 import Tooltip from '../dataDisplay/Tooltip'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
-import { Codepen, File, Github, Linkedin, XSquare } from 'lucide-react'
+import { Codepen, File, Github, Linkedin } from 'lucide-react'
 export default function Header(): JSX.Element {
   const { t } = useTranslation()
   return (

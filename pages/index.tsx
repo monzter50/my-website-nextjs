@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
 // Services
-import styles from '@styles/Home.module.css'
 import { Wrapper, Layout, CardBlog, CardProject } from '@components/Surfaces'
 import Header from '@components/Header'
 import { getAllFilesFrontMatter } from '@lib/mdx'
@@ -50,7 +49,7 @@ export default function HomePage({ posts = [] }: IPostsProps): JSX.Element {
   ]
   const { t } = useTranslation()
   return (
-    <div className={styles.container}>
+    <div className={'flex flex-col min-h-screen'}>
       <Head>
         <title>Monster Codes</title>
         <link rel="icon" href="/isotipo.ico" />
@@ -84,7 +83,7 @@ export default function HomePage({ posts = [] }: IPostsProps): JSX.Element {
                 <ChevronRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-            <div className={styles.containerBlog}>
+            <div className={'p-0 pb-1'}>
               {
                 posts?.map((post: IPostProps, index) => (
                   <CardBlog
