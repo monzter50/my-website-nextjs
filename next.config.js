@@ -21,8 +21,12 @@ module.exports = {
     ignoreBuildErrors: true
   },
   images: {
-    domains: ['s3.amazonaws.com'],
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "s3.amazonaws.com",
+        pathname: "**",
+      },
       {
         protocol: "https",
         hostname: "images.ctfassets.net",
