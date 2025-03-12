@@ -1,84 +1,85 @@
 'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Logotipo } from '../../Icons'
-import { useRouter } from 'next/router'
-import Wrapper from '../../Surfaces/Wrapper/index'
-import useTranslation from 'next-translate/useTranslation'
+import { Logotipo } from '@components/Icons'
+import Wrapper from '@components/Surfaces/Wrapper'
 import Hamburger from '@components/Icons/Hamburger'
-import { ChevronDown } from 'lucide-react'
-export default function Navbar({ isHome }: {isHome: boolean}): JSX.Element {
-  const router = useRouter()
-  const { t } = useTranslation()
+import { Locale } from '@root/i18n-config'
+import LocaleSwitcher from '../LocalSwitcher'
+import { useContext } from 'react'
+import { LocaleContext } from '@root/src/provider/LocaleProvider'
+
+export default function Navbar({  locale }: { locale: Locale}): JSX.Element {
+  const localeContext = useContext(LocaleContext)
+  const dictionary: any = localeContext?.state
+  const t: any = dictionary
   const [isOpen, setIsOpen] = useState(false)
 
-  const locale = router?.locale ?? 'es-MX'
-  const asPath = router?.asPath ?? '/'
-  const handleLanguageChange = (): void => {
-    switch (locale) {
-      case 'es-MX':
-        router.push(asPath, asPath, { locale: 'en-US' })
-        break
-      case 'en-US':
-        router.push(asPath, asPath, { locale: 'es-MX' })
-        break
-    }
-  }
   return (
-    <nav className='fixed top-0 w-full z-40 p-2 text-white flex items-center bg-blur'>
-      <Wrapper>
-        <div className='flex items-center w-full justify-between flex-wrap md:flex-nowrap'>
+    <>
+      {/* Mobile Navigation Backdrop */}
+      {isOpen && (
+        <div 
+          className='fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40'
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-          <Link legacyBehavior href='/' >
-            <a>
-              <Logotipo height={100} width={200} />
-            </a>
+      <nav className='fixed top-0 w-full z-50 backdrop-blur-lg bg-slate-900/80 border-b border-slate-800/50'>
+        <Wrapper>
+          <div className='flex items-center justify-between h-16 px-4'>
+            <Link href='/' className='flex-shrink-0'>
+              <Logotipo height={40} width={120} />
+            </Link>
+        
+            {/* Hamburger Menu */}
+            <div className='md:hidden'>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className='inline-flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500'
+                aria-expanded={isOpen}
+              >
+                <span className='sr-only'>Open main menu</span>
+                <Hamburger size={24} />
+              </button>
+            </div>
 
-          </Link>
-          {
-            isHome && (
-              <>
-                {/* Hamburger Menu */}
-                <Hamburger onClick={() => setIsOpen(!isOpen)} size={50} className="cursor-pointer md:hidden block" />
+            {/* Desktop Navigation */}
+            <div className='hidden md:flex md:items-center md:space-x-4'>
+              <nav className='flex items-center space-x-4'>
+                <a href="#home" className="nav-link">{t?.nav?.home}</a>
+                <a href="#aboutme" className="nav-link">{t?.nav?.aboutme}</a>
+                <a href="#skills" className="nav-link">{t?.nav?.skills}</a>
+                <a href="#experiences" className="nav-link">{t?.nav?.experiences}</a>
+                <a href="#blog" className="nav-link">{t?.nav?.blog}</a>
+                <a href="#project" className="nav-link">{t?.nav?.project}</a>
+              </nav>
+              <div className='pl-4 border-l border-slate-700/50'>
+                <LocaleSwitcher locale={locale} />
+              </div>
+            </div>
+          </div>
 
-                {/* Navigation Links */}
-                <div className={` w-full md:flex md:items-center md:w-auto ${isOpen ? 'flex' : 'hidden'}`}>
-                  <ul className={'md:flex md:justify-between flex-1 '}>
-                    <li className='px-4 py-2 my-2 sm:my-0'>
-                      <a href="#home" title="Home" className=" text-white hover:text-blue-ligth  rounded transition duration-300 ease-in-out block">{t('common:nav.home')}</a>
-                    </li>
-                    <li className='px-4 py-2 my-2 sm:my-0'>
-                      <a href="#aboutme" title="About me" className="text-white hover:text-blue-ligth  rounded transition duration-300 ease-in-out block">{t('common:nav.aboutme')}</a>
-                    </li>
-                    <li className='px-4 py-2 my-2 sm:my-0'>
-                      <a href="#skills" title="Skills" className="text-white hover:text-blue-ligth  rounded transition duration-300 ease-in-out block">{t('common:nav.skills')}</a>
-                    </li>
-                    <li className='px-4 py-2 my-2 sm:my-0'>
-                      <a href="#experiences" title="Experiences" className="text-white hover:text-blue-ligth  rounded transition duration-300 ease-in-out block">{t('common:nav.experiences')}</a>
-                    </li>
-                    <li className='px-4 py-2 my-2 sm:my-0'>
-                      <a href="#blog" title="Blog" className="text-white hover:text-blue-ligth  rounded transition duration-300 ease-in-out block">{t('common:nav.blog')}</a>
-                    </li>
-                    <li className='px-4 py-2 my-2 sm:my-0'>
-                      <a href="#project" title="Project" className="text-white hover:text-blue-ligth  rounded transition duration-300 ease-in-out block">{t('common:nav.project')}</a>
-                    </li>
-
-                    <button onClick={handleLanguageChange} className="flex items-center px-4 py-2 my-2 sm:my-0  rounded transition duration-300 ease-in-out" role='list-item'>
-                      {locale === 'en-US' ? 'EN' : 'ES'}
-                      <ChevronDown
-                        className='block mx-1 h-4'
-                        size="xs"
-                      />
-                    </button>
-                  </ul>
+          {/* Mobile Navigation Menu */}
+          <div
+            className={`md:hidden fixed top-0 left-0 h-full w-72 bg-slate-900 shadow-xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          >
+            <div className='flex flex-col h-full pt-16'>
+              <div className='p-4 space-y-4'>
+                <a href="#home" className="mobile-nav-link">{t?.nav?.home}</a>
+                <a href="#aboutme" className="mobile-nav-link">{t?.nav?.aboutme}</a>
+                <a href="#skills" className="mobile-nav-link">{t?.nav?.skills}</a>
+                <a href="#experiences" className="mobile-nav-link">{t?.nav?.experiences}</a>
+                <a href="#blog" className="mobile-nav-link">{t?.nav?.blog}</a>
+                <a href="#project" className="mobile-nav-link">{t?.nav?.project}</a>
+                <div className='pt-4 mt-4 border-t border-slate-700/50'>
+                  <LocaleSwitcher locale={locale} />
                 </div>
-              </>
-            )
-          }
-
-        </div>
-      </Wrapper>
-    </nav>
-
+              </div>
+            </div>
+          </div>
+        </Wrapper>
+      </nav>
+    </>
   )
 }

@@ -1,5 +1,4 @@
 
-const nextTranslate = require('next-translate')
 
 /** @type {import('next').NextConfig} */
 // const nextConfig = {
@@ -35,7 +34,6 @@ module.exports = {
     ],
     formats: ['image/webp']
   },
- ...nextTranslate(),
  reactStrictMode: false,
   experimental: {
     forceSwcTransforms: true,

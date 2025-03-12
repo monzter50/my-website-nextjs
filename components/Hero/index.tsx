@@ -15,16 +15,12 @@ export default function Hero({ title, href, slug }: HeroProps): JSX.Element {
 
       <Wrapper>
         <div className={`${styles.breadcrumbs} flex items-center mt-4`}>
-          <Link legacyBehavior href={'/'}>
-            <a className="underline underline-offset-4 font-bold">
+          <Link className="underline underline-offset-4 font-bold" href={'/'}>
               home
-            </a>
           </Link>
           <ChevronRight className={styles.icon} size="xs" />
-          <Link legacyBehavior href={href}>
-            <a className="underline underline-offset-4 font-bold" role='link'>
+          <Link className='underline underline-offset-4 font-bold' href={href}>
               {slug}
-            </a>
           </Link>
         </div>
         <div className={'flex items-center h-4/5'}>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { CalendarIcon } from 'lucide-react'
 import { format } from 'date-fns'
@@ -14,8 +13,7 @@ interface CardBlogProps {
   date: string
 }
 export default function CardBlog({ title, author, excerpt, slug, date }: CardBlogProps): JSX.Element {
-  const router = useRouter()
-  const locale = router?.locale ?? 'es-MXN'
+  const locale = 'es-MXN'
 
   return (
       <Card className="group overflow-hidden hover:shadow-md transition-all duration-300 my-3">

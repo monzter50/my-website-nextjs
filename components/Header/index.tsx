@@ -1,16 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
-
-import React from 'react'
+'use client'
+import React, { useContext } from 'react'
 import styles from './Header.module.css'
 import Wrapper from '../Surfaces/Wrapper'
 import Heading from '../Typhografy/Heading'
 import Text from '../Typhografy/Text'
 import Tooltip from '../dataDisplay/Tooltip'
-import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import { Codepen, File, Github, Linkedin } from 'lucide-react'
+import { LocaleContext } from '@root/src/provider/LocaleProvider'
 export default function Header(): JSX.Element {
-  const { t } = useTranslation()
+  const localeContext = useContext(LocaleContext)
+  const dictionary: any = localeContext?.state
+  const t: any = dictionary
+
   return (
     <section data-testid="HeaderTest" className={'relative pt-[8rem] pb-[3rem]'} id="home">
       <div className="absolute inset-0 z-[-1] bg-cover bg-center" style={{ backgroundImage: 'url("https://s3.amazonaws.com/monstercodes.dev/assets/mc_textura.png")' }}></div>
@@ -18,15 +21,15 @@ export default function Header(): JSX.Element {
         <header className={'flex justify-between'}>
           <article className={'relative flex flex-col justify-center leading-3 text-blue-ligth'}>
             <Heading as="h1" className='text-7xl text-blue-ligth'>
-              {t('common:introduction.title')}
+              {t?.introduction?.title}
             </Heading>
-            <Heading as="h2" className='bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text dark:text-transparent text-transparent'>
-              {t('common:introduction.subtitle')}
+            <Heading as="h2" className='bg-[linear-gradient(90deg,var(--blue),var(--blue-ligth))] bg-clip-text text-blue'>
+              {t?.introduction?.subtitle}
             </Heading>
 
             <div className={'flex items-center py-3'}>
 
-              <Text className='text-white'>{t('common:introduction.followme')}:</Text>
+              <Text className='text-white'>{t?.introduction?.followme}</Text>
               <span className={'flex items-center ml-5'}>
                 <a className='flex' href="https://github.com/monzter50" target="_blank" rel="noopener noreferrer">
                   <Tooltip title='Github'>
