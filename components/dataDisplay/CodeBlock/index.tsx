@@ -1,3 +1,5 @@
+
+"use client"
 import React from 'react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import classNames from 'classnames'

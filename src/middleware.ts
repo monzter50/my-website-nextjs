@@ -32,7 +32,14 @@ export function middleware(request: NextRequest) {
   //   ].includes(pathname)
   // )
   //   return
-  if (['/sitemap.xml', '/favicon.ico', '/public/*'].includes(pathname)) {
+  
+  if (
+    pathname.startsWith('/_next') ||        // Next.js internal routes
+    pathname.startsWith('/api') ||          // API routes
+    pathname.startsWith('/img') ||          // Images directory
+    pathname.includes('.') ||               // Files with extensions (favicon.ico, etc.)
+    pathname === '/sitemap.xml'             // Sitemap
+  ) {
     return
   }
   // Check if there is any supported locale in the pathname

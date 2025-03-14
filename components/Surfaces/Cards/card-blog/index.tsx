@@ -4,6 +4,7 @@ import { CalendarIcon } from 'lucide-react'
 import { format } from 'date-fns'
 import { Card, CardContent, CardHeader, CardTitle } from '@components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar'
+import { Locale } from '@root/i18n-config'
 
 interface CardBlogProps {
   title?: string
@@ -11,13 +12,13 @@ interface CardBlogProps {
   excerpt?: any
   slug: string
   date: string
+  locale: Locale
 }
-export default function CardBlog({ title, author, excerpt, slug, date }: CardBlogProps): JSX.Element {
-  const locale = 'es-MXN'
+export default function CardBlog({ title, author, excerpt, slug, date , locale}: CardBlogProps): JSX.Element {
 
   return (
       <Card className="group overflow-hidden hover:shadow-md transition-all duration-300 my-3">
-          <Link href={`/${locale}/posts/${slug}`}>
+          <Link href={`${locale}/posts/${slug}`}>
               <CardHeader className="p-4 pb-0">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                       <div className="flex items-center gap-1">

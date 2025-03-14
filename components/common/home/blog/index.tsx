@@ -31,6 +31,7 @@ export default function Blog({ posts = [], locale }: {posts: IPostProps[], local
                           excerpt={post.excerpt}
                           slug={post.slug}
                           date={post.date}
+                          locale={locale}
                       />
                   ))}
 

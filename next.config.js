@@ -35,6 +35,7 @@ module.exports = {
     formats: ['image/webp']
   },
  reactStrictMode: false,
+ transpilePackages: ['next-mdx-remote'],
   experimental: {
     forceSwcTransforms: true,
   },
