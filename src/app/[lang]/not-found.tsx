@@ -1,9 +1,10 @@
-import Link from 'next/link'
-import React from 'react'
-import styles from '@styles/404.module.css'
-import Heading from '@components/Typhografy/Heading'
-export default function NotFound(): JSX.Element {
-  return (
+import Link from "next/link";
+import React from "react";
+
+import styles from "@styles/404.module.css";
+import Heading from "@components/Typhografy/Heading";
+export default function NotFound() {
+    return (
         <section className={styles.container}>
             <div>
                 <Heading className={styles.title}>404 - Page Not Found</Heading>
@@ -21,7 +22,6 @@ export default function NotFound(): JSX.Element {
                     </div>
                     <div className={styles.shadow}></div>
                 </div>
-
                 <div className={styles.goBack}>
                     <Link legacyBehavior href="/">
                         <a className={styles.link}>
@@ -33,5 +33,5 @@ export default function NotFound(): JSX.Element {
             </div>
 
         </section>
-  )
+    );
 }

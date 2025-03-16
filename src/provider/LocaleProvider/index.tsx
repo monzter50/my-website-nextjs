@@ -1,29 +1,29 @@
-'use client'
-import React, { createContext, ReactNode, useState, Dispatch, SetStateAction } from 'react'
+"use client";
+import React, { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
 
 interface IContext {
   state: object
   setState: Dispatch<SetStateAction<object>>
-  lng: 'es-MX' | 'en-US'
+  lng: "es-MX" | "en-US"
 }
 
-export const LocaleContext = createContext<IContext | null>(null)
+export const LocaleContext = createContext<IContext | null>(null);
 
-export function LocaleProvider({ children, dictionary = {}, lng = 'es-MX' }: {
+export function LocaleProvider({ children, dictionary = {}, lng = "es-MX" }: {
   children: ReactNode
   dictionary: object
-  lng: 'es-MX' | 'en-US'
+  lng: "es-MX" | "en-US"
 }) {
-  const [state, setState] = useState(dictionary)
+    const [ state, setState ] = useState(dictionary);
 
-  return (
+    return (
         <LocaleContext.Provider
             value={{
-              state,
-              setState,
-              lng
+                state,
+                setState,
+                lng
             }}>
             {children}
         </LocaleContext.Provider>
-  )
+    );
 }

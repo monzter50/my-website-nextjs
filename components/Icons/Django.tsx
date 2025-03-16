@@ -1,8 +1,9 @@
 
-import * as React from 'react'
-import { LogotipoProp } from './Icons.types'
+import * as React from "react";
 
-const Django = ({ size = 100 }: LogotipoProp): JSX.Element => (
+import { LogotipoProp } from "./Icons.types";
+
+const Django = ({ size = 100 }: LogotipoProp) => (
     <svg width={size} height={size} viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
         <g>
             <rect fill="#092E20" x="0" y="0" width="256" height="256" rx="28"></rect>
@@ -10,6 +11,6 @@ const Django = ({ size = 100 }: LogotipoProp): JSX.Element => (
         </g>
     </svg>
 
-)
+);
 
-export default Django
+export default Django;

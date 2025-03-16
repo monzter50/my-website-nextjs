@@ -1,8 +1,9 @@
-import Link from 'next/link'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@components/ui/card'
-import { Badge } from '@components/ui/badge'
-import { ExternalLinkIcon, GithubIcon, CodeIcon, AlertCircleIcon } from 'lucide-react'
-import { cn } from '@lib/utils'
+import Link from "next/link";
+import { ExternalLinkIcon, GithubIcon, CodeIcon, AlertCircleIcon } from "lucide-react";
+
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@components/ui/card";
+import { Badge } from "@components/ui/badge";
+import { cn } from "@lib/utils";
 
 interface CardProjectProps {
   title: string
@@ -11,23 +12,23 @@ interface CardProjectProps {
   repoUrl?: string
   isOnline?: boolean
   technologies?: string[]
-  icon?: 'code' | 'web' | 'app' | 'data' | 'ai' | 'game' | 'library' | 'library'
+  icon?: "code" | "web" | "app" | "data" | "ai" | "game" | "library" | "library"
 }
 
 export default function CardProject({
-  title,
-  description,
-  href,
-  repoUrl,
-  isOnline = true,
-  technologies = [],
-  icon = 'code'
+    title,
+    description,
+    href,
+    repoUrl,
+    isOnline = true,
+    technologies = [],
+    icon = "code"
 }: CardProjectProps) {
-  // Map of icons for different project types
-  const icons = {
-    code: <CodeIcon className="w-6 h-6" />,
-    web: <ExternalLinkIcon className="w-6 h-6" />,
-    app: (
+    // Map of icons for different project types
+    const icons = {
+        code: <CodeIcon className="w-6 h-6" />,
+        web: <ExternalLinkIcon className="w-6 h-6" />,
+        app: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -44,8 +45,8 @@ export default function CardProject({
                 <line x1="8" x2="16" y1="21" y2="21" />
                 <line x1="12" x2="12" y1="17" y2="21" />
             </svg>
-    ),
-    data: (
+        ),
+        data: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -62,8 +63,8 @@ export default function CardProject({
                 <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
                 <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
             </svg>
-    ),
-    ai: (
+        ),
+        ai: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -79,8 +80,8 @@ export default function CardProject({
                 <path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z" />
                 <path d="M12 6a4 4 0 0 0-4 4v10l2-2 2 2 2-2 2 2V10a4 4 0 0 0-4-4z" />
             </svg>
-    ),
-    game: (
+        ),
+        game: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -99,8 +100,9 @@ export default function CardProject({
                 <line x1="18" x2="18.01" y1="11" y2="11" />
                 <rect width="20" height="12" x="2" y="6" rx="2" />
             </svg>
-    ),
-    library: (
+        ),
+        library: (
+
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -115,24 +117,24 @@ export default function CardProject({
             >
                 <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
             </svg>
-    )
-  }
+        )
+    };
 
-  return (
+    return (
         <Card
             className={cn(
-              'overflow-hidden transition-all duration-300 hover:shadow-md border-l-4',
-              isOnline ? 'border-l-green-500' : 'border-l-gray-300'
+                "overflow-hidden transition-all duration-300 hover:shadow-md border-l-4",
+                isOnline ? "border-l-green-500" : "border-l-gray-300"
             )}
         >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <div className="flex items-center space-x-2">
                     <div
                         className={cn(
-                          'p-2 rounded-md',
-                          isOnline
-                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                            : 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400'
+                            "p-2 rounded-md",
+                            isOnline
+                                ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                                : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400"
                         )}
                     >
                         {icons[icon]}
@@ -141,27 +143,26 @@ export default function CardProject({
                 </div>
                 <div className="flex items-center space-x-1">
                     {isOnline
-                      ? (
-                        <Badge
-                            variant="outline"
-                            className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border-green-200 dark:border-green-800"
-                        >
+                        ? (
+                            <Badge
+                                variant="outline"
+                                className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border-green-200 dark:border-green-800"
+                            >
                             Online
-                        </Badge>
+                            </Badge>
                         )
-                      : (
-                        <Badge
-                            variant="outline"
-                            className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border-gray-200 dark:border-gray-700"
-                        >
+                        : (
+                            <Badge
+                                variant="outline"
+                                className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border-gray-200 dark:border-gray-700"
+                            >
                             Offline
-                        </Badge>
+                            </Badge>
                         )}
                 </div>
             </CardHeader>
             <CardContent className="pt-4">
                 <p className="text-sm text-muted-foreground">{description}</p>
-
                 {technologies.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-4">
                         {technologies.map((tech) => (
@@ -205,5 +206,5 @@ export default function CardProject({
                 )}
             </CardFooter>
         </Card>
-  )
+    );
 }
