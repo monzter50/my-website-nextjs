@@ -19,7 +19,7 @@ export default function CardBlog({ title, author, excerpt, slug, date , locale }
 
     return (
         <Card className="group overflow-hidden hover:shadow-md transition-all duration-300 my-3">
-            <Link href={`${locale}/posts/${slug}`}>
+            <Link href={`/${locale}/posts/${slug}`}>
                 <CardHeader className="p-4 pb-0">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                         <div className="flex items-center gap-1">
