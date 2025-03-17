@@ -1,19 +1,23 @@
-import React, { ReactNode } from 'react'
-import styles from './Layout.module.css'
-import Navbar from '../../Navigation/Navbar'
-import Footer from '../../Navigation/Footer'
+import React, { ReactNode } from "react";
+
+import Navbar from "@components/Navigation/Navbar";
+import Footer from "@components/Navigation/Footer";
+import { Locale } from "@root/i18n-config";
+
+import styles from "./Layout.module.css";
 
 interface LayoutProps {
   children: ReactNode
-  isHome?: boolean
+  locale: Locale
 }
-export default function Layout(props: LayoutProps): JSX.Element {
-  const { children, isHome = false } = props
-  return (
-    <main className={styles.main}>
-      <Navbar isHome={isHome} />
-      {children}
-      <Footer />
-    </main>
-  )
+export default function Layout(props: LayoutProps) {
+    const { children, locale } = props;
+
+    return (
+        <main className={styles.main}>
+            <Navbar locale={locale} />
+            {children}
+            <Footer />
+        </main>
+    );
 }

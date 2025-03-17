@@ -1,32 +1,15 @@
-import Logotipo from './logotipo'
-import ReactLogo from './React'
-import Python from './Python'
-import TestingLibrary from './TestingLibrary'
-import TailwindCss from './Tailwind'
-import CSS from './CSS'
-import HTMLLogo from './HTML'
-import Javascript from './Javascript'
-import NodeJs from './NodeJs'
-import Jest from './Jest'
-import Mysql from './Mysql'
-import NextJs from './NextJs'
-import Django from './Django'
-import Typescript from './TypeScript'
-import Git from './Git'
-export {
-  Logotipo,
-  ReactLogo,
-  Python,
-  TestingLibrary,
-  TailwindCss,
-  CSS,
-  HTMLLogo,
-  Javascript,
-  NodeJs,
-  Jest,
-  Mysql,
-  NextJs,
-  Django,
-  Typescript,
-  Git
-}
+export { default as Python } from "./Python";
+export { default as TestingLibrary } from "./TestingLibrary";
+export { default as TailwindCss } from "./Tailwind";
+export { default as CSS } from "./CSS";
+export { default as HTMLLogo } from "./HTML";
+export { default as Javascript } from "./Javascript";
+export { default as NodeJs } from "./NodeJs";
+export { default as Jest } from "./Jest";
+export { default as Mysql } from "./Mysql";
+export { default as NextJs } from "./NextJs";
+export { default as Django } from "./Django";
+export { default as Typescript } from "./TypeScript";
+export { default as Git } from "./Git";
+export { default as Logotipo } from "./logotipo";
+export { default as ReactLogo } from "./React";

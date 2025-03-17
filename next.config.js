@@ -1,5 +1,4 @@
 
-const nextTranslate = require('next-translate')
 
 /** @type {import('next').NextConfig} */
 // const nextConfig = {
@@ -21,10 +20,23 @@ module.exports = {
     ignoreBuildErrors: true
   },
   images: {
-    domains: ['s3.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "s3.amazonaws.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "**",
+      },
+    ],
     formats: ['image/webp']
   },
- ...nextTranslate(),
  reactStrictMode: false,
-
+ transpilePackages: ['next-mdx-remote'],
+  experimental: {
+    forceSwcTransforms: true,
+  },
 }

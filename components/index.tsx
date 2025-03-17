@@ -1,5 +1,10 @@
-import Wrapper from './Surfaces/Wrapper'
-import CardBlog from './Surfaces/Cards/CardBlog'
-import CardProject from './Surfaces/Cards/CardProject'
-import { Logotipo } from './Icons'
-export { Wrapper, CardBlog, Logotipo, CardProject }
+export * from "./Surfaces";
+export * from "./Icons";
+export * from "./Navigation";
+export * from "./dataDisplay";
+export * from "./inputs";
+export * from "./Typhografy";
+export * from "./MDX/MDXComponents";
+
+export { default as Header } from "./Header";
+export { default as Hero } from "./Hero";

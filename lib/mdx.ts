@@ -8,14 +8,13 @@ import mdxPrism from "mdx-prism";
 const root = process.cwd();
 
 export const getFiles = async (type: string, locale: string) => {
-  const files = fs.readdirSync(path.join(root, type));
-  return { files, locale }
+  return fs.readdirSync(path.join(root, type));
 }
 
 export const getFileBySlug = async (type: string, slug: string) => {
   const files = fs.readdirSync(path.join(root, type));
   const exist = files.filter((file) => file.replace(/\.mdx/, '') === slug)
-  if (exist.length === 0) {
+  if (exist?.length === 0) {
     return {
       notFound: true,
     }
@@ -23,6 +22,7 @@ export const getFileBySlug = async (type: string, slug: string) => {
   const mdxSource = slug
     ? fs.readFileSync(path.join(root, type, `${slug}.mdx`), "utf8")
     : fs.readFileSync(path.join(root, `${type}.mdx`), "utf8");
+    
 
   const { data, content } = await matter(mdxSource);
 
@@ -32,6 +32,7 @@ export const getFileBySlug = async (type: string, slug: string) => {
       rehypePlugins: [mdxPrism],
     },
   });
+
   return {
     source,
     frontmatter: {
@@ -53,6 +54,7 @@ export const getAllFilesFrontMatter = async (type: string) => {
       "utf8"
     );
     const { data } = matter(mdxSource);
+
     return [
       {
         ...data,

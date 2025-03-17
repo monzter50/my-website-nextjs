@@ -1,10 +1,11 @@
-import React from 'react'
-import styles from './Container.module.css'
+import React from "react";
 
-export default function Container({ children }: any): JSX.Element {
-  return (
-    <div className={styles.containerCard}>
-      {children}
-    </div>
-  )
+import styles from "./Container.module.css";
+
+export default function Container({ children }: {children:React.ReactNode}) {
+    return (
+        <div className={styles.containerCard}>
+            {children}
+        </div>
+    );
 }

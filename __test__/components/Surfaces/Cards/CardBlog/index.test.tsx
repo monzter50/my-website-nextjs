@@ -1,6 +1,6 @@
 import { render, screen } from '@test/testUtils'
 import React from 'react'
-import CardBlog from '@components/Surfaces/Cards/CardBlog'
+import CardBlog from '../../../../../components/Surfaces/Cards/card-blog'
 
 const cardObj = {
   title: 'Nuevo Post',
@@ -9,7 +9,7 @@ const cardObj = {
   slug: 'post'
 }
 describe('CardBlog', () => {
-  it('should render the CardBlog', () => {
+  it('should render the card-blog', () => {
     render(
             <CardBlog
                 title={cardObj?.title}
@@ -21,7 +21,7 @@ describe('CardBlog', () => {
     )
   })
 
-  it('should render the props in CardBlog', async () => {
+  it('should render the props in card-blog', async () => {
     render(
             <CardBlog
                 title={cardObj?.title}
