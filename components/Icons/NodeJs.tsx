@@ -1,8 +1,8 @@
+import * as React from "react";
 
-import * as React from 'react'
-import { LogotipoProp } from './Icons.types'
+import { LogotipoProp } from "./Icons.types";
 
-const NodeJs = ({ size = 100 }: LogotipoProp): JSX.Element => (
+const NodeJs = ({ size = 100 }: LogotipoProp) => (
     <svg width={size} height={size} viewBox="0 0 512 314" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
         <defs>
             <linearGradient x1="68.1884411%" y1="17.4868311%" x2="27.8226935%" y2="89.7551419%" id="linearGradient-1">
@@ -84,6 +84,6 @@ const NodeJs = ({ size = 100 }: LogotipoProp): JSX.Element => (
         </g>
     </svg>
 
-)
+);
 
-export default NodeJs
+export default NodeJs;

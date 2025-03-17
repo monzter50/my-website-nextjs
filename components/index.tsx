@@ -1,10 +1,10 @@
-export * from './Surfaces'
-export * from './Icons'
-export * from './Navigation'
-export * from './dataDisplay'
-export * from './inputs'
-export * from './Typhografy'
-export * from './MDXComponents'
+export * from "./Surfaces";
+export * from "./Icons";
+export * from "./Navigation";
+export * from "./dataDisplay";
+export * from "./inputs";
+export * from "./Typhografy";
+export * from "./MDX/MDXComponents";
 
-export { default as Header } from './Header'
-export { default as Hero } from './Hero'
+export { default as Header } from "./Header";
+export { default as Hero } from "./Hero";
