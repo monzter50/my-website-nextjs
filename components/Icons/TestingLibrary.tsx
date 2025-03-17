@@ -1,8 +1,8 @@
+import * as React from "react";
 
-import * as React from 'react'
-import { LogotipoProp } from './Icons.types'
+import { LogotipoProp } from "./Icons.types";
 
-const TestingLibrary = ({ size = 100 }: LogotipoProp): JSX.Element => (
+const TestingLibrary = ({ size = 100 }: LogotipoProp) => (
     <svg width={size} height={size} viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
         <title>testing library</title>
         <defs>
@@ -296,6 +296,6 @@ const TestingLibrary = ({ size = 100 }: LogotipoProp): JSX.Element => (
             <path d="M66.589792,37.6701674 C66.7515308,36.6591592 63.6481672,36.1839853 63.4965371,37.1848835 C63.3449069,38.1857816 66.4280532,38.6811757 66.589792,37.6701674 Z" fill="#E34E70"></path>
         </g>
     </svg>
-)
+);
 
-export default TestingLibrary
+export default TestingLibrary;

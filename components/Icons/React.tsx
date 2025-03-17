@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { LogotipoProp } from './Icons.types'
+import * as React from "react";
 
-const ReactLogo = ({ size = 100 }: LogotipoProp): JSX.Element => (
+import { LogotipoProp } from "./Icons.types";
+const ReactLogo = ({ size = 100 }: LogotipoProp) => (
     <svg width={size} height={size}viewBox="0 0 256 228" preserveAspectRatio="xMidYMid">
         <g>
             <path
@@ -10,6 +10,6 @@ const ReactLogo = ({ size = 100 }: LogotipoProp): JSX.Element => (
             </path>
         </g>
     </svg>
-)
+);
 
-export default ReactLogo
+export default ReactLogo;

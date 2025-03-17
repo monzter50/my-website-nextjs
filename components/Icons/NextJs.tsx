@@ -1,8 +1,8 @@
+import * as React from "react";
 
-import * as React from 'react'
-import { LogotipoProp } from './Icons.types'
+import { LogotipoProp } from "./Icons.types";
 
-const NextJs = ({ size = 100 }: LogotipoProp): JSX.Element => (
+const NextJs = ({ size = 100 }: LogotipoProp)=> (
     <svg width={size} height={size} viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
         <title>Next.js</title>
         <defs>
@@ -27,6 +27,6 @@ const NextJs = ({ size = 100 }: LogotipoProp): JSX.Element => (
             </g>
         </g>
     </svg>
-)
+);
 
-export default NextJs
+export default NextJs;

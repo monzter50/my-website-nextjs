@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@test/testUtils'
 import React from 'react'
-import PostsAll from '@pages/posts'
+import PostsAll from '../../../src/app/[lang]/posts'
 //
 jest.mock('next-mdx-remote/serialize', () => ({
   serialize: jest.fn(async () => await Promise.resolve([{ title: 'Hey' }]))
