@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 
 import Wrapper from "@components/Surfaces/Wrapper";
 import AboutMe from "@components/common/home/aboutme";
@@ -9,12 +10,24 @@ import Projects from "@components/common/home/projects";
 import Header from "@components/Header";
 import { getAllFilesFrontMatter } from "@lib/mdx";
 import { Locale } from "@root/i18n-config";
+import { getDictionary } from "@root/get-dictionary";
 
 export type PageProps = {
   params: {
     lang: Locale
   }
 }
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { lang } = await params;
+    const dictionary = await getDictionary(lang);
+    
+    return {
+        title: dictionary.introduction.title,
+        description: dictionary.aboutme.description,
+    };
+}
+
 export default async function Page({ params }: PageProps) {
     const { lang } = await params;
     const locale = lang;

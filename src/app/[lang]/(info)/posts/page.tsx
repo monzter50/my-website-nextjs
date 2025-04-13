@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 
 // Services
 import { Wrapper, CardBlog } from "@components/Surfaces";
@@ -6,11 +7,22 @@ import { getAllFilesFrontMatter } from "@lib/mdx";
 import { IPostProps } from "@lib/types/posts.types";
 import PageLayout from "@components/Surfaces/PageLayout";
 import { Locale } from "@root/i18n-config";
+import { getDictionary } from "@root/get-dictionary";
 
 export type PageProps = {
   params: {
     lang: Locale
   }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { lang } = await params;
+    const dictionary = await getDictionary(lang);
+    
+    return {
+        title: `${dictionary.posts.title} | Monster Codes`,
+        description: `${dictionary.posts.title} - Monster Codes`,
+    };
 }
 
 export default async function PostPage({ params }: PageProps) {

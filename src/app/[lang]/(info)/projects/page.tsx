@@ -1,5 +1,9 @@
+import { Metadata } from "next";
+
 import { CardProject } from "@components/Surfaces";
 import PageLayout from "@components/Surfaces/PageLayout";
+import { Locale } from "@root/i18n-config";
+import { getDictionary } from "@root/get-dictionary";
 
 const projects = [
     {
@@ -46,7 +50,23 @@ const breadcrumbItems = [
         href: "/projects" }
 ];
 
-export default function Page() {
+export type PageProps = {
+  params: {
+    lang: Locale
+  }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { lang } = await params;
+    const dictionary = await getDictionary(lang);
+    
+    return {
+        title: `${dictionary.projects.title} | Monster Codes`,
+        description: `${dictionary.projects.title} - Monster Codes`,
+    };
+}
+
+export default function Page({ params }: PageProps) {
     return (
         <PageLayout
             title="Projects"
