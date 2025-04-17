@@ -1,8 +1,9 @@
 "use client";
-import CodeBlock from "@components/dataDisplay/CodeBlock";
 import Heading from "@components/Typhografy/Heading";
 import Text from "@components/Typhografy/Text";
 import CustomImage from "@components/dataDisplay/CustomImage";
+import Pre from "@components/dataDisplay/Pre";
+
 export const MDXComponents = {
     h1: (props: any) => <Heading as="h1" {...props} />,
     h2: (props: any) => <Heading as="h2" {...props} />,
@@ -12,6 +13,7 @@ export const MDXComponents = {
     h6: (props: any) => <Heading as="h6" {...props} />,
     p: (props: any) => <Text {...props} />,
     ul: (props: any) => <ul className='text-black dark:text-white list-disc ml-5 pl-5' {...props} />,
-    CodeBlock,
-    CustomImage
+
+    CustomImage,
+    pre: Pre
 };
