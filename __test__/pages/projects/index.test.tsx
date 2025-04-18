@@ -15,7 +15,7 @@ describe('Projects All', () => {
     const badges = screen.queryAllByRole('status')
     expect(components[0]).toHaveTextContent(/LearnAla/i)
     expect(components[0]).toHaveAttribute('href', 'https://www.learnala.com/')
-    expect(images[0]).toHaveAttribute('src', '/img/projects/learnala.png')
+    expect(images[0]).toHaveAttribute('src', '/img/projects/learnala.webp')
     expect(badges[0]).toHaveTextContent('online')
   })
   it('Should check second item project its ok', async () => {
@@ -27,7 +27,7 @@ describe('Projects All', () => {
     expect(components[1]).toHaveTextContent(/MonsterCodes es un portafolio personalizada para recrear lo que se ha aprendido y enseñar lo aprendido./i)
 
     expect(components[1]).toHaveAttribute('href', 'https://www.monstercodes.dev/en-US/')
-    expect(images[1]).toHaveAttribute('src', '/img/projects/monstercodes.png')
+    expect(images[1]).toHaveAttribute('src', '/img/projects/monstercodes.webp')
     expect(badges[1]).toHaveTextContent('online')
   })
   it('Should check  third project its ok', async () => {
@@ -39,7 +39,7 @@ describe('Projects All', () => {
     expect(components[2]).toHaveTextContent(/Este proyecto es una libreria opensources donde trabajo en diseñar y crear componentes que cumpla con los estandares a11y ./i)
 
     expect(components[2]).toHaveAttribute('href', 'https://github.com/monzter50/UI-lib/')
-    expect(images[2]).toHaveAttribute('src', '/img/projects/ui.png')
+    expect(images[2]).toHaveAttribute('src', '/img/projects/ui.webp')
     expect(badges[2]).toHaveTextContent('online')
   })
   it('Should check fourth project its ok', async () => {
@@ -50,7 +50,7 @@ describe('Projects All', () => {
     expect(components[3]).toHaveTextContent(/Yecorabeauty/i)
     expect(components[3]).toHaveTextContent(/Es te proyecto es un CMS desarrollado con Gatsby y Contenfull.Este sitio web nos ayuda a informar y agendar citas para los clientes de esta empresa./i)
     expect(components[3]).toHaveAttribute('href', 'https://www.yecorabeauty.com/')
-    expect(images[3]).toHaveAttribute('src', '/img/projects/yecorabeauty.png')
+    expect(images[3]).toHaveAttribute('src', '/img/projects/yecorabeauty.webp')
     expect(badges[3]).toHaveTextContent('online')
   })
 })
