@@ -1,27 +1,27 @@
-import { render, screen, waitFor } from '@test/testUtils'
-import userEvent from '@testing-library/user-event'
+import userEvent from "@testing-library/user-event";
+import React from "react";
 
-import React from 'react'
-import Tooltip from '@components/dataDisplay/Tooltip'
-jest.useFakeTimers()
+import { render, screen, waitFor } from "@test/testUtils";
+import Tooltip from "@components/dataDisplay/Tooltip";
+jest.useFakeTimers();
 
-describe('Badges', () => {
-  afterEach(() => {
-    jest.clearAllTimers()
-  })
-  it('should render the Badges', async () => {
-    render(
-      <Tooltip title="Github">
-        <p>Tooltip :</p>
-      </Tooltip>
-    )
+describe("Badges", () => {
+    afterEach(() => {
+        jest.clearAllTimers();
+    });
+    it("should render the Badges", async () => {
+        render(
+            <Tooltip title="Github">
+                <p>Tooltip :</p>
+            </Tooltip>
+        );
 
-    const iconTooltop = screen.getByRole('alert')
+        const iconTooltop = screen.getByRole("alert");
 
-    userEvent.click(iconTooltop)
-    await Promise.resolve()
-    jest.runAllTimers()
+        userEvent.click(iconTooltop);
+        await Promise.resolve();
+        jest.runAllTimers();
 
-    await waitFor(() => expect(screen.getByText(/Github/i)).toBeInTheDocument())
-  })
-})
+        await waitFor(() => expect(screen.getByText(/Github/i)).toBeInTheDocument());
+    });
+});

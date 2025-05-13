@@ -1,23 +1,24 @@
-import { render, screen } from '@test/testUtils'
-import React from 'react'
-import Hero from '@components/Hero'
+import React from "react";
 
-describe('Hero', () => {
-  it('should render the Hero', () => {
-    render(<Hero
+import { render, screen } from "@test/testUtils";
+import Hero from "@components/Hero";
+
+describe("Hero", () => {
+    it("should render the Hero", () => {
+        render(<Hero
             title="Title"
             href="https://www.amazon.com.mx/"
             slug="algo" />
-    )
-  })
+        );
+    });
 
-  it('should render the content correct', async () => {
-    render(<Hero
+    it("should render the content correct", async () => {
+        render(<Hero
             title="Title"
             href="https://www.amazon.com.mx/"
             slug="algo" />
-    )
-    expect(await screen.findByText(/algo/i)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /algo/i })).toHaveAttribute('href', 'https://www.amazon.com.mx/')
-  })
-})
+        );
+        expect(await screen.findByText(/algo/i)).toBeInTheDocument();
+        expect(screen.getByRole("link", { name: /algo/i })).toHaveAttribute("href", "https://www.amazon.com.mx/");
+    });
+});

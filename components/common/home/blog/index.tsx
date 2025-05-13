@@ -33,6 +33,7 @@ export default function Blog({ posts = [], locale }: {posts: IPostProps[], local
                             slug={post.slug}
                             date={post.date}
                             locale={locale}
+                            variant="secondary"
                         />
                     ))}
 

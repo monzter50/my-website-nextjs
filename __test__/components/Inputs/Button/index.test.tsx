@@ -1,14 +1,14 @@
-import { render } from '@test/testUtils';
 import React from "react";
-import Button from '@components/inputs/Button';
+
+import { render } from "@test/testUtils";
+import Button from "@components/inputs/Button";
 
 describe("Button", () => {
 
-  it("should render the Button", () => {
-    render(
-    <Button>
+    it("should render the Button", () => {
+        render(
+            <Button>
         Send
-    </Button>);
-  });
-})
-
+            </Button>);
+    });
+});

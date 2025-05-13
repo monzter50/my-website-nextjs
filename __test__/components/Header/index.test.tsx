@@ -1,12 +1,13 @@
-import { render } from '@test/testUtils';
 import React from "react";
-import Header from '@components/Header';
+
+import { render } from "@test/testUtils";
+import Header from "@components/Header";
 
 describe("Header", () => {
 
-  it("should render the Header", () => {
-    const tree = render(<Header/>);
-    expect(tree).toMatchInlineSnapshot(`
+    it("should render the Header", () => {
+        const tree = render(<Header />);
+        expect(tree).toMatchInlineSnapshot(`
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -575,7 +576,6 @@ describe("Header", () => {
 }
 `);
 
-  });
+    });
 
-
-})
+});

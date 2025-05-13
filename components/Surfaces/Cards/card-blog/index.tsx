@@ -15,6 +15,7 @@ interface CardBlogProps {
   date: string
   locale: Locale
 }
+
 export default function CardBlog({ title, author, excerpt, slug, date , locale }: CardBlogProps) {
 
     return (

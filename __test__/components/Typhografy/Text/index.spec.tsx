@@ -1,21 +1,22 @@
-import { render, screen } from '@test/testUtils'
-import React from 'react'
-import Text from '@components/Typhografy/Text'
+import React from "react";
 
-describe('Text', () => {
-  it('should render the Text', () => {
-    render(
-      <Text>
-        Send
-      </Text>)
-  })
+import { render, screen } from "@test/testUtils";
+import Text from "@components/Typhografy/Text";
 
-  it('should render correct props', async () => {
-    render(
-      <Text>
+describe("Text", () => {
+    it("should render the Text", () => {
+        render(
+            <Text>
         Send
-      </Text>
-    )
-    expect(await screen.findByText(/Send/i)).toBeInTheDocument()
-  })
-})
+            </Text>);
+    });
+
+    it("should render correct props", async () => {
+        render(
+            <Text>
+        Send
+            </Text>
+        );
+        expect(await screen.findByText(/Send/i)).toBeInTheDocument();
+    });
+});
