@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@aglaya/eslint-config@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@aglaya/eslint-config/-/eslint-config-1.2.0.tgz#d94a78a1f4fb5f9aad38124db8208adabacc6ad8"
-  integrity sha512-9SGo1MacuPEWv6GqmN5ISYgbNfSyxmpbbGyNeIYPhGjEZNTPF82R48NLEMjCB+Fi+uwKdN4fy7ORkn/BD47/TQ==
+"@aglaya/eslint-config@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@aglaya/eslint-config/-/eslint-config-1.3.0.tgz#40a21a54b222234c5777a2037da3763a83581229"
+  integrity sha512-jqd28QK9eRAgqnXJLz9jQrY2i9ZLuEnwc7nOL2zNsxlyFJ/9YAficgld7Zsezjaee5kv9vKtxLiMNxgco1D/8w==
   dependencies:
     "@next/eslint-plugin-next" "^15.0.1"
     "@typescript-eslint/eslint-plugin" "^8.11.0"

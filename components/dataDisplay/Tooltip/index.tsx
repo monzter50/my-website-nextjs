@@ -11,32 +11,32 @@ interface TooltipProps {
 }
 
 export default function Tooltip({ title = "", children, delay, direction = "top" }: TooltipProps) {
-    let timeout: any;
-    const [ active, setActive ] = useState(false);
+  let timeout: ReturnType<typeof setTimeout>;
+  const [ active, setActive ] = useState(false);
 
-    const showTip = (): void => {
-        timeout = setTimeout(() => {
-            setActive(true);
-        }, delay ?? 400);
-    };
+  const showTip = (): void => {
+    timeout = setTimeout(() => {
+      setActive(true);
+    }, delay ?? 400);
+  };
 
-    const hideTip = (): void => {
-        clearInterval(timeout);
-        setActive(false);
-    };
-    return (
-        <div
-            className={styles.tooltip}
-            onMouseEnter={showTip}
-            onMouseLeave={hideTip}
-            role="alert"
-        >
-            {active && (
-                <span className={`${styles.tooltipText} ${styles[direction]}`}>
-                    {title}
-                </span>
-            )}
-            {children}
-        </div>
-    );
+  const hideTip = (): void => {
+    clearTimeout(timeout);
+    setActive(false);
+  };
+  return (
+    <div
+      className={styles.tooltip}
+      onMouseEnter={showTip}
+      onMouseLeave={hideTip}
+      role="alert"
+    >
+      {active && (
+        <span className={`${styles.tooltipText} ${styles[direction]}`}>
+          {title}
+        </span>
+      )}
+      {children}
+    </div>
+  );
 }

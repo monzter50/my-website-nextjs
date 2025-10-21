@@ -1,56 +1,65 @@
 import React, { ReactNode } from "react";
+import { Language } from "prism-react-renderer";
 
 import { CodeBlock } from "@components/index";
 
 // Helper para extraer texto recursivamente
 function extractTextFromChildren(children: ReactNode): string {
-    let text = "";
-    React.Children.forEach(children, (child) => {
-        if (typeof child === "string") {
-            text += child;
-        } else if (React.isValidElement(child) && child.props.children) {
-            // Si es un elemento con hijos, buscar texto dentro de él
-            text += extractTextFromChildren(child.props.children);
-        }
+  let text = "";
+  React.Children.forEach(children, (child) => {
+    if (typeof child === "string") {
+      text += child;
+    } else if (React.isValidElement(child) && child.props.children) {
+      // Si es un elemento con hijos, buscar texto dentro de él
+      text += extractTextFromChildren(child.props.children);
+    }
     // Ignorar otros tipos de hijos (números, booleanos, elementos sin hijos de texto)
-    });
-    return text;
+  });
+  return text;
 }
 
 // Componente Pre mejorado
 function Pre({ children, ...props }: React.ComponentProps<"pre">) {
-    const codeElement = React.Children.toArray(children).find(
-        (child) => React.isValidElement(child) && child.type === "code"
-    );
+  const codeElement = React.Children.toArray(children).find(
+    (child) => React.isValidElement(child) && child.type === "code"
+  );
 
-    if (!codeElement || !React.isValidElement(codeElement)) {
+  if (!codeElement || !React.isValidElement(codeElement)) {
     // Si no hay etiqueta code, renderiza pre simple
-        return <pre {...props}>{children}</pre>;
-    }
+    return <pre {...props}>{children}</pre>;
+  }
 
-    // Extraer el texto usando el helper recursivo
-    const codeString = extractTextFromChildren(codeElement.props.children).trim();
+  // Extraer el texto usando el helper recursivo
+  const codeString = extractTextFromChildren(codeElement.props.children).trim();
 
-    let language = codeElement.props.className?.replace("language-", "") || "bash"; // Default a bash
+  let languageRaw = codeElement.props.className?.replace("language-", "") || "bash";
 
-    // Mapear lenguajes comunes
-    if (language === "typescript jsx" || language === "javascript jsx" || language === "jsx react" || language === "tsx") {
-        language = "tsx";
-    } else if (language === "javascript" || language === "js") {
-        language = "javascript";
-    } else if (language === "typescript" || language === "ts") {
-        language = "typescript";
-    }
-    // Añadir más mapeos si es necesario
+  // Mapear lenguajes comunes
+  let language: Language = "bash";
+  if (languageRaw === "typescript jsx" || languageRaw === "javascript jsx" || languageRaw === "jsx react" || languageRaw === "tsx") {
+    language = "tsx";
+  } else if (languageRaw === "javascript" || languageRaw === "js") {
+    language = "javascript";
+  } else if (languageRaw === "typescript" || languageRaw === "ts") {
+    language = "typescript";
+  } else if (languageRaw === "bash" || languageRaw === "sh") {
+    language = "bash";
+  } else if (languageRaw === "json") {
+    language = "json";
+  } else if (languageRaw === "css") {
+    language = "css";
+  } else if (languageRaw === "jsx") {
+    language = "jsx";
+  }
 
-    return (
-        <CodeBlock
-            code={codeString} // Usar el texto extraído
-            syntax={language as any}
-            containerStyles={[]}
-            innerStyles={[]}
-        />
-    );
+  return (
+    <CodeBlock
+      code={codeString}
+      syntax={language}
+      containerStyles={[]}
+      innerStyles={[]}
+    />
+  );
 }
 
 export default Pre;

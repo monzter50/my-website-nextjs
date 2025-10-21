@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import classNames from "classnames";
+import Image from "next/image";
 
 import styles from "./Image.module.css";
 interface CustomImageProps {
@@ -14,6 +14,6 @@ interface CustomImageProps {
 }
 
 export default function CustomImage({ src, alt="", width = 800, height = 600, className = "", layout = "responsive", objectFit = "contain" }: CustomImageProps) {
-    const classes = classNames(className, styles.image);
-    return <Image className={classes} src={src} alt={alt} width={width} height={height} layout={layout} objectFit="contain" />;
+  const classes = classNames(className, styles.image);
+  return <Image className={classes} src={src} alt={alt} width={width} height={height} layout={layout} objectFit="contain" />;
 }

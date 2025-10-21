@@ -1,5 +1,5 @@
-import React from "react";
 import classNames from "classnames";
+import React from "react";
 
 import styles from "./Button.module.css";
 
@@ -9,6 +9,6 @@ interface ButtonProps {
 
 }
 export default function Button({ children, className = "", ...props }: ButtonProps): React.ReactNode {
-    const classes = classNames(className, styles.button);
-    return <button className={classes} {...props}>{children}</button>;
+  const classes = classNames(className, styles.button);
+  return <button className={classes} {...props}>{children}</button>;
 }
