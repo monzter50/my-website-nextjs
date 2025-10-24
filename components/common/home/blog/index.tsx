@@ -1,5 +1,4 @@
 "use client";
-import CardBlogNew from "@components/Surfaces/Cards/card-blog-new";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useContext } from "react";
@@ -24,14 +23,6 @@ export default function Blog({ posts = [], locale }: {posts: IPostProps[], local
         </Link>
       </div>
       <div className={"p-0 pb-1"}>
-        <CardBlogNew 
-          title="Test"
-          author="Test"
-          excerpt="Test"
-          slug="test"
-          date="2021-01-01"
-          locale={locale}
-        />
         {
           posts?.map((post: IPostProps, index) => (
             <CardBlog
