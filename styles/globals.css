@@ -174,5 +174,76 @@ a {
   @apply block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-all duration-200;
 }
 
+/* rehype-pretty-code styles */
+pre {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+pre > code {
+  display: grid;
+  counter-reset: line;
+  font-family: var(--font-cousine), "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+code {
+  font-family: var(--font-cousine), "Courier New", monospace;
+  font-size: 0.875rem;
+}
+
+code > [data-line] {
+  padding: 0 1rem;
+  border-left: 2px solid transparent;
+}
+
+/* Highlighted lines */
+.line--highlighted {
+  background-color: rgba(58, 175, 255, 0.1);
+  border-left-color: #3aafff !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Highlighted words */
+.word--highlighted {
+  background-color: rgba(58, 175, 255, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+  border: 1px solid rgba(58, 175, 255, 0.4);
+}
+
+/* Language badge */
+code[data-language]::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+pre:has(code[data-language]) {
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: rgba(110, 118, 129, 0.2);
+  color: var(--blue-contrast);
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
 
 

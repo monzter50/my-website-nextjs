@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import readingTime from "reading-time";
-import mdxPrism from "mdx-prism";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const root = process.cwd();
 
@@ -29,7 +29,28 @@ export const getFileBySlug = async (type: string, slug: string) => {
   const source = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [require("remark-code-titles")],
-      rehypePlugins: [mdxPrism],
+      rehypePlugins: [
+        [
+          rehypePrettyCode,
+          {
+            theme: "one-dark-pro",
+            keepBackground: true,
+            onVisitLine(node: any) {
+              // Prevent lines from collapsing in `display: grid` mode, and allow empty
+              // lines to be copy/pasted
+              if (node.children.length === 0) {
+                node.children = [{ type: "text", value: " " }];
+              }
+            },
+            onVisitHighlightedLine(node: any) {
+              node.properties.className.push("line--highlighted");
+            },
+            onVisitHighlightedWord(node: any) {
+              node.properties.className = ["word--highlighted"];
+            },
+          },
+        ],
+      ],
     },
   });
 
