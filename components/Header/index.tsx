@@ -6,11 +6,11 @@ import React, { useContext } from "react";
 
 import { LocaleContext, Dictionary } from "@root/src/provider/LocaleProvider";
 
+import styles from "./Header.module.css";
 import Tooltip from "../dataDisplay/Tooltip";
 import Wrapper from "../Surfaces/Wrapper";
 import Heading from "../Typhografy/Heading";
 import Text from "../Typhografy/Text";
-import styles from "./Header.module.css";
 export default function Header() {
   const localeContext = useContext(LocaleContext);
   const dictionary: Dictionary = localeContext?.state || {};

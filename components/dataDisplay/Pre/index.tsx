@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
 import { Language } from "prism-react-renderer";
+import React, { ReactNode } from "react";
 
 import { CodeBlock } from "@components/index";
 
@@ -32,7 +32,7 @@ function Pre({ children, ...props }: React.ComponentProps<"pre">) {
   // Extraer el texto usando el helper recursivo
   const codeString = extractTextFromChildren(codeElement.props.children).trim();
 
-  let languageRaw = codeElement.props.className?.replace("language-", "") || "bash";
+  const languageRaw = codeElement.props.className?.replace("language-", "") || "bash";
 
   // Mapear lenguajes comunes
   let language: Language = "bash";

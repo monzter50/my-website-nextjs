@@ -2,7 +2,6 @@
 import React from "react";
 
 import CustomImage from "@components/dataDisplay/CustomImage";
-import Pre from "@components/dataDisplay/Pre";
 import Heading from "@components/Typhografy/Heading";
 import Text from "@components/Typhografy/Text";
 
@@ -17,5 +16,5 @@ export const MDXComponents = {
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className='text-black dark:text-white list-disc ml-5 pl-5' {...props} />,
 
   CustomImage,
-  pre: Pre
+ 
 };

@@ -1,6 +1,5 @@
-import type { LogotipoProp } from "@components/Icons/Icons.types";
-
 import { Git, Python, Javascript, Django, Jest, CSS, HTMLLogo, NextJs, Mysql, ReactLogo, TailwindCss, Typescript, TestingLibrary, NodeJs } from "@components/Icons";
+import type { LogotipoProp } from "@components/Icons/Icons.types";
 
 export enum Icon {
   Git = "Git",

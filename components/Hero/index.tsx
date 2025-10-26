@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import { Wrapper } from "@components/Surfaces";
 
-import Heading from "../Typhografy/Heading";
 import styles from "./Hero.module.css";
+import Heading from "../Typhografy/Heading";
 
 interface HeroProps {
   title: string
