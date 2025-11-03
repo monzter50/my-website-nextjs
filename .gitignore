@@ -36,3 +36,10 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 /.history
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Lock files (project uses yarn)
+package-lock.json
