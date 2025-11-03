@@ -30,10 +30,9 @@ export default async function PostPage({ params }: PageProps) {
             breadcrumbItems={breadcrumbItems}>
 
             <Wrapper>
-                <div className='mt-4'>
-
-                    {posts?.length !== 0 ?
-                        posts?.map((post: IPostProps, index) => (
+                {posts?.length !== 0 ? (
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
+                        {posts?.map((post: IPostProps, index) => (
                             <CardBlog
                                 key={`card-${index}`}
                                 title={post?.title}
@@ -42,10 +41,23 @@ export default async function PostPage({ params }: PageProps) {
                                 slug={post?.slug}
                                 date={post.date}
                                 locale={locale}
+                                coverImage={post.coverImage}
+                                readingTime={post.readingTime}
+                                tags={post.tags}
                             />
-                        )):
-                        ( <div>No tenemos post</div>)}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="flex flex-col items-center justify-center py-20 text-center">
+                        <div className="text-6xl mb-4">📝</div>
+                        <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                            No posts yet
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400 max-w-md">
+                            Check back soon for new content and updates.
+                        </p>
+                    </div>
+                )}
             </Wrapper>
         </PageLayout>
     );

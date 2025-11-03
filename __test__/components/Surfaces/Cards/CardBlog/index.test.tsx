@@ -6,7 +6,8 @@ const cardObj = {
   title: 'Nuevo Post',
   author: { name: 'Author ' },
   excerpt: 'Esto si es un postx',
-  slug: 'post'
+  slug: 'post',
+  locale: 'en-US' as const
 }
 describe('CardBlog', () => {
   it('should render the card-blog', () => {
@@ -17,6 +18,7 @@ describe('CardBlog', () => {
                 excerpt={cardObj?.excerpt}
                 slug={cardObj?.slug}
                 date='2022-09-27T14:05:07.322Z'
+                locale={cardObj.locale}
             />
     )
   })
@@ -29,6 +31,7 @@ describe('CardBlog', () => {
                 excerpt={cardObj?.excerpt}
                 slug={cardObj?.slug}
                 date='2022-09-27T14:05:07.322Z'
+                locale={cardObj.locale}
             />
     )
     expect(await screen.findByText(/Author/i)).toBeInTheDocument()

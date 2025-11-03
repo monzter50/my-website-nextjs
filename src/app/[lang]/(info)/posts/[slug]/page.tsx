@@ -1,9 +1,14 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 
 import PageLayout from "@components/Surfaces/PageLayout";
 import { getFileBySlug, getFiles } from "@lib/mdx";
 import { Locale } from "@root/i18n-config";
 import CustomMDX from "@components/MDX/custom-mdx";
+import { Badge } from "@components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
 interface Props {
   params: {
     slug: string
@@ -17,6 +22,7 @@ interface Frontmatter {
   author?: {
     name: string
     picture?: string
+    image?: string
   }
   date?: string
   readingTime?: {
@@ -24,6 +30,8 @@ interface Frontmatter {
     minutes: number
     words: number
   }
+  coverImage?: string
+  tags?: string[]
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -85,28 +93,111 @@ export default async function Post({ params }: Props) {
             title={meta?.title}
             breadcrumbItems={breadcrumbItems}
         >
-            <article className="prose prose-slate prose-lg max-w-none dark:prose-invert prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800/50">
-                <div className="mb-8 text-slate-400">
-                    <time dateTime={meta?.date}>
-                        {meta?.date && new Date(meta?.date).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                        })}
-                    </time>
-                    {meta?.author
-                        ? (
-                            <>
-                                <span className="mx-2">·</span>
-                                <span>{meta?.author?.name}</span>
-                            </>
-                        )
-                        : null}
-                </div>
-                <div className="mdx-content">
-                    {source && <CustomMDX {...source} />}
-                </div>
-            </article>
+            <div className="max-w-4xl mx-auto">
+                {/* Back Button */}
+                <Link
+                    href={`/${lang}/posts`}
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6"
+                >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back to posts
+                </Link>
+
+                {/* Hero Image */}
+                {meta?.coverImage && (
+                    <div className="relative w-full h-[400px] rounded-lg overflow-hidden mb-8 bg-slate-100 dark:bg-slate-800">
+                        <Image
+                            src={meta.coverImage}
+                            alt={meta.title}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                    </div>
+                )}
+
+                {/* Article Header */}
+                <header className="mb-8">
+                    {/* Tags */}
+                    {meta?.tags && meta.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            {meta.tags.map((tag, index) => (
+                                <Badge key={index} variant="secondary">
+                                    {tag}
+                                </Badge>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Title */}
+                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
+                        {meta?.title}
+                    </h1>
+
+                    {/* Metadata */}
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-6 border-b border-slate-200 dark:border-slate-800">
+                        {/* Author */}
+                        {meta?.author && (
+                            <div className="flex items-center gap-2">
+                                <Avatar className="w-8 h-8">
+                                    <AvatarImage
+                                        src={meta.author.picture || meta.author.image}
+                                        alt={meta.author.name}
+                                    />
+                                    <AvatarFallback>
+                                        {meta.author.name[0]}
+                                    </AvatarFallback>
+                                </Avatar>
+                                <span className="font-medium text-slate-700 dark:text-slate-300">
+                                    {meta.author.name}
+                                </span>
+                            </div>
+                        )}
+
+                        {/* Date */}
+                        {meta?.date && (
+                            <div className="flex items-center gap-1.5">
+                                <Calendar className="w-4 h-4" />
+                                <time dateTime={meta.date}>
+                                    {new Date(meta.date).toLocaleDateString("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric"
+                                    })}
+                                </time>
+                            </div>
+                        )}
+
+                        {/* Reading Time */}
+                        {meta?.readingTime && (
+                            <div className="flex items-center gap-1.5">
+                                <Clock className="w-4 h-4" />
+                                <span>
+                                    {meta.readingTime.text || `${meta.readingTime.minutes} min read`}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+                </header>
+
+                {/* Article Content */}
+                <article className="prose prose-slate prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-slate-100 prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-slate-900 dark:prose-strong:text-slate-100 prose-code:text-primary prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800/50 prose-img:rounded-lg prose-img:shadow-lg">
+                    <div className="mdx-content">
+                        {source && <CustomMDX {...source} />}
+                    </div>
+                </article>
+
+                {/* Footer */}
+                <footer className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800">
+                    <Link
+                        href={`/${lang}/posts`}
+                        className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                        <ArrowLeft className="w-4 h-4" />
+                        Back to all posts
+                    </Link>
+                </footer>
+            </div>
         </PageLayout>
     );
 }
