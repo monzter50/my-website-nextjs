@@ -131,40 +131,50 @@ export default async function Post({ params }: Props) {
                         {meta?.title}
                     </h1>
                     {/* Metadata */}
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-6 border-b border-slate-200 dark:border-slate-800">
+                    <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground pb-6 border-b border-slate-200 dark:border-slate-800">
                         {/* Author */}
                         {meta?.author && (
-                            <div className="flex items-center gap-2">
-                                <Avatar className="w-8 h-8">
-                                    <AvatarImage
-                                        src={meta.author.picture || meta.author.image}
-                                        alt={meta.author.name}
-                                    />
-                                    <AvatarFallback>
-                                        {meta.author.name[0]}
-                                    </AvatarFallback>
-                                </Avatar>
-                                <span className="font-medium text-slate-700 dark:text-slate-300">
-                                    {meta.author.name}
-                                </span>
-                            </div>
+                            <>
+                                <div className="flex items-center gap-2.5">
+                                    <Avatar className="w-9 h-9">
+                                        <AvatarImage
+                                            src={meta.author.picture || meta.author.image}
+                                            alt={meta.author.name}
+                                        />
+                                        <AvatarFallback>
+                                            {meta.author.name[0]}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <span className="font-medium text-slate-700 dark:text-slate-300">
+                                        {meta.author.name}
+                                    </span>
+                                </div>
+                                {(meta?.date || meta?.readingTime) && (
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                )}
+                            </>
                         )}
                         {/* Date */}
                         {meta?.date && (
-                            <div className="flex items-center gap-1.5">
-                                <Calendar className="w-4 h-4" />
-                                <time dateTime={meta.date}>
-                                    {new Date(meta.date).toLocaleDateString("en-US", {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric"
-                                    })}
-                                </time>
-                            </div>
+                            <>
+                                <div className="flex items-center gap-2">
+                                    <Calendar className="w-4 h-4" />
+                                    <time dateTime={meta.date}>
+                                        {new Date(meta.date).toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric"
+                                        })}
+                                    </time>
+                                </div>
+                                {meta?.readingTime && (
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                )}
+                            </>
                         )}
                         {/* Reading Time */}
                         {meta?.readingTime && (
-                            <div className="flex items-center gap-1.5">
+                            <div className="flex items-center gap-2">
                                 <Clock className="w-4 h-4" />
                                 <span>
                                     {meta.readingTime.text || `${meta.readingTime.minutes} min read`}
