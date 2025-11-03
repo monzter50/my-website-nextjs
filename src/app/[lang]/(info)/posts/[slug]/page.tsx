@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 
 import PageLayout from "@components/Surfaces/PageLayout";
 import { getFileBySlug, getFiles } from "@lib/mdx";
@@ -102,7 +102,6 @@ export default async function Post({ params }: Props) {
                     <ArrowLeft className="w-4 h-4" />
                     Back to posts
                 </Link>
-
                 {/* Hero Image */}
                 {meta?.coverImage && (
                     <div className="relative w-full h-[400px] rounded-lg overflow-hidden mb-8 bg-slate-100 dark:bg-slate-800">
@@ -115,7 +114,6 @@ export default async function Post({ params }: Props) {
                         />
                     </div>
                 )}
-
                 {/* Article Header */}
                 <header className="mb-8">
                     {/* Tags */}
@@ -128,12 +126,10 @@ export default async function Post({ params }: Props) {
                             ))}
                         </div>
                     )}
-
                     {/* Title */}
                     <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
                         {meta?.title}
                     </h1>
-
                     {/* Metadata */}
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-6 border-b border-slate-200 dark:border-slate-800">
                         {/* Author */}
@@ -153,7 +149,6 @@ export default async function Post({ params }: Props) {
                                 </span>
                             </div>
                         )}
-
                         {/* Date */}
                         {meta?.date && (
                             <div className="flex items-center gap-1.5">
@@ -167,7 +162,6 @@ export default async function Post({ params }: Props) {
                                 </time>
                             </div>
                         )}
-
                         {/* Reading Time */}
                         {meta?.readingTime && (
                             <div className="flex items-center gap-1.5">
@@ -179,14 +173,12 @@ export default async function Post({ params }: Props) {
                         )}
                     </div>
                 </header>
-
                 {/* Article Content */}
                 <article className="prose prose-slate prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-slate-100 prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-slate-900 dark:prose-strong:text-slate-100 prose-code:text-primary prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800/50 prose-img:rounded-lg prose-img:shadow-lg">
                     <div className="mdx-content">
                         {source && <CustomMDX {...source} />}
                     </div>
                 </article>
-
                 {/* Footer */}
                 <footer className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800">
                     <Link
