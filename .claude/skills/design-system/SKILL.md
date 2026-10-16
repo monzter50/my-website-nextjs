@@ -20,7 +20,7 @@ when you touch them** — never add new `.module.css` files.
    Reuse before creating.
 2. **Need a new shadcn primitive?** Add it with
    `npx shadcn@latest add <component>` so it lands in `components/ui/` with
-   the repo's aliases, then fix lint (4-space indent, double quotes).
+   the repo's aliases, then run `yarn lint --fix`.
 3. **About to type a hex code, `slate-*`, `blue-500`, or `style={{ color }}`?**
    Stop. Use a semantic token.
 4. **Rendering a list that might be empty?** Render a real empty state

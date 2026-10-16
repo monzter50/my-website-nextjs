@@ -97,11 +97,11 @@ site `<Layout>` (navbar + footer); `(info)` renders children bare and pages use
   `components/ui` use named exports.
 - One component per folder as `index.tsx`; CSS Modules sit next to it as
   `<Name>.module.css` (legacy — prefer Tailwind for new code).
-- Type props with an explicit `interface`. Avoid `any` in new code (existing
-  `author?: any`, dictionary `any` are debt — type them when you touch them).
-- ESLint style (enforced by lint-staged): 4-space indent, double quotes,
-  semicolons, `array-bracket-spacing: always` (`[ a, b ]`), one property per
-  line in multi-prop objects, grouped `import/order` with blank lines.
+- Type props with an explicit `interface`. No `any` — the codebase was
+  cleaned of it; keep it that way.
+- ESLint style comes from the shared `@aglaya/eslint-config/next` preset
+  (`.eslintrc.json`), enforced by lint-staged. Match the surrounding code
+  (2-space indent, double quotes, semicolons) and run `yarn lint --fix`.
 - Dates: format with `date-fns` or `lib/utils.formatDate`, and respect the
   current locale rather than hard-coding `"en-US"`/`"es-ES"`.
 

@@ -43,8 +43,14 @@ locale: "es-MX"                     # must match the folder
 
 ### 3. Body
 - Start with `##` headings; the page renders the `title` as the `<h1>`.
-- Code fences with a language (` ```tsx `). `remark-code-titles` supports
-  ` ```tsx:path/file.tsx ` for a filename title; highlighting via `mdx-prism`.
+- Code fences with a language (` ```tsx `). Highlighting is
+  `rehype-pretty-code` (Shiki, theme `one-dark-pro`, configured in
+  `lib/mdx.ts`), so its meta syntax works: ` ```tsx {2,4} ` highlights lines,
+  ` ```tsx /useState/ ` highlights a word. `remark-code-titles` supports
+  ` ```tsx:path/file.tsx ` for a filename title.
+- next-mdx-remote 6 blocks JavaScript expressions in MDX: pass component
+  props as strings (`height="400"`, not `height={400}`) and don't rely on
+  `import`/`export` or `{expressions}` outside code fences.
 - Images: put files under `public/img/posts/<slug>/` and reference
   `/img/posts/<slug>/name.webp`, always with alt text.
 - Custom components must be registered in `components/MDX/MDXComponents`.
