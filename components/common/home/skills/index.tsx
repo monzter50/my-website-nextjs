@@ -3,34 +3,41 @@ import React, { useContext } from "react";
 
 import SkillsIcon from "@components/dataDisplay/SkillsIcon";
 import { Icon } from "@components/dataDisplay/SkillsIcon/SkillsIcon.type";
-import { Heading } from "@components/Typhografy";
+import Section from "@components/Surfaces/Section";
 import { LocaleContext, Dictionary } from "@root/src/provider/LocaleProvider";
+
+const SKILLS: Array<keyof typeof Icon> = [
+  "Git",
+  "Python",
+  "Django",
+  "React",
+  "NodeJs",
+  "Javascript",
+  "Jest",
+  "TestingLibrary",
+  "NextJs",
+  "TailwindCss",
+  "CSS",
+  "HTML",
+  "Typescript"
+];
 
 export default function Skills() {
   const localeContext = useContext(LocaleContext);
-  const dictionary: Dictionary = localeContext?.state || {};
-  const t = dictionary;
-  const skills: Array<keyof typeof Icon> = [
-    "Git",
-    "Python",
-    "Django",
-    "React",
-    "NodeJs",
-    "Javascript",
-    "Jest",
-    "TestingLibrary",
-    "NextJs",
-    "TailwindCss",
-    "CSS",
-    "HTML",
-    "Typescript"
-  ];
+  const t: Dictionary = localeContext?.state || {};
+
   return (
-    <section id='skills' className='py-10'>
-      <Heading as="h2" className={"my-7"}>{t?.skills?.title}</Heading>
-      <div className='mb-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 items-center justify-center gap-2'>
-        {skills?.map((skill) => (<SkillsIcon key={skill} icon={skill} direction='vertical' />))}
-      </div>
-    </section>
+    <Section id="skills" title={t?.skills?.title}>
+      <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        {SKILLS.map((skill) => (
+          <li
+            key={skill}
+            className="rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_24px_-6px_hsl(var(--primary)/0.5)]"
+          >
+            <SkillsIcon icon={skill} direction="vertical" size={48} />
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }

@@ -23,15 +23,15 @@ interface CardBlogProps {
 export default function CardBlog({ title, author, excerpt, slug, date , locale }: CardBlogProps) {
 
   return (
-    <Card className="group overflow-hidden hover:shadow-md transition-all duration-300 my-3">
-      <Link href={`/${locale}/posts/${slug}`}>
+    <Card className="group h-full overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[0_0_28px_-8px_hsl(var(--primary)/0.5)]">
+      <Link href={`/${locale}/posts/${slug}`} className="block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
         <CardHeader className="p-4 pb-0">
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
             <div className="flex items-center gap-1">
-              <CalendarIcon className="w-4 h-4" />
+              <CalendarIcon aria-hidden="true" className="w-4 h-4" />
               {format(new Date(date), "MMM d, yyyy")}
             </div>
-            <span>•</span>
+            <span aria-hidden="true">•</span>
             <div className="flex items-center gap-2">
               <Avatar className="w-5 h-5">
                 <AvatarImage src={author?.image} alt={author?.name} />
@@ -40,10 +40,10 @@ export default function CardBlog({ title, author, excerpt, slug, date , locale }
               {author?.name}
             </div>
           </div>
-          <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2">{title}</CardTitle>
+          <CardTitle className="m-0 text-lg group-hover:text-primary transition-colors line-clamp-2">{title}</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
-          <p className="text-sm text-muted-foreground line-clamp-3">{excerpt}</p>
+          <p className="m-0 text-sm text-muted-foreground line-clamp-3">{excerpt}</p>
         </CardContent>
       </Link>
     </Card>

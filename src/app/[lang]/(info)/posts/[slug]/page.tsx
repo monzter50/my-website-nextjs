@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import CustomMDX from "@components/MDX/custom-mdx";
 import PageLayout from "@components/Surfaces/PageLayout";
@@ -71,13 +72,13 @@ export default async function Post({ params }: Props) {
   const meta = frontmatter as Frontmatter;
 
   if (!source) {
-    return null;
+    notFound();
   }
   const breadcrumbItems = [
     { label: "Blog",
-      href: "/posts" },
+      href: `/${lang}/posts` },
     { label: meta?.title,
-      href: `/posts/${slug}` }
+      href: `/${lang}/posts/${slug}` }
   ];
 
   return (
@@ -86,7 +87,7 @@ export default async function Post({ params }: Props) {
       breadcrumbItems={breadcrumbItems}
     >
       <article className="prose prose-slate prose-lg max-w-none dark:prose-invert prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800/50">
-        <div className="mb-8 text-slate-400">
+        <div className="mb-8 text-muted-foreground">
           <time dateTime={meta?.date}>
             {meta?.date && new Date(meta?.date).toLocaleDateString("en-US", {
               year: "numeric",

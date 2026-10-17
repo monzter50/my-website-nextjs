@@ -1,7 +1,7 @@
-"use client";
 import { ReactNode } from "react";
 
 import Breadcrumb from "@components/Navigation/Breadcrumb";
+import { Starfield } from "@components/Space";
 import { Wrapper } from "@components/Surfaces";
 
 interface PageLayoutProps {
@@ -16,15 +16,16 @@ interface PageLayoutProps {
 export default function PageLayout({ children, breadcrumbItems, title }: PageLayoutProps) {
   return (
     <div className="min-h-screen">
-      <div className="bg-slate-900">
+      <div className="space-gradient relative isolate overflow-hidden border-b border-border">
+        <Starfield />
         <Wrapper>
-          <div className="pt-10 pb-6">
+          <div className="pb-10 pt-28">
             <Breadcrumb items={breadcrumbItems} />
-            <h1 className="mt-4 text-3xl font-bold text-slate-200">{title}</h1>
+            <h1 className="mb-0 mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
           </div>
         </Wrapper>
       </div>
-      <div className="bg-white py-10">
+      <div className="bg-background py-10">
         <Wrapper>
           {children}
         </Wrapper>

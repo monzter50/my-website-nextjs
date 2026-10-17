@@ -6,6 +6,9 @@ export interface Dictionary {
     title?: string
     subtitle?: string
     followme?: string
+    eyebrow?: string
+    cta?: string
+    cv?: string
   }
   nav?: {
     home?: string
@@ -14,6 +17,9 @@ export interface Dictionary {
     experiences?: string
     blog?: string
     project?: string
+    menu?: string
+    close?: string
+    primary?: string
   }
   aboutme?: {
     title?: string
@@ -25,6 +31,7 @@ export interface Dictionary {
   posts?: {
     title?: string
     more?: string
+    empty?: string
   }
   projects?: {
     title?: string
@@ -32,6 +39,20 @@ export interface Dictionary {
   }
   skills?: {
     title?: string
+  }
+  theme?: {
+    label?: string
+    light?: string
+    dark?: string
+    system?: string
+  }
+  notFound?: {
+    title?: string
+    description?: string
+    back?: string
+  }
+  footer?: {
+    rights?: string
   }
   [key: string]: unknown
 }
