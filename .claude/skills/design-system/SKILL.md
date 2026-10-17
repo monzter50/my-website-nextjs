@@ -15,8 +15,9 @@ when you touch them** — never add new `.module.css` files.
 
 1. **Is there already a primitive?** Look in `components/ui/` (`Button`,
    `Card*`, `Badge`, `Avatar*`) and the composed blocks in `components/`
-   (`Wrapper`, `Container`, `PageLayout`, `CardBlog`, `CardProject`,
-   `Heading`, `Text`, `Timeline`, `Tooltip`, `SkillsIcon`, `CodeBlock`).
+   (`Wrapper`, `Section`, `Container`, `PageLayout`, `CardBlog`, `CardProject`,
+   `Heading`, `Text`, `Timeline`, `Tooltip`, `SkillsIcon`, `CodeBlock`) and the
+   space theme pieces in `components/Space/` (`Astronaut`, `Starfield`).
    Reuse before creating.
 2. **Need a new shadcn primitive?** Add it with
    `npx shadcn@latest add <component>` so it lands in `components/ui/` with
@@ -27,17 +28,21 @@ when you touch them** — never add new `.module.css` files.
    (localized message), never a blank area or a hard-coded single-language
    string.
 5. **Is it a page in `(info)`?** Wrap it in `<PageLayout title breadcrumbItems>`.
-   Home sections go inside `<Wrapper>`.
+   Home sections use `<Section id title action?>` inside `<Wrapper>`.
 
-## Token cheat-sheet (shadcn, mapped in `tailwind.config.js`)
+## Astronaut theme
 
-> ⚠️ **Known gap:** the shadcn HSL variables these tokens point to
-> (`--background`, `--foreground`, `--primary`, `--card`, `--muted`,
-> `--border`, `--ring`, `--radius`, …) are **not defined** in
-> `styles/globals.css` yet, so `bg-primary`, `bg-card`, `rounded-lg`, etc.
-> currently resolve to nothing. Before relying on a token, check it exists; if
-> the task touches theming, add the `:root` and `.dark` blocks
-> (`npx shadcn@latest init` output for base color zinc) first and say so.
+The site uses an "astronaut" space theme with **light, dark and system**
+modes via `next-themes` (`src/provider/ThemeProvider`, toggle in
+`components/Navigation/ThemeToggle`). The `dark` class is set on `<html>`.
+Light = "mission control" (pale blue-violet), dark = "deep space" (navy).
+
+Tokens are HSL triples defined in `styles/globals.css` under `:root` (light)
+and `.dark`, consumed as `hsl(var(--token))` in `tailwind.config.js`. Every
+text/background pair meets WCAG AA (≥ 4.5:1) in both modes — re-check
+contrast if you change a value.
+
+## Token cheat-sheet
 
 ```
 Surfaces:  bg-background, bg-card, bg-muted, bg-popover, bg-accent
@@ -46,11 +51,20 @@ Text:      text-foreground, text-muted-foreground, text-card-foreground,
 Brand:     bg-primary, bg-secondary (+ -foreground pairs)
 State:     bg-destructive text-destructive-foreground
 Borders:   border-border, border-input, ring-ring
+Space:     text-nebula / bg-nebula (violet accent), text-success / bg-success
 Charts:    chart-1 … chart-5
 Radius:    rounded-lg / md / sm  (driven by --radius)
 Fonts:     font-roboto, font-poppins, font-cousine
 Alpha:     bg-primary/90, ring-ring/40
 ```
+
+Space utilities (in `globals.css` `@layer components`):
+`space-gradient` (nebula hero background), `starfield` (via `<Starfield />`),
+`text-cosmic` (primary→nebula gradient text), `animate-float`,
+`animate-orbit`. All animations stop under `prefers-reduced-motion`.
+Illustration colours use the `--suit`, `--suit-shade`, `--suit-line` vars, so
+SVGs adapt to the theme — reference them with classes like
+`fill-[hsl(var(--suit))]`, never hex.
 
 Legacy brand colors (`blue`, `blue-dark`, `blue-contrast`, `blue-ligth`,
 `black`, `black-contrast`, `grey`, `light-grey`, `neutral`) exist as Tailwind
@@ -61,8 +75,8 @@ semantic color, add the HSL var to `:root` (and `.dark`) in
 
 NEVER: hex codes in JSX, inline `style` colors, new `.module.css`, raw Tailwind
 palettes for meaning (`text-red-500` for errors → `text-destructive`).
-Existing `bg-slate-900` / `text-slate-*` in `PageLayout` and the post page are
-debt — migrate to tokens when you touch them.
+Brand logos in `components/Icons/` keep their own colours; any dark/black part
+must use `currentColor` so it stays visible in dark mode.
 
 ## Component contract
 
