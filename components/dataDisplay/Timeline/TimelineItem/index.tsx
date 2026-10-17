@@ -1,7 +1,6 @@
 import React from "react";
 
-import Heading from "@components/Typhografy/Heading";
-import Text from "@components/Typhografy/Text";
+import { Badge } from "@components/ui/badge";
 
 export interface ITimelineItem {
   href?: string
@@ -14,20 +13,19 @@ export interface ITimelineItem {
 
 export default function TimelineItem({ title, date, description, href, skills = [], job }: ITimelineItem) {
   return (
-    <li className="mb-10 ml-4">
-      <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-blue dark:bg-blue"></div>
-      <time className="mb-1 text-sm font-semibold leading-none text-blue dark:text-blue-dark">{date}</time>
-      <Heading as='h5' className='mb-0'>{title}</Heading>
-      {job && <Heading as='h6' className='font-normal mt-0'>{job}</Heading>}
-      {description && <Text>{description}</Text>}
+    <li className="relative mb-10 ml-6 last:mb-0">
+      <span aria-hidden="true" className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full bg-primary ring-4 ring-background shadow-[0_0_12px_hsl(var(--primary)/0.7)]" />
+      <time className="text-sm font-semibold leading-none text-primary">{date}</time>
+      <h3 className="mb-0 mt-2 text-xl font-bold">{title}</h3>
+      {job && <p className="m-0 font-medium text-nebula">{job}</p>}
+      {description && <p className="mb-0 mt-3 max-w-3xl leading-relaxed text-muted-foreground">{description}</p>}
       {href && (
-        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg className="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+        <a href={href} className="mt-3 inline-flex items-center rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Learn more <svg className="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
         </svg></a>
       )}
-      <ul className='flex flex-wrap'>
-        {skills?.map(skill => <li className='mr-3 mt-3' key={skill}><span className="flex items-center rounded-full bg-blue-dark dark:bg-blue px-3 py-1 text-xs font-medium leading-5 text-white">{skill}</span></li>)}
-
+      <ul className="m-0 mt-3 flex list-none flex-wrap gap-2 p-0">
+        {skills?.map(skill => <li key={skill}><Badge variant="secondary">{skill}</Badge></li>)}
       </ul>
     </li>
   );

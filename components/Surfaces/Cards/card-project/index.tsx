@@ -123,8 +123,8 @@ export default function CardProject({
   return (
     <Card
       className={cn(
-        "overflow-hidden transition-all duration-300 hover:shadow-md border-l-4",
-        isOnline ? "border-l-green-500" : "border-l-gray-300"
+        "h-full overflow-hidden border-l-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_28px_-8px_hsl(var(--primary)/0.5)]",
+        isOnline ? "border-l-success" : "border-l-muted-foreground"
       )}
     >
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -133,36 +133,37 @@ export default function CardProject({
             className={cn(
               "p-2 rounded-md",
               isOnline
-                ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
-                : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400"
+                ? "bg-success/10 text-success"
+                : "bg-muted text-muted-foreground"
             )}
           >
             {icons[icon]}
           </div>
-          <CardTitle className="text-lg font-medium">{title}</CardTitle>
+          <CardTitle className="m-0 text-lg font-medium">{title}</CardTitle>
         </div>
         <div className="flex items-center space-x-1">
           {isOnline
             ? (
               <Badge
                 variant="outline"
-                className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border-green-200 dark:border-green-800"
+                className="gap-1 border-success/40 bg-success/10 text-success"
               >
-                            Online
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-success" />
+                Online
               </Badge>
             )
             : (
               <Badge
                 variant="outline"
-                className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border-gray-200 dark:border-gray-700"
+                className="border-border bg-muted text-muted-foreground"
               >
-                            Offline
+                Offline
               </Badge>
             )}
         </div>
       </CardHeader>
       <CardContent className="pt-4">
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="m-0 text-sm text-muted-foreground">{description}</p>
         {technologies.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-4">
             {technologies.map((tech) => (
@@ -180,9 +181,9 @@ export default function CardProject({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs flex items-center space-x-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+              className="text-xs flex items-center space-x-1 rounded-sm text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <ExternalLinkIcon className="w-3 h-3" />
+              <ExternalLinkIcon aria-hidden="true" className="w-3 h-3" />
               <span>Visit</span>
             </Link>
           )}
@@ -191,16 +192,16 @@ export default function CardProject({
               href={repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs flex items-center space-x-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+              className="text-xs flex items-center space-x-1 rounded-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <GithubIcon className="w-3 h-3" />
+              <GithubIcon aria-hidden="true" className="w-3 h-3" />
               <span>Code</span>
             </Link>
           )}
         </div>
         {!isOnline && (
-          <div className="flex items-center text-xs text-amber-600 dark:text-amber-400">
-            <AlertCircleIcon className="w-3 h-3 mr-1" />
+          <div className="flex items-center text-xs text-muted-foreground">
+            <AlertCircleIcon aria-hidden="true" className="w-3 h-3 mr-1" />
             <span>Maintenance</span>
           </div>
         )}

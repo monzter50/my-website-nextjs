@@ -13,7 +13,7 @@ export const MDXComponents = {
   h5: (props: React.HTMLAttributes<HTMLHeadingElement>) => <Heading as="h5" {...props} />,
   h6: (props: React.HTMLAttributes<HTMLHeadingElement>) => <Heading as="h6" {...props} />,
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => <Text {...props} />,
-  ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className='text-black dark:text-white list-disc ml-5 pl-5' {...props} />,
+  ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className='text-foreground list-disc ml-5 pl-5' {...props} />,
 
   CustomImage,
  

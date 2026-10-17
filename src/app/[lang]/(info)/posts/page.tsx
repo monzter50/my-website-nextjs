@@ -1,8 +1,8 @@
+import { Telescope } from "lucide-react";
 import type { Metadata } from "next";
 import React from "react";
 
-// Services
-import { Wrapper, CardBlog } from "@components/Surfaces";
+import { CardBlog } from "@components/Surfaces";
 import PageLayout from "@components/Surfaces/PageLayout";
 import { getAllFilesFrontMatter } from "@lib/mdx";
 import { IPostProps } from "@lib/types/posts.types";
@@ -10,9 +10,9 @@ import { getDictionary } from "@root/get-dictionary";
 import { Locale } from "@root/i18n-config";
 
 export type PageProps = {
-  params: {
+  params: Promise<{
     lang: Locale
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -31,21 +31,27 @@ export default async function PostPage({ params }: PageProps) {
   const locale = lang;
   const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`);
   const posts = unorderedPosts.filter(post => (post.published && post.locale) === locale);
+  const dictionary = await getDictionary(lang);
+  const title = dictionary.nav?.blog ?? "Blog";
   const breadcrumbItems = [ {
-    label: "Blogs",
-    href: "/posts"
+    label: title,
+    href: `/${locale}/posts`
   } ];
 
   return (
     <PageLayout
-      title="Blogs"
+      title={title}
       breadcrumbItems={breadcrumbItems}>
-
-      <Wrapper>
-        <div className='mt-4'>
-
-          {posts?.length !== 0 ?
-            posts?.map((post: IPostProps, index) => (
+      {posts.length === 0
+        ? (
+          <p className="m-0 flex items-center gap-2 rounded-xl border border-dashed border-border p-6 text-muted-foreground">
+            <Telescope aria-hidden="true" className="h-5 w-5 text-primary" />
+            {dictionary.posts?.empty}
+          </p>
+        )
+        : (
+          <div className="grid gap-4 md:grid-cols-2">
+            {posts.map((post: IPostProps, index) => (
               <CardBlog
                 key={`card-${index}`}
                 title={post?.title}
@@ -55,10 +61,9 @@ export default async function PostPage({ params }: PageProps) {
                 date={post.date}
                 locale={locale}
               />
-            )):
-            ( <div>No tenemos post</div>)}
-        </div>
-      </Wrapper>
+            ))}
+          </div>
+        )}
     </PageLayout>
   );
 }
