@@ -11,7 +11,7 @@ const Logotipo = ({ width = 100, height = 50 }: LogotipoProp) => (
     height={height}
   >
     <defs>
-      <style>{".cls-1{fill:#9cd9f0}"}</style>
+      <style>{".cls-1{fill:currentColor}"}</style>
     </defs>
     <path
       className="cls-1"

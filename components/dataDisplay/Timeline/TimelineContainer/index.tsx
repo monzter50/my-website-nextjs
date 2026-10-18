@@ -6,7 +6,7 @@ interface ITimelineContainer {
 
 export default function TimelineContainer({ children }: ITimelineContainer) {
   return (
-    <ol className="relative border-l border-gray-200 dark:border-gray-700">
+    <ol className="relative m-0 list-none border-l-2 border-border p-0">
       {children}
     </ol>
   );

@@ -17,16 +17,16 @@ blog post use `new-post`. This skill covers structure, rendering and data flow.
 
 ```
 src/app/[lang]/            routes — every route is locale-prefixed
-  ├─ (home)/               route group with the full site <Layout> (navbar/footer)
-  │    layout.tsx, page.tsx
-  ├─ (info)/               route group with the bare layout + <PageLayout> header
-  │    posts/, posts/[slug]/, projects/
-  └─ not-found.tsx
+  ├─ root-document.tsx     shared <html>: theme + locale providers, <Layout>
+  ├─ (home)/               layout.tsx, page.tsx (home sections)
+  └─ (info)/               pages with the <PageLayout> header band
+       posts/, posts/[slug]/, projects/, [...rest]/ (→ notFound), not-found.tsx
 src/middleware.ts          redirects un-prefixed paths to the negotiated locale
-src/provider/              client context providers (LocaleProvider)
+src/provider/              client context providers (LocaleProvider, ThemeProvider)
 
 components/                all UI (alias @components/*)
   ├─ ui/                   shadcn primitives (Button, Card, Badge, Avatar)
+  ├─ Space/                astronaut theme pieces (Astronaut, Starfield)
   ├─ Surfaces/ Navigation/ dataDisplay/ inputs/ Typhografy/ Icons/ MDX/
   └─ common/home/<section> home-page sections (aboutme, skills, blog, …)
 lib/                       pure helpers & content loaders (alias @lib/*)
@@ -87,9 +87,10 @@ Use them instead of `../../`. Note `jest.config.js` maps every alias except
 | Context/provider                             | `src/provider/<Name>/index.tsx`                       |
 | Tests                                        | `__test__/` mirroring the source path                 |
 
-Pick the route group by the chrome you want: `(home)` wraps children in the
-site `<Layout>` (navbar + footer); `(info)` renders children bare and pages use
-`<PageLayout title breadcrumbItems>` for the header band.
+Both route groups render the site `<Layout>` (navbar + footer) through
+`root-document.tsx`. `(info)` pages use `<PageLayout title breadcrumbItems>`
+for the header band. Unknown paths hit `(info)/[...rest]` → `notFound()` →
+the themed `(info)/not-found.tsx`; call `notFound()` for missing content too.
 
 ## Conventions
 
@@ -114,9 +115,10 @@ site `<Layout>` (navbar + footer); `(info)` renders children bare and pages use
 - A link without the `/${lang}` prefix.
 - A locale list hard-coded (`[ "es-MX", "en-US" ]`) instead of `i18n.locales`.
 - `params.lang` read without `await`.
-- New page under `src/` using Tailwind classes — check `tailwind.config.js`
-  `content` covers `./src/**` (it currently lists only `./app`, `./pages`,
-  `./components`), otherwise those classes are purged in production.
-- `<html lang="en">` hard-coded — the layout should use `lang={lang}`.
+- A new top-level folder with Tailwind classes that isn't listed in
+  `tailwind.config.js` `content` — its classes get purged in production.
+- Editing `<html>`/`<body>` in a layout: both route groups render the shared
+  `src/app/[lang]/root-document.tsx` (theme + locale providers, navbar and
+  footer, `lang={lang}`). Change it there, not per layout.
 - Relying on `next build` to catch type errors: `next.config.js` sets
   `typescript.ignoreBuildErrors: true`, so run `npx tsc --noEmit` yourself.

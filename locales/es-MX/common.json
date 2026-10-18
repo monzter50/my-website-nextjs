@@ -1,33 +1,54 @@
 {
-    "introduction":{
-        "title":"Yo soy Jose Gonzalez Castro",
-        "subtitle":"Ingeniero en Software",
-        "followme":"Sigueme en"
+    "introduction": {
+        "title": "Yo soy Jose Gonzalez Castro",
+        "subtitle": "Ingeniero en Software",
+        "followme": "Sigueme en",
+        "eyebrow": "Bitácora de misión · Ingeniero en Software",
+        "cta": "Leer el blog",
+        "cv": "Descargar CV"
     },
-    "posts":{
-        "title":"Últimas publicaciónes",
-        "more":"Artículos anteriores"
+    "posts": {
+        "title": "Últimas publicaciónes",
+        "more": "Artículos anteriores",
+        "empty": "Aún no hay publicaciones en órbita. Vuelve pronto."
     },
-    "projects":{
-        "title":"Ultimos proyectos",
-        "more":"Ver todos los proyectos"
+    "projects": {
+        "title": "Ultimos proyectos",
+        "more": "Ver todos los proyectos"
     },
-    "skills":{
-        "title":"Habilidades"
+    "skills": {
+        "title": "Habilidades"
     },
-    "aboutme":{
-        "title":"Sobre Mi",
-        "description":"Soy una persona creativa y analítica con una inclinación por la organización. Mi viaje autodidacta ha alimentado mi pasión por la enseñanza y el aprendizaje. Fuera de mis intereses profesionales, disfruto ver películas, entablar conversaciones profundas con mi esposa, correr y estar al tanto de las últimas actualizaciones en lenguajes de programación. Siempre estoy ansioso por sumergirme en nuevos temas y ampliar mis conocimientos."
+    "aboutme": {
+        "title": "Sobre Mi",
+        "description": "Soy una persona creativa y analítica con una inclinación por la organización. Mi viaje autodidacta ha alimentado mi pasión por la enseñanza y el aprendizaje. Fuera de mis intereses profesionales, disfruto ver películas, entablar conversaciones profundas con mi esposa, correr y estar al tanto de las últimas actualizaciones en lenguajes de programación. Siempre estoy ansioso por sumergirme en nuevos temas y ampliar mis conocimientos."
     },
-    "experiences":{
-        "title":"Experiencias"
+    "experiences": {
+        "title": "Experiencias"
     },
-    "nav":{
-        "home":"Inicio",
-        "aboutme":"Sobre Mi",
-        "skills":"Habilidades",
-        "experiences":"Experiencia",
-        "blog":"Blog",
-        "project":"Proyectos"
+    "nav": {
+        "home": "Inicio",
+        "aboutme": "Sobre Mi",
+        "skills": "Habilidades",
+        "experiences": "Experiencia",
+        "blog": "Blog",
+        "project": "Proyectos",
+        "menu": "Abrir menú principal",
+        "close": "Cerrar menú",
+        "primary": "Principal"
+    },
+    "theme": {
+        "label": "Tema",
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Sistema"
+    },
+    "notFound": {
+        "title": "Perdido en el espacio",
+        "description": "La página que buscabas salió de órbita.",
+        "back": "Volver a la base"
+    },
+    "footer": {
+        "rights": "Todos los derechos reservados."
     }
 }
