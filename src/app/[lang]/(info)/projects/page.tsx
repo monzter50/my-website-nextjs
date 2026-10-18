@@ -2,101 +2,40 @@ import { Metadata } from "next";
 
 import { CardProject } from "@components/Surfaces";
 import PageLayout from "@components/Surfaces/PageLayout";
+import { getProjects } from "@lib/projects";
 import { getDictionary } from "@root/get-dictionary";
 import { Locale } from "@root/i18n-config";
 
-type ProjectIcon = "code" | "web" | "app" | "data" | "ai" | "game" | "library";
-
-interface Project {
-  title: string
-  description: string
-  href?: string
-  repoUrl?: string
-  isOnline: boolean
-  technologies: string[]
-  icon: ProjectIcon
-}
-
-const projects: Project[] = [
-  {
-    title: "LearnAla",
-    description:
-      "LearnAla es tu plataforma personalizada que facilita la gestión de contenido, mide los resultados y optimiza el tiempo y recursos de tu organización.",
-    href: "https://www.learnala.com/",
-    isOnline: true,
-    technologies: [ "React", "Django", "Postgress", "Mui", "AWS" ],
-    icon: "web"
-  },
-  {
-    title: "Monster Codes",
-    description:
-      "MonsterCodes es un portafolio personalizada para recrear lo que se ha aprendido y enseñar lo aprendido.",
-    href: "https://www.monstercodes.dev/en-US/",
-    repoUrl: "https://github.com/monzter50/my-website-nextjs/tree/main",
-    isOnline: true,
-    technologies: [ "React", "Nextjs", "Typescript" ],
-    icon: "web"
-  },
-  {
-    title: "Cli Library",
-    description:
-      "Cli Library es un template de biblioteca de comandos para la terminal que te ayuda a crear proyectos de manera mas rapida y eficiente.",
-    repoUrl: "https://github.com/monzter50/cli-library",
-    isOnline: true,
-    technologies: [ "Javascript", "Typescript", "Nodejs", "tsup", "ESLint", "Jest", "CLI" ],
-    icon: "library"
-  },
-  {
-    title: "Boilerplate API Core Library",
-    description:
-      "Boilerplate API Core Library es un template de biblioteca que te ayuda a crear APIs de manera mas rapida y eficiente.",
-    repoUrl: "https://github.com/monzter50/boilerplate-api-core-library",
-    isOnline: true,
-    technologies: [ "Javascript", "Typescript", "Nodejs", "tsup", "ESLint", "Jest" ],
-    icon: "library"
-  }
-];
-
-const breadcrumbItems = [
-  { label: "Projects",
-    href: "/projects" }
-];
-
 export type PageProps = {
-  params: {
+  params: Promise<{
     lang: Locale
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
-    
+
   return {
     title: `${dictionary.projects.title} | Monster Codes`,
     description: `${dictionary.projects.title} - Monster Codes`,
   };
 }
 
-export default function Page({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
+  const { lang } = await params;
+  const [ dictionary, projects ] = await Promise.all([ getDictionary(lang), getProjects() ]);
+  const title = dictionary.nav?.project ?? "Projects";
+
   return (
     <PageLayout
-      title="Projects"
-      breadcrumbItems={breadcrumbItems}
+      title={title}
+      breadcrumbItems={[ { label: title,
+        href: `/${lang}/projects` } ]}
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, index) => (
-          <div key={index} className="mb-2">
-            <CardProject
-              title={project.title}
-              description={project.description}
-              href={project.href}
-              repoUrl={project.repoUrl}
-              isOnline={project.isOnline}
-              technologies={project.technologies}
-              icon={project.icon}
-            />
-          </div>
+        {projects.map((project) => (
+          <CardProject key={project.repoUrl ?? project.title} {...project} />
         ))}
       </div>
     </PageLayout>

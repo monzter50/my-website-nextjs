@@ -9,6 +9,7 @@ import Skills from "@components/common/home/skills";
 import Header from "@components/Header";
 import Wrapper from "@components/Surfaces/Wrapper";
 import { getPublishedPosts } from "@lib/mdx";
+import { getProjects } from "@lib/projects";
 import { getDictionary } from "@root/get-dictionary";
 import { Locale } from "@root/i18n-config";
 
@@ -31,7 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { lang } = await params;
   const locale = lang;
-  const posts = (await getPublishedPosts(locale)).slice(0, 4);
+  const [ allPosts, projects ] = await Promise.all([ getPublishedPosts(locale), getProjects() ]);
+  const posts = allPosts.slice(0, 4);
   return (
     <div className={"flex flex-col min-h-screen"}>
       <Header />
@@ -40,7 +42,7 @@ export default async function Page({ params }: PageProps) {
         <Skills />
         <Experiences />
         <Blog posts={posts} locale={locale} />
-        <Projects locale={locale} />
+        <Projects locale={locale} projects={projects.slice(0, 2)} />
       </Wrapper>
     </div>
   );

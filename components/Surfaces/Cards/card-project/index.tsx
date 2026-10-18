@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Badge } from "@components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@components/ui/card";
+import { ProjectIcon } from "@lib/types/projects.types";
 import { cn } from "@lib/utils";
 
 interface CardProjectProps {
@@ -12,7 +13,7 @@ interface CardProjectProps {
   repoUrl?: string
   isOnline?: boolean
   technologies?: string[]
-  icon?: "code" | "web" | "app" | "data" | "ai" | "game" | "library" | "library"
+  icon?: ProjectIcon
 }
 
 export default function CardProject({
