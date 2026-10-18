@@ -8,7 +8,9 @@ Detailed guidance lives in the project skills under `.claude/skills/`:
 
 - Install and change dependencies **only with yarn**: `yarn install`, `yarn add <pkg>`,
   `yarn add -D <pkg>`, `yarn remove <pkg>`. Never `npm install` / `npm i`.
-- `yarn.lock` is the source of truth and must be committed with every dependency change.
+- `yarn.lock` is the only lockfile and must be committed with every dependency change. Don't add a
+  `package-lock.json` (it was removed so Vercel and local installs can't drift); `packageManager`
+  in `package.json` pins yarn 1.22.22.
 - Run scripts with yarn: `yarn dev`, `yarn build`, `yarn lint`, `yarn test`, `yarn tsc --noEmit`.
 - One-off CLIs that aren't dependencies (e.g. `npx shadcn@latest add <component>`) may use `npx`;
   yarn 1 has no `dlx`.
