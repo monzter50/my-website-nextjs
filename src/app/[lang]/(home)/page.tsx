@@ -8,7 +8,7 @@ import Projects from "@components/common/home/projects";
 import Skills from "@components/common/home/skills";
 import Header from "@components/Header";
 import Wrapper from "@components/Surfaces/Wrapper";
-import { getAllFilesFrontMatter } from "@lib/mdx";
+import { getPublishedPosts } from "@lib/mdx";
 import { getDictionary } from "@root/get-dictionary";
 import { Locale } from "@root/i18n-config";
 
@@ -31,8 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { lang } = await params;
   const locale = lang;
-  const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`);
-  const posts = unorderedPosts.filter(post => (post.published && post.locale) === locale);
+  const posts = (await getPublishedPosts(locale)).slice(0, 4);
   return (
     <div className={"flex flex-col min-h-screen"}>
       <Header />

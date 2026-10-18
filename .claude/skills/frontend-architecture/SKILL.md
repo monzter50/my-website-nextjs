@@ -30,7 +30,8 @@ components/                all UI (alias @components/*)
   ├─ Surfaces/ Navigation/ dataDisplay/ inputs/ Typhografy/ Icons/ MDX/
   └─ common/home/<section> home-page sections (aboutme, skills, blog, …)
 lib/                       pure helpers & content loaders (alias @lib/*)
-  ├─ mdx.ts                read/parse/serialize _posts
+  ├─ mdx.ts                read/parse _posts (fs; server only)
+  ├─ mdx-options.ts        remark/rehype plugins for compileMDX
   ├─ data.ts               static data (experiences)
   └─ types/                shared types
 _posts/<locale>/*.mdx      blog content, one folder per locale
@@ -49,8 +50,8 @@ Use them instead of `../../`. Note `jest.config.js` maps every alias except
    `useContext`. Keep the client boundary as low in the tree as possible —
    fetch/read in the server page, pass plain props down.
 2. **Where does the data come from?**
-   - Blog posts → `lib/mdx.ts` (`getAllFilesFrontMatter`, `getFileBySlug`,
-     `getFiles`) called from a Server Component. Never import `fs`/`lib/mdx`
+   - Blog posts → `lib/mdx.ts` (`getPublishedPosts(locale)` for lists, newest
+     first; `getFileBySlug`, `getFiles`) called from a Server Component. Never import `fs`/`lib/mdx`
      into a client component.
    - Static lists (experiences, projects, skills) → a typed constant in
      `lib/` (prefer this over inline arrays in a page).
@@ -100,6 +101,8 @@ the themed `(info)/not-found.tsx`; call `notFound()` for missing content too.
   `<Name>.module.css` (legacy — prefer Tailwind for new code).
 - Type props with an explicit `interface`. No `any` — the codebase was
   cleaned of it; keep it that way.
+- Dependencies: **yarn only** (`yarn add`, `yarn remove`, `yarn install`); commit
+  `yarn.lock`. Never `npm install`. See `CLAUDE.md`.
 - ESLint style comes from the shared `@aglaya/eslint-config/next` preset
   (`.eslintrc.json`), enforced by lint-staged. Match the surrounding code
   (2-space indent, double quotes, semicolons) and run `yarn lint --fix`.
@@ -121,4 +124,4 @@ the themed `(info)/not-found.tsx`; call `notFound()` for missing content too.
   `src/app/[lang]/root-document.tsx` (theme + locale providers, navbar and
   footer, `lang={lang}`). Change it there, not per layout.
 - Relying on `next build` to catch type errors: `next.config.js` sets
-  `typescript.ignoreBuildErrors: true`, so run `npx tsc --noEmit` yourself.
+  `typescript.ignoreBuildErrors: true`, so run `yarn tsc --noEmit` yourself.

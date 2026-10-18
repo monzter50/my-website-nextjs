@@ -38,6 +38,7 @@
     /* Space extras */
     --nebula: 262 70% 52%;
     --success: 152 65% 30%;
+    --warning: 32 95% 38%;
     --star: 228 40% 30%;
     --space-from: 220 70% 94%;
     --space-to: 265 60% 95%;
@@ -74,6 +75,7 @@
 
     --nebula: 265 89% 72%;
     --success: 152 60% 52%;
+    --warning: 40 95% 60%;
     --star: 210 60% 95%;
     --space-from: 232 60% 10%;
     --space-to: 270 55% 14%;
@@ -322,76 +324,49 @@ a {
   @apply block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-primary hover:bg-accent transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
 }
 
-/* rehype-pretty-code styles */
-pre {
-  overflow-x: auto;
-  border-radius: 0.5rem;
-  padding: 1.5rem 1rem;
-  margin: 1.5rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-}
-
-pre > code {
+/*
+ * rehype-pretty-code output. Token colours come from Shiki as CSS vars (one set
+ * per theme), so they can't be expressed as Tailwind classes in MDXComponents.
+ * Everything else about the block (frame, header, copy button) lives there.
+ */
+figure[data-rehype-pretty-code-figure] code {
   display: grid;
   counter-reset: line;
-  font-family: var(--font-cousine), "Courier New", monospace;
-  font-size: 0.875rem;
-  line-height: 1.7;
 }
 
-code {
-  font-family: var(--font-cousine), "Courier New", monospace;
-  font-size: 0.875rem;
-}
-
-code > [data-line] {
+figure[data-rehype-pretty-code-figure] [data-line] {
   padding: 0 1rem;
   border-left: 2px solid transparent;
 }
 
-/* Highlighted lines */
-.line--highlighted {
-  background-color: rgba(58, 175, 255, 0.1);
-  border-left-color: #3aafff !important;
-  transition: background-color 0.2s ease;
+figure[data-rehype-pretty-code-figure] span[style*="--shiki-light"] {
+  color: var(--shiki-light);
+}
+.dark figure[data-rehype-pretty-code-figure] span[style*="--shiki-dark"] {
+  color: var(--shiki-dark);
 }
 
-/* Highlighted words */
-.word--highlighted {
-  background-color: rgba(58, 175, 255, 0.2);
+/* ```ts showLineNumbers */
+figure[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1.25rem;
+  text-align: right;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+/* ```ts {2,4-6} */
+figure[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background-color: hsl(var(--primary) / 0.1);
+  border-left-color: hsl(var(--primary));
+}
+
+/* ```ts /word/ */
+figure[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  background-color: hsl(var(--primary) / 0.15);
   border-radius: 0.25rem;
-  padding: 0.125rem 0.25rem;
-  border: 1px solid rgba(58, 175, 255, 0.4);
+  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.35);
+  padding: 0.1rem 0.2rem;
 }
-
-/* Language badge */
-code[data-language]::before {
-  content: attr(data-language);
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-pre:has(code[data-language]) {
-  position: relative;
-  padding-top: 2.5rem;
-}
-
-/* Inline code */
-:not(pre) > code {
-  background-color: hsl(var(--muted));
-  color: hsl(var(--primary));
-  padding: 0.2em 0.4em;
-  border-radius: 0.3em;
-  font-size: 0.875em;
-  font-weight: 500;
-}
-
-
-

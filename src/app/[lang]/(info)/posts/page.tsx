@@ -4,7 +4,7 @@ import React from "react";
 
 import { CardBlog } from "@components/Surfaces";
 import PageLayout from "@components/Surfaces/PageLayout";
-import { getAllFilesFrontMatter } from "@lib/mdx";
+import { getPublishedPosts } from "@lib/mdx";
 import { IPostProps } from "@lib/types/posts.types";
 import { getDictionary } from "@root/get-dictionary";
 import { Locale } from "@root/i18n-config";
@@ -29,8 +29,7 @@ export default async function PostPage({ params }: PageProps) {
 
   const { lang } = await params;
   const locale = lang;
-  const unorderedPosts = await getAllFilesFrontMatter(`_posts/${locale}`);
-  const posts = unorderedPosts.filter(post => (post.published && post.locale) === locale);
+  const posts = await getPublishedPosts(locale);
   const dictionary = await getDictionary(lang);
   const title = dictionary.nav?.blog ?? "Blog";
   const breadcrumbItems = [ {
@@ -51,15 +50,16 @@ export default async function PostPage({ params }: PageProps) {
         )
         : (
           <div className="grid gap-4 md:grid-cols-2">
-            {posts.map((post: IPostProps, index) => (
+            {posts.map((post: IPostProps) => (
               <CardBlog
-                key={`card-${index}`}
+                key={post.slug}
                 title={post?.title}
                 author={post.author}
                 excerpt={post.excerpt}
                 slug={post?.slug}
                 date={post.date}
                 locale={locale}
+                readingTime={post.readingTime && `${Math.max(1, Math.round(post.readingTime.minutes))} ${dictionary.posts.minRead}`}
               />
             ))}
           </div>

@@ -10,7 +10,19 @@
     "posts": {
         "title": "Last Posts",
         "more": "Previous articles",
-        "empty": "No posts in orbit yet. Check back soon."
+        "empty": "No posts in orbit yet. Check back soon.",
+        "minRead": "min read",
+        "back": "Back to blog",
+        "previous": "Previous post",
+        "next": "Next post",
+        "copy": "Copy code",
+        "copied": "Copied",
+        "callout": {
+            "info": "Note",
+            "tip": "Tip",
+            "warning": "Warning",
+            "danger": "Danger"
+        }
     },
     "projects": {
         "title": "Last projects",
