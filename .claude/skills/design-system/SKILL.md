@@ -62,8 +62,9 @@ Space utilities (in `globals.css` `@layer components`):
 `space-gradient` (nebula hero background), `starfield` (via `<Starfield />`),
 `text-cosmic` (primary→nebula gradient text), `animate-float`,
 `animate-orbit`. All animations stop under `prefers-reduced-motion`.
-Illustration colours use the `--suit`, `--suit-shade`, `--suit-line` vars, so
-SVGs adapt to the theme — reference them with classes like
+Illustration colours use the `--suit`, `--suit-shade`, `--suit-dark`, `--suit-line` vars (the
+Monster Codes mascot palette, same in both themes), so
+SVGs stay on tokens — reference them with classes like
 `fill-[hsl(var(--suit))]`, never hex.
 
 Legacy brand colors (`blue`, `blue-dark`, `blue-contrast`, `blue-ligth`,
