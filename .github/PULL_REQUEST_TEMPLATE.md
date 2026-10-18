@@ -19,4 +19,4 @@ What this PR does, you could add gifs or screenshoots in order to help reviewers
 - [ ] Linked using `trello task #id and trello task link`
 - [ ] Code follows the code guidelines
 - [ ] My branch is up to date with the base branch
-- [ ] My change requires that I run the `npm install` command.
+- [ ] My change requires that I run the `yarn install` command.
