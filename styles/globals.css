@@ -42,9 +42,11 @@
     --star: 228 40% 30%;
     --space-from: 220 70% 94%;
     --space-to: 265 60% 95%;
-    --suit: 0 0% 100%;
-    --suit-shade: 222 20% 82%;
-    --suit-line: 228 35% 25%;
+    /* Mascot palette (brand illustration); the same in both themes. */
+    --suit: 205 75% 84%;
+    --suit-shade: 215 52% 56%;
+    --suit-dark: 220 38% 30%;
+    --suit-line: 226 45% 12%;
   }
 
   .dark {
@@ -79,9 +81,10 @@
     --star: 210 60% 95%;
     --space-from: 232 60% 10%;
     --space-to: 270 55% 14%;
-    --suit: 220 30% 94%;
-    --suit-shade: 225 18% 72%;
-    --suit-line: 232 47% 8%;
+    --suit: 205 75% 84%;
+    --suit-shade: 215 52% 56%;
+    --suit-dark: 220 38% 30%;
+    --suit-line: 226 45% 12%;
   }
 
   * {
