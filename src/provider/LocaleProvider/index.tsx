@@ -32,6 +32,18 @@ export interface Dictionary {
     title?: string
     more?: string
     empty?: string
+    minRead?: string
+    back?: string
+    previous?: string
+    next?: string
+    copy?: string
+    copied?: string
+    callout?: {
+      info?: string
+      tip?: string
+      warning?: string
+      danger?: string
+    }
   }
   projects?: {
     title?: string

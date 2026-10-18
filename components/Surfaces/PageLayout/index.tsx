@@ -11,9 +11,11 @@ interface PageLayoutProps {
     href: string
   }>
   title: string
+  /** Rendered under the title, e.g. a post's excerpt and date. */
+  meta?: ReactNode
 }
 
-export default function PageLayout({ children, breadcrumbItems, title }: PageLayoutProps) {
+export default function PageLayout({ children, breadcrumbItems, title, meta }: PageLayoutProps) {
   return (
     <div className="min-h-screen">
       <div className="space-gradient relative isolate overflow-hidden border-b border-border">
@@ -22,6 +24,7 @@ export default function PageLayout({ children, breadcrumbItems, title }: PageLay
           <div className="pb-10 pt-28">
             <Breadcrumb items={breadcrumbItems} />
             <h1 className="mb-0 mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
+            {meta}
           </div>
         </Wrapper>
       </div>

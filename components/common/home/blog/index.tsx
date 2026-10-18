@@ -13,7 +13,8 @@ export default function Blog({ posts = [], locale }: {posts: IPostProps[], local
   const t: Dictionary = localeContext?.state || {};
 
   return (
-    <Section id="blog" title={t?.posts?.title} action={{ href: `/${locale}/posts`, label: t?.posts?.more }}>
+    <Section id="blog" title={t?.posts?.title} action={{ href: `/${locale}/posts`,
+      label: t?.posts?.more }}>
       {posts.length === 0
         ? (
           <p className="m-0 flex items-center gap-2 rounded-xl border border-dashed border-border p-6 text-muted-foreground">
@@ -23,15 +24,16 @@ export default function Blog({ posts = [], locale }: {posts: IPostProps[], local
         )
         : (
           <div className="grid gap-4 md:grid-cols-2">
-            {posts.map((post: IPostProps, index) => (
+            {posts.map((post: IPostProps) => (
               <CardBlog
-                key={`card-${index}`}
+                key={post.slug}
                 title={post.title}
                 author={post.author}
                 excerpt={post.excerpt}
                 slug={post.slug}
                 date={post.date}
                 locale={locale}
+                readingTime={post.readingTime && `${Math.max(1, Math.round(post.readingTime.minutes))} ${t?.posts?.minRead ?? ""}`}
               />
             ))}
           </div>

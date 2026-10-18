@@ -10,7 +10,19 @@
     "posts": {
         "title": "Últimas publicaciónes",
         "more": "Artículos anteriores",
-        "empty": "Aún no hay publicaciones en órbita. Vuelve pronto."
+        "empty": "Aún no hay publicaciones en órbita. Vuelve pronto.",
+        "minRead": "min de lectura",
+        "back": "Volver al blog",
+        "previous": "Publicación anterior",
+        "next": "Siguiente publicación",
+        "copy": "Copiar código",
+        "copied": "Copiado",
+        "callout": {
+            "info": "Nota",
+            "tip": "Consejo",
+            "warning": "Advertencia",
+            "danger": "Peligro"
+        }
     },
     "projects": {
         "title": "Ultimos proyectos",
