@@ -5,16 +5,16 @@ interface ITimeline{
   experiences?: ITimelineItem[]
 }
 export default function Timeline({ experiences = [] }: ITimeline) {
-    return (
+  return (
 
-        <TimelineContainer
-        >
-            {
-                experiences?.map((experience, index) => (
-                    <TimelineItem key={index} {...experience} />
-                ))
-            }
-        </TimelineContainer>
+    <TimelineContainer
+    >
+      {
+        experiences?.map((experience, index) => (
+          <TimelineItem key={index} {...experience} />
+        ))
+      }
+    </TimelineContainer>
 
-    );
+  );
 }

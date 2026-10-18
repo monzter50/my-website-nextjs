@@ -1,8 +1,8 @@
-"use client";
 import { ReactNode } from "react";
 
-import { Wrapper } from "@components/Surfaces";
 import Breadcrumb from "@components/Navigation/Breadcrumb";
+import { Starfield } from "@components/Space";
+import { Wrapper } from "@components/Surfaces";
 
 interface PageLayoutProps {
   children: ReactNode
@@ -11,24 +11,28 @@ interface PageLayoutProps {
     href: string
   }>
   title: string
+  /** Rendered under the title, e.g. a post's excerpt and date. */
+  meta?: ReactNode
 }
 
-export default function PageLayout({ children, breadcrumbItems, title }: PageLayoutProps) {
-    return (
-        <div className="min-h-screen">
-            <div className="bg-slate-900">
-                <Wrapper>
-                    <div className="pt-10 pb-6">
-                        <Breadcrumb items={breadcrumbItems} />
-                        <h1 className="mt-4 text-3xl font-bold text-slate-200">{title}</h1>
-                    </div>
-                </Wrapper>
-            </div>
-            <div className="bg-white py-10">
-                <Wrapper>
-                    {children}
-                </Wrapper>
-            </div>
-        </div>
-    );
+export default function PageLayout({ children, breadcrumbItems, title, meta }: PageLayoutProps) {
+  return (
+    <div className="min-h-screen">
+      <div className="space-gradient relative isolate overflow-hidden border-b border-border">
+        <Starfield />
+        <Wrapper>
+          <div className="pb-10 pt-28">
+            <Breadcrumb items={breadcrumbItems} />
+            <h1 className="mb-0 mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
+            {meta}
+          </div>
+        </Wrapper>
+      </div>
+      <div className="bg-background py-10">
+        <Wrapper>
+          {children}
+        </Wrapper>
+      </div>
+    </div>
+  );
 }

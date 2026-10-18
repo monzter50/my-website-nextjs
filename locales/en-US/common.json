@@ -1,33 +1,66 @@
 {
-    "introduction":{
-        "title":"I'm Jose Gonzalez Castro",
-        "subtitle":"Software Engineer ",
-        "followme":"Follow me in"
+    "introduction": {
+        "title": "I'm Jose Gonzalez Castro",
+        "subtitle": "Software Engineer ",
+        "followme": "Follow me in",
+        "eyebrow": "Mission log · Software Engineer",
+        "cta": "Read the blog",
+        "cv": "Download CV"
     },
-    "posts":{
-        "title":"Last Posts",
-        "more":"Previous articles"
+    "posts": {
+        "title": "Last Posts",
+        "more": "Previous articles",
+        "empty": "No posts in orbit yet. Check back soon.",
+        "minRead": "min read",
+        "back": "Back to blog",
+        "previous": "Previous post",
+        "next": "Next post",
+        "copy": "Copy code",
+        "copied": "Copied",
+        "callout": {
+            "info": "Note",
+            "tip": "Tip",
+            "warning": "Warning",
+            "danger": "Danger"
+        }
     },
-    "projects":{
-        "title":"Last projects",
-        "more":"See all projects"
+    "projects": {
+        "title": "Last projects",
+        "more": "See all projects"
     },
-    "skills":{
-        "title":"Skills"
+    "skills": {
+        "title": "Skills"
     },
-    "aboutme":{
-        "title":"About Me",
-        "description":"I am a creative and analytical individual with a penchant for organization. My self-taught journey has fueled my passion for both teaching and learning. Outside of my professional interests, I enjoy watching movies, engaging in deep conversations with my wife, running, and keeping abreast of the latest updates in programming languages. I'm always eager to dive into new subjects and expand my knowledge."
+    "aboutme": {
+        "title": "About Me",
+        "description": "I am a creative and analytical individual with a penchant for organization. My self-taught journey has fueled my passion for both teaching and learning. Outside of my professional interests, I enjoy watching movies, engaging in deep conversations with my wife, running, and keeping abreast of the latest updates in programming languages. I'm always eager to dive into new subjects and expand my knowledge."
     },
-    "experiences":{
-        "title":"Experiences"
+    "experiences": {
+        "title": "Experiences"
     },
-    "nav":{
-        "home":"Home",
-        "aboutme":"About me",
-        "skills":"Skills",
-        "experiences":"Experiences",
-        "blog":"Blog",
-        "project":"Projects"
+    "nav": {
+        "home": "Home",
+        "aboutme": "About me",
+        "skills": "Skills",
+        "experiences": "Experiences",
+        "blog": "Blog",
+        "project": "Projects",
+        "menu": "Open main menu",
+        "close": "Close menu",
+        "primary": "Main"
+    },
+    "theme": {
+        "label": "Theme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "notFound": {
+        "title": "Lost in space",
+        "description": "The page you were looking for drifted out of orbit.",
+        "back": "Back to base"
+    },
+    "footer": {
+        "rights": "All rights reserved."
     }
 }

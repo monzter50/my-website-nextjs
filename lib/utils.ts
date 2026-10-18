@@ -13,9 +13,10 @@ export const merge = (first:any[], second:any[]) => {
     return first;
 }
 
-export function formatDate(dateISO: string): string {
-    const optionsDate: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(dateISO);
-    const formattedDate = date.toLocaleDateString('es-ES', optionsDate);
-    return formattedDate;
-  }
+/**
+ * Locale-aware date ("October 18, 2026" / "18 de octubre de 2026"). Formatted in
+ * UTC so a date-only frontmatter value doesn't shift a day with the server's TZ.
+ */
+export function formatDate(dateISO: string, locale?: string, options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' }): string {
+    return new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(new Date(dateISO));
+}

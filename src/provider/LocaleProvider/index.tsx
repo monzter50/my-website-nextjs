@@ -1,9 +1,77 @@
 "use client";
 import React, { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
 
+export interface Dictionary {
+  introduction?: {
+    title?: string
+    subtitle?: string
+    followme?: string
+    eyebrow?: string
+    cta?: string
+    cv?: string
+  }
+  nav?: {
+    home?: string
+    aboutme?: string
+    skills?: string
+    experiences?: string
+    blog?: string
+    project?: string
+    menu?: string
+    close?: string
+    primary?: string
+  }
+  aboutme?: {
+    title?: string
+    description?: string
+  }
+  experiences?: {
+    title?: string
+  }
+  posts?: {
+    title?: string
+    more?: string
+    empty?: string
+    minRead?: string
+    back?: string
+    previous?: string
+    next?: string
+    copy?: string
+    copied?: string
+    callout?: {
+      info?: string
+      tip?: string
+      warning?: string
+      danger?: string
+    }
+  }
+  projects?: {
+    title?: string
+    more?: string
+  }
+  skills?: {
+    title?: string
+  }
+  theme?: {
+    label?: string
+    light?: string
+    dark?: string
+    system?: string
+  }
+  notFound?: {
+    title?: string
+    description?: string
+    back?: string
+  }
+  footer?: {
+    rights?: string
+  }
+  [key: string]: unknown
+}
+
 interface IContext {
-  state: object
-  setState: Dispatch<SetStateAction<object>>
+  state: Dictionary
+  setState: Dispatch<SetStateAction<Dictionary>>
   lng: "es-MX" | "en-US"
 }
 
@@ -11,19 +79,19 @@ export const LocaleContext = createContext<IContext | null>(null);
 
 export function LocaleProvider({ children, dictionary = {}, lng = "es-MX" }: {
   children: ReactNode
-  dictionary: object
+  dictionary: Dictionary
   lng: "es-MX" | "en-US"
 }) {
-    const [ state, setState ] = useState(dictionary);
+  const [ state, setState ] = useState<Dictionary>(dictionary);
 
-    return (
-        <LocaleContext.Provider
-            value={{
-                state,
-                setState,
-                lng
-            }}>
-            {children}
-        </LocaleContext.Provider>
-    );
+  return (
+    <LocaleContext.Provider
+      value={{
+        state,
+        setState,
+        lng
+      }}>
+      {children}
+    </LocaleContext.Provider>
+  );
 }

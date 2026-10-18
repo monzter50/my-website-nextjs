@@ -20,7 +20,7 @@ Read whole changed components, not just hunks.
 ## 2. Run the gates
 
 ```bash
-npx tsc --noEmit   # required: next build ignores type errors here
+yarn tsc --noEmit  # required: next build ignores type errors here
 yarn lint
 yarn test
 ```

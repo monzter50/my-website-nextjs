@@ -1,5 +1,5 @@
-import React from "react";
 import classNames from "classnames";
+import React from "react";
 
 import styles from "./Badges.module.css";
 interface BadgesProps {
@@ -8,12 +8,12 @@ interface BadgesProps {
 }
 
 export default function Badges({ className, active = true }: BadgesProps) {
-    const stylesArr = [ styles.badges, active ? styles.online : styles.offline ];
-    const classes = classNames(className, stylesArr);
-    return (
-        <div className='flex items-center text-black dark:text-white' role='status'>
-            <span className={classes} />
-            {active ? "online" : "offline"}
-        </div>
-    );
+  const stylesArr = [ styles.badges, active ? styles.online : styles.offline ];
+  const classes = classNames(className, stylesArr);
+  return (
+    <div className='flex items-center text-black dark:text-white' role='status'>
+      <span className={classes} />
+      {active ? "online" : "offline"}
+    </div>
+  );
 }

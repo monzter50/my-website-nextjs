@@ -39,15 +39,27 @@ locale: "es-MX"                     # must match the folder
 - `published` **and** `locale` are both required for the post to be listed
   (pages filter on `post.published && post.locale === locale`).
 - `excerpt` doubles as `description` for SEO unless you also set `description`.
-- `author.name` is required — `CardBlog` reads `author.name[0]`.
+- `author.name` is expected: cards and the post header show it with an avatar
+  (`author.picture` optional).
 
 ### 3. Body
 - Start with `##` headings; the page renders the `title` as the `<h1>`.
-- Code fences with a language (` ```tsx `). `remark-code-titles` supports
-  ` ```tsx:path/file.tsx ` for a filename title; highlighting via `mdx-prism`.
+- Code fences with a language (` ```tsx `). Highlighting is
+  `rehype-pretty-code` (Shiki, `github-light` / `one-dark-pro` following the
+  site theme, configured in `lib/mdx-options.ts`), so its meta syntax works:
+  ` ```tsx {2,4} ` highlights lines, ` ```tsx /useState/ ` highlights a word,
+  ` ```tsx showLineNumbers ` numbers lines and ` ```tsx title="path/file.tsx" `
+  sets the block header. (The old ` ```tsx:file ` syntax is not supported.)
+- GFM works (`remark-gfm`): tables, task lists, strikethrough.
+- Callouts: `<Callout type="info|tip|warning|danger" title="Optional">…</Callout>`;
+  without `title` it shows the localized type name.
+- next-mdx-remote 6 blocks JavaScript expressions in MDX: pass component
+  props as strings (`height="400"`, not `height={400}`) and don't rely on
+  `import`/`export` or `{expressions}` outside code fences.
 - Images: put files under `public/img/posts/<slug>/` and reference
   `/img/posts/<slug>/name.webp`, always with alt text.
-- Custom components must be registered in `components/MDX/MDXComponents`.
+- Custom components must be registered in `createMDXComponents` in
+  `components/MDX/MDXComponents`.
 
 ### 4. Verify
 ```bash

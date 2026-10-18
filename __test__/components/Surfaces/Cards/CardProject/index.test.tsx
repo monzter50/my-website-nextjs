@@ -15,6 +15,6 @@ describe('CardProject', () => {
     )
     expect(await screen.findByText(/LearnAla/i)).toBeInTheDocument()
     expect(await screen.getByRole('button')).toHaveAttribute('href', 'https://www.learnala.com/')
-    expect(await screen.getByRole('img')).toHaveAttribute('src', '/img/projects/learnala.png')
+    expect(await screen.getByRole('img')).toHaveAttribute('src', '/img/projects/learnala.webp')
   })
 })

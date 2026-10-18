@@ -1,18 +1,16 @@
 "use client";
 import React, { useContext } from "react";
 
-import { Heading, Text } from "@components/Typhografy";
-import { LocaleContext } from "@root/src/provider/LocaleProvider";
+import Section from "@components/Surfaces/Section";
+import { LocaleContext, Dictionary } from "@root/src/provider/LocaleProvider";
 
 export default function AboutMe() {
-    const localeContext = useContext(LocaleContext);
-    const dictionary: any = localeContext?.state;
-    const t: any = dictionary;
+  const localeContext = useContext(LocaleContext);
+  const t: Dictionary = localeContext?.state || {};
 
-    return (
-        <section id='aboutme' className='py-10'>
-            <Heading as="h2" className={"my-7"}>{t?.aboutme?.title}</Heading>
-            <Text>{t?.aboutme?.description}</Text>
-        </section>
-    );
+  return (
+    <Section id="aboutme" title={t?.aboutme?.title}>
+      <p className="m-0 max-w-3xl text-lg leading-relaxed text-muted-foreground">{t?.aboutme?.description}</p>
+    </Section>
+  );
 }

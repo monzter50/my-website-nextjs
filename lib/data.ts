@@ -7,9 +7,16 @@ interface IExperience{
 }
 export const experiences:IExperience[] = [
     {
+        title:"Spin by Oxxo",
+        job:"Senior Software Engineer",
+        date:"December 2024 - Current",
+        description:"Spin by OXXO is a digital wallet by FEMSA that allows users to send and receive money, make payments, and withdraw cash at OXXO stores. It offers a VISA card, SPEI transfers, and a loyalty program with rewards.",
+        skills:["React Native","React Js","Typescript","Next Js","Jest", "Testing Library", "e2e"]
+    },
+    {
         title:"Globant",
         job:"UI Engineer",
-        date:"November 2021 - Current",
+        date:"November 2021 - December 2024",
         description:"This company is in the top 10 development consultancy with the support I have participated in different projects. Which I have performed as a tech lead and experience leader. The different branches that I have worked are (Ecommerce, Fintech, Multiplatform). ",
         skills:["React Native","React Js","Typescript","Next Js","Jest", "Testing Library"]
     },

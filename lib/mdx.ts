@@ -1,66 +1,60 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
 import readingTime from "reading-time";
-import mdxPrism from "mdx-prism";
+
+import { IPostProps } from "@lib/types/posts.types";
+import { orderByDate } from "@lib/order-by-date";
 
 const root = process.cwd();
 
-export const getFiles = async (type: string, locale: string) => {
-  return fs.readdirSync(path.join(root, type));
-}
+// What the .mdx frontmatter provides; slug and reading time are derived.
+type Frontmatter = Omit<IPostProps, "slug" | "readingTime">;
+
+export const getFiles = async (type: string) => {
+  return fs.readdirSync(path.join(root, type)).filter((file) => file.endsWith(".mdx"));
+};
 
 export const getFileBySlug = async (type: string, slug: string) => {
-  const files = fs.readdirSync(path.join(root, type));
-  const exist = files.filter((file) => file.replace(/\.mdx/, '') === slug)
-  if (exist?.length === 0) {
-    return {
-      notFound: true,
-    }
+  const filePath = path.join(root, type, `${slug}.mdx`);
+  // Slugs come from the URL: only allow file-name characters.
+  if (!/^[\w-]+$/.test(slug) || !fs.existsSync(filePath)) {
+    return { notFound: true as const };
   }
-  const mdxSource = slug
-    ? fs.readFileSync(path.join(root, type, `${slug}.mdx`), "utf8")
-    : fs.readFileSync(path.join(root, `${type}.mdx`), "utf8");
-    
 
-  const { data, content } = await matter(mdxSource);
-
-  const source = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [require("remark-code-titles")],
-      rehypePlugins: [mdxPrism],
-    },
-  });
+  const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
+  const frontmatter: IPostProps = {
+    ...(data as Frontmatter),
+    readingTime: readingTime(content),
+    slug,
+    title: data?.title ?? ""
+  };
 
   return {
-    source,
-    frontmatter: {
-      readingTime: readingTime(content),
-      slug: slug || null,
-      title: data?.title ?? "",
-      ...data,
-    },
-    notFound: false
+    content,
+    frontmatter,
+    notFound: false as const
   };
 };
 
-export const getAllFilesFrontMatter = async (type: string) => {
-  const files = fs.readdirSync(path.join(root, type));
+export const getAllFilesFrontMatter = async (type: string): Promise<IPostProps[]> => {
+  const files = await getFiles(type);
 
-  return files.reduce((allPosts: any, postSlug: any) => {
-    const mdxSource = fs.readFileSync(
-      path.join(root, type, postSlug),
-      "utf8"
-    );
-    const { data } = matter(mdxSource);
+  return files
+    .map((file) => {
+      const { data, content } = matter(fs.readFileSync(path.join(root, type, file), "utf8"));
+      const post: IPostProps = {
+        ...(data as Frontmatter),
+        readingTime: readingTime(content),
+        slug: file.replace(/\.mdx$/, "")
+      };
+      return post;
+    })
+    .sort((prev, current) => Number(orderByDate(prev, current)));
+};
 
-    return [
-      {
-        ...data,
-        slug: postSlug.replace(".mdx", ""),
-      },
-      ...allPosts,
-    ];
-  }, []);
+/** Published posts for a locale, newest first. */
+export const getPublishedPosts = async (locale: string): Promise<IPostProps[]> => {
+  const posts = await getAllFilesFrontMatter(`_posts/${locale}`);
+  return posts.filter((post) => post.published && post.locale === locale);
 };
