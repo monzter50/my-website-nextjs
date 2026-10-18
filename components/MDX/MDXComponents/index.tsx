@@ -56,6 +56,11 @@ function MDXLink({ href = "", className, children, ...props }: ComponentPropsWit
     return <Link href={href} className={classes} {...props}>{children}</Link>;
   }
 
+  if (!/^https?:\/\//.test(href)) {
+    // mailto:, tel:, … stay in the same tab.
+    return <a href={href} className={classes} {...props}>{children}</a>;
+  }
+
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={classes} {...props}>
       {children}

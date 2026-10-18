@@ -27,7 +27,9 @@ export default function CardBlog({ title, author, excerpt, slug, date, locale, r
           <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <CalendarIcon aria-hidden="true" className="h-4 w-4" />
-              <time dateTime={date}>{formatDate(date, locale, { year: "numeric",
+              {/* Rendered on the server and again inside the client home section: ICU month
+                  abbreviations can differ between Node and the browser ("dic" / "dic."). */}
+              <time dateTime={date} suppressHydrationWarning>{formatDate(date, locale, { year: "numeric",
                 month: "short",
                 day: "numeric" })}</time>
             </span>

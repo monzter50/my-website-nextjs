@@ -103,8 +103,15 @@ themes — semantic tokens handle this; raw colors need an explicit `dark:` pair
 
 ## MDX / blog content
 
-Post bodies render through `components/MDX/custom-mdx` → `MDXComponents`.
-Style post elements by mapping them in `MDXComponents`, not with global CSS.
+Post bodies are compiled on the server (`components/MDX/custom-mdx`,
+`compileMDX` from `next-mdx-remote/rsc`) with the map returned by
+`createMDXComponents(labels)` in `components/MDX/MDXComponents`. Those
+components are Server Components; the only client piece is `MDX/CopyButton`.
+Localized strings reach them through `labels` (MDX has no dictionary access).
+Style post elements by mapping them there, not with global CSS. The one
+exception is Shiki token colours and line/word highlights in `globals.css`,
+which come from CSS vars that Tailwind classes can't target. `<Callout>`
+(`MDX/Callout`, CVA, `--warning` token) is the pattern for new MDX blocks.
 `prose` classes require `@tailwindcss/typography`, which is **not** installed —
 either install it (surface the tradeoff) or style via `MDXComponents`.
 

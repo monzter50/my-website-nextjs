@@ -30,7 +30,8 @@ components/                all UI (alias @components/*)
   ├─ Surfaces/ Navigation/ dataDisplay/ inputs/ Typhografy/ Icons/ MDX/
   └─ common/home/<section> home-page sections (aboutme, skills, blog, …)
 lib/                       pure helpers & content loaders (alias @lib/*)
-  ├─ mdx.ts                read/parse/serialize _posts
+  ├─ mdx.ts                read/parse _posts (fs; server only)
+  ├─ mdx-options.ts        remark/rehype plugins for compileMDX
   ├─ data.ts               static data (experiences)
   └─ types/                shared types
 _posts/<locale>/*.mdx      blog content, one folder per locale
@@ -49,8 +50,8 @@ Use them instead of `../../`. Note `jest.config.js` maps every alias except
    `useContext`. Keep the client boundary as low in the tree as possible —
    fetch/read in the server page, pass plain props down.
 2. **Where does the data come from?**
-   - Blog posts → `lib/mdx.ts` (`getAllFilesFrontMatter`, `getFileBySlug`,
-     `getFiles`) called from a Server Component. Never import `fs`/`lib/mdx`
+   - Blog posts → `lib/mdx.ts` (`getPublishedPosts(locale)` for lists, newest
+     first; `getFileBySlug`, `getFiles`) called from a Server Component. Never import `fs`/`lib/mdx`
      into a client component.
    - Static lists (experiences, projects, skills) → a typed constant in
      `lib/` (prefer this over inline arrays in a page).
