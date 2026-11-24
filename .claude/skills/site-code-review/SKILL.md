@@ -20,12 +20,12 @@ Read whole changed components, not just hunks.
 ## 2. Run the gates
 
 ```bash
-yarn tsc --noEmit  # required: next build ignores type errors here
-yarn lint
-yarn test
+pnpm tsc --noEmit  # required: next build ignores type errors here
+pnpm lint
+pnpm test
 ```
 
-Optionally `yarn build` when routes, `generateStaticParams`, or middleware changed.
+Optionally `pnpm build` when routes, `generateStaticParams`, or middleware changed.
 
 ## 3. Checklist (use `frontend-architecture` and `design-system` as the standard)
 

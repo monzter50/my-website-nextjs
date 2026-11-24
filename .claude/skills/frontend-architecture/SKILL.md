@@ -101,11 +101,11 @@ the themed `(info)/not-found.tsx`; call `notFound()` for missing content too.
   `<Name>.module.css` (legacy — prefer Tailwind for new code).
 - Type props with an explicit `interface`. No `any` — the codebase was
   cleaned of it; keep it that way.
-- Dependencies: **yarn only** (`yarn add`, `yarn remove`, `yarn install`); commit
-  `yarn.lock`. Never `npm install`. See `CLAUDE.md`.
+- Dependencies: **pnpm only** (`pnpm add`, `pnpm remove`, `pnpm install`); commit
+  `pnpm-lock.yaml`. Never `npm install` / `yarn`. See `CLAUDE.md`.
 - ESLint style comes from the shared `@aglaya/eslint-config/next` preset
   (`.eslintrc.json`), enforced by lint-staged. Match the surrounding code
-  (2-space indent, double quotes, semicolons) and run `yarn lint --fix`.
+  (2-space indent, double quotes, semicolons) and run `pnpm lint --fix`.
 - Dates: format with `date-fns` or `lib/utils.formatDate`, and respect the
   current locale rather than hard-coding `"en-US"`/`"es-ES"`.
 
@@ -124,4 +124,4 @@ the themed `(info)/not-found.tsx`; call `notFound()` for missing content too.
   `src/app/[lang]/root-document.tsx` (theme + locale providers, navbar and
   footer, `lang={lang}`). Change it there, not per layout.
 - Relying on `next build` to catch type errors: `next.config.js` sets
-  `typescript.ignoreBuildErrors: true`, so run `yarn tsc --noEmit` yourself.
+  `typescript.ignoreBuildErrors: true`, so run `pnpm tsc --noEmit` yourself.
