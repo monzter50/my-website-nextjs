@@ -3,10 +3,8 @@
 import classNames from "classnames";
 import React from "react";
 type DefaultVariantMapping = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
-interface ComponentDynamicProps {
+interface ComponentDynamicProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as?: DefaultVariantMapping
-  children: React.ReactNode
-  className?: string
 }
 
 function ComponentDynamic({ as = "h1", children, className, ...props }: ComponentDynamicProps) {

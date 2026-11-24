@@ -6,7 +6,7 @@ describe("Layout", () => {
 
   it("should render the Layout", () => {
     render(
-      <Layout>
+      <Layout locale="en-US">
         <div>Layout</div>
       </Layout>);
   });

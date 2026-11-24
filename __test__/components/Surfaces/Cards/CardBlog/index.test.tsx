@@ -17,6 +17,7 @@ describe('CardBlog', () => {
                 excerpt={cardObj?.excerpt}
                 slug={cardObj?.slug}
                 date='2022-09-27T14:05:07.322Z'
+                locale='en-US'
             />
     )
   })
@@ -29,6 +30,7 @@ describe('CardBlog', () => {
                 excerpt={cardObj?.excerpt}
                 slug={cardObj?.slug}
                 date='2022-09-27T14:05:07.322Z'
+                locale='en-US'
             />
     )
     expect(await screen.findByText(/Author/i)).toBeInTheDocument()
