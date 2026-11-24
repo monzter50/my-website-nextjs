@@ -63,9 +63,9 @@ const breadcrumbItems = [
 ];
 
 export type PageProps = {
-  params: {
+  params: Promise<{
     lang: Locale
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
