@@ -20,8 +20,8 @@ when you touch them** — never add new `.module.css` files.
    space theme pieces in `components/Space/` (`Astronaut`, `Starfield`).
    Reuse before creating.
 2. **Need a new shadcn primitive?** Add it with
-   `npx shadcn@latest add <component>` so it lands in `components/ui/` with
-   the repo's aliases, then run `yarn lint --fix`.
+   `pnpm dlx shadcn@latest add <component>` so it lands in `components/ui/` with
+   the repo's aliases, then run `pnpm lint --fix`.
 3. **About to type a hex code, `slate-*`, `blue-500`, or `style={{ color }}`?**
    Stop. Use a semantic token.
 4. **Rendering a list that might be empty?** Render a real empty state

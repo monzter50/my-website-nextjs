@@ -20,11 +20,12 @@ export default async function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode
+  // Next types dynamic segments as string; middleware guarantees a supported locale here.
   params: Promise<{
-    lang: Locale
+    lang: string
   }>
 }>) {
-  const { lang } = await params;
+  const lang = (await params).lang as Locale;
   const dictionary = await getDictionary(lang);
 
   return <RootDocument lang={lang} dictionary={dictionary}>{children}</RootDocument>;

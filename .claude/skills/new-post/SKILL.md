@@ -63,10 +63,10 @@ locale: "es-MX"                     # must match the folder
 
 ### 4. Verify
 ```bash
-yarn dev   # open /es-MX/posts and /es-MX/posts/<slug> (and /en-US/...)
+pnpm dev   # open /es-MX/posts and /es-MX/posts/<slug> (and /en-US/...)
 ```
 Check: listed on both the home "Last Posts" section and `/posts`, date shows,
-code is highlighted, no console errors. Then `yarn lint`.
+code is highlighted, no console errors. Then `pnpm lint`.
 
 ## Done means
 - File in the right locale folder, frontmatter complete, `locale` matches folder.

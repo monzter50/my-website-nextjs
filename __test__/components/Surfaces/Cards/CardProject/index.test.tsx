@@ -5,16 +5,19 @@ import CardProject from '../../../../../components/Surfaces/Cards/card-project'
 describe('CardProject', () => {
   it('should render the card-project', () => {
     render(
-            <CardProject title='LearnAla' src='' href=''/>
+            <CardProject title='LearnAla' description='' />
     )
   })
 
   it('should render the props card-project', async () => {
     render(
-            <CardProject title='LearnAla' src='/img/projects/learnala.png' href='https://www.learnala.com/'/>
+            <CardProject
+                title='LearnAla'
+                description='Learning platform'
+                href='https://www.learnala.com/'
+            />
     )
     expect(await screen.findByText(/LearnAla/i)).toBeInTheDocument()
-    expect(await screen.getByRole('button')).toHaveAttribute('href', 'https://www.learnala.com/')
-    expect(await screen.getByRole('img')).toHaveAttribute('src', '/img/projects/learnala.webp')
+    expect(await screen.findByText(/Learning platform/i)).toBeInTheDocument()
   })
 })

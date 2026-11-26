@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import React from "react";
 interface TextProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
 }
 
